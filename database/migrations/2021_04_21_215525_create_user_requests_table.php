@@ -13,7 +13,7 @@ class CreateUserRequestsTable extends Migration
      */
     public function up()
     {
-        Schema::create('users_requests', function (Blueprint $table) {
+        Schema::create('user_requests', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('email')->unique();
