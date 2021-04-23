@@ -15,12 +15,12 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('description',1000);
+            $table->string('description');
             $table->string('img');
-            $table->string('title', 100);
+            $table->string('title',100);
             $table->integer('club_id')->unsigned();
-            $table->foreign('club_id')->references('id')->on('clubs');
             $table->timestamps();
+            $table->foreign('club_id')->references('id')->on('clubs')->onDelete('restrict')->onUpdate('restrict');
         });
     }
 

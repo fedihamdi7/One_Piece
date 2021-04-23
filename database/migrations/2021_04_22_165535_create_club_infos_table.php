@@ -15,11 +15,11 @@ class CreateClubInfosTable extends Migration
     {
         Schema::create('club_infos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('about_us',1000);
-            $table->string('event_description', 100);
+            $table->string('about_us');
+            $table->string('event_description');
             $table->integer('club_id')->unsigned();
-            $table->foreign('club_id')->references('id')->on('clubs');
             $table->timestamps();
+            $table->foreign('club_id')->references('id')->on('clubs')->onDelete('restrict')->onUpdate('restrict');
         });
     }
 
