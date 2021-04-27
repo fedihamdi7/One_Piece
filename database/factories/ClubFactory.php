@@ -13,8 +13,8 @@ $factory->define(Club::class, function (Faker $faker) {
         'club_theme'=> $faker->hexcolor,
        'departments_id'=>Department::get('id')->random() ,
        'users_id'=>User::get('id')->random(),
-     
 
-        
+
+
     ];
 });

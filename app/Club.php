@@ -10,6 +10,10 @@ class Club extends Model
     {
         return $this->belongsTo('App\Department');
     }
+    public function team()
+    {
+        return $this->belongsTo('App\Team');
+    }
 
     public function user()
     {
