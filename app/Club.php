@@ -10,6 +10,17 @@ class Club extends Model
     {
         return $this->belongsTo('App\Department');
     }
+
+    public function club_info()
+    {
+        return $this->hasMany('App\Club_info');
+    }
+     
+    public function post()
+    {
+        return $this->hasMany('App\Post');
+    }
+
     public function team()
     {
         return $this->hasMany('App\Team');

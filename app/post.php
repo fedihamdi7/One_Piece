@@ -4,7 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class post extends Model
+class Post extends Model
 {
-    //
+    public function clubs()
+    {
+       return $this->belongsTo('App\Club');
+   }
 }
