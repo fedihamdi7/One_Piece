@@ -14,7 +14,10 @@ class Club extends Model
     {
         return $this->hasMany('App\Team');
     }
-
+    public function event()
+    {
+        return $this->hasMany('App\Event');
+    }
     public function user()
     {
         // return $this->hasMany('App\User');
