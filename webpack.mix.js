@@ -24,3 +24,12 @@ mix.styles([
     'resources/css/owl.carousel.min.css',
     'resources/css/owl.theme.default.min.css',
 ], 'public/css/club.css');
+
+mix.styles([
+    'resources/css/styles.css',
+    'resources/css/admin.css',
+    
+], 'public/css/adminuserlist.css');
+
+
+mix.styles('resources/css/styles.css','public/css/adminstyle.css');

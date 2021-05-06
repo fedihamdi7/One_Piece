@@ -3,5 +3,7 @@
     "/css/app.css": "/css/app.css",
     "/js/club.js": "/js/club.js",
     "/css/clubs.css": "/css/clubs.css",
-    "/css/club.css": "/css/club.css"
+    "/css/club.css": "/css/club.css",
+    "/css/adminuserlist.css": "/css/adminuserlist.css",
+    "/css/adminstyle.css": "/css/adminstyle.css"
 }
