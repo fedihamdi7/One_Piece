@@ -20,6 +20,5 @@ Route::get('/','HomeController@welcome');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/clubs', 'HomeController@clubs');
-Route::get('/club', 'HomeController@test');
-Route::get('/club/{id}', 'HomeController@one_club');
+Route::get('/clubs', 'ClubController@clubs');
+Route::get('/club/{id}', 'ClubController@one_club');
