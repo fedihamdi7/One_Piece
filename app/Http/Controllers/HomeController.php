@@ -66,4 +66,7 @@ class HomeController extends Controller
         return view('clubs', ['clubs' => $clubs]);
 
     }
+   
+
+
 }

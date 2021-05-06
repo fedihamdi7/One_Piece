@@ -23,3 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/clubs', 'HomeController@clubs');
 Route::get('/club', 'HomeController@test');
 Route::get('/club/{id}', 'HomeController@one_club');
+Route::get('/admin','AdminController@admin');
+Route::get('/userlist','AdminController@userlist');
+Route::get('/add_user','AdminController@add_user');
+Route::get('/request','AdminController@request');
