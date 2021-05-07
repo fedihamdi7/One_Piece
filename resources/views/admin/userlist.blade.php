@@ -68,10 +68,12 @@
                     
                     <tr>
                         <th scope="row">{{$user->id}}</th>
-                        <th scope="row">{{$user->name}}</th>
+                        <td scope="row">{{$user->name}}</td>
                         <td>{{$user->email }}</td>
                     
                         <td>{{$user->type }}</td>
+                        <td> <a href=""> <i class="fa fa-ban" aria-hidden="true"></i> </a></td>
+                        <td> <a href=""> <i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
                     </tr>
                     @endforeach
                     </tbody>

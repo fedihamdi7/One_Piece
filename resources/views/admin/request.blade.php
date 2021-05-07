@@ -52,10 +52,12 @@
                         
                     
                         <tr>
-                            <th scope="row">{{$user_request->id}}</th>
-                            <th scope="row">{{$user_request->name}}</th>
+                            <td scope="row">{{$user_request->id}}</td>
+                            <td scope="row">{{$user_request->name}}</td>
                             <td>{{$user_request->email }}</td>
                             <td>{{$user_request->image }}</td>
+                            <td> <a href=""> <i class="fa fa-ban" aria-hidden="true"></i> </a></td>
+                            <td> <a href=""> <i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
                             
                         </tr>
                         @endforeach
