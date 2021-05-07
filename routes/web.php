@@ -28,3 +28,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/responsable', 'ResponsableController@responsable');
+Route::get('/event','ResponsableController@event' );
+Route::get('/change','ResponsableController@change_lo');
+Route::get('/teams', 'ResponsableController@teams');
+Route::get('/themes','ResponsableController@themes' );
+Route::get('/posts','ResponsableController@posts');
+Route::get('/about','ResponsableController@about');
