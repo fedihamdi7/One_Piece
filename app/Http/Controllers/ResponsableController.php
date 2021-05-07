@@ -8,7 +8,7 @@ class ResponsableController extends Controller
 {
     public function __construct()
     {
-        // $this->middleware('auth');
+        $this->middleware('auth');
     }
    public function responsable(){
      return view('responsable.dashboard');
