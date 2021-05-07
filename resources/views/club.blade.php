@@ -71,7 +71,7 @@
           <div class="social-network">
             <ul class="soial-icons">
               <li data-bs-toggle="tooltip" data-bs-placement="top" title="Home">
-                <a href="../clubs"><i class="fas fa-home"></i></a>
+                <a href="../welcome"><i class="fas fa-home"></i></a>
               </li>
               {{-- <li data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook">
                 <a href="#"><i class="fa fa-facebook"></i></a>
@@ -112,14 +112,14 @@
           <div class="row">
             <div class="col-md-6">
               <div class="left-image">
-                <img src="../images/club_post/{{$infos->first()->post_img}}" alt="" style="width: 377.75px;height: 277.69px;" />
+                <img src="../images/club_post/{{$infos->first()->img_post}}" alt="" style="width: 377.75px;height: 277.69px;" />
               </div>
             </div>
             <div class="col-md-6">
               <div class="right-text">
                 <h4>News</h4>
                 <p>
-                    {{$infos->first()->description}}                </p>
+                    {{$infos->first()->description_post}}                </p>
                 <!-- <div class="white-button">
                     <a href="#">Read More</a>
                   </div> -->
