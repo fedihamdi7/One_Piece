@@ -1,0 +1,70 @@
+
+.fh5co-counter {
+    position: relative;
+    margin-bottom: 122px;
+    padding: 100px 0;
+    background-image: url("../images/book-bckg.jpg");
+    background-size: cover;
+    background-position: center; }
+    .fh5co-counter::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    
+      opacity: 0.9; }
+    .fh5co-counter .site-container {
+      position: relative;
+      z-index: 1; }
+    @media (max-width: 850px) {
+      .fh5co-counter {
+        padding: 50px 0 20px;
+        margin-bottom: 50px; } }
+  
+  .counter-inner {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; }
+  
+  .single-count {
+    width: 23%;
+    text-align: center;
+    color: #fff; }
+    .single-count span {
+      display: block;
+      margin-bottom: 25px;
+      font-size: 40px;
+      font-weight: 900; }
+    .single-count p {
+      font-size: 20px;
+      text-transform: uppercase; }
+    @media (max-width: 850px) {
+      .single-count {
+        width: 48%;
+        margin-bottom: 30px; }
+        .single-count .count {
+          font-size: 35px;
+          margin-bottom: 15px; } }
+    @media (max-width: 500px) {
+      .single-count {
+        width: 100%;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #fff; } }
+  
+  .single-count__text {
+    display: flex;
+    justify-content: center; }
+    .single-count__text img {
+      margin-right: 20px; }
+  
+  .fh5co-blog {
+    margin-bottom: 175px; }
+    .fh5co-blog .universal-h2 {
+      margin-bottom: 55px;
+      padding-bottom: 20px; }
+    @media (max-width: 620px) {
+      .fh5co-blog {
+        margin-bottom: 105px; } }
+  

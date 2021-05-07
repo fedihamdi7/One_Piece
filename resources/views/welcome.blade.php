@@ -1,100 +1,356 @@
+
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
 
-        <title>Laravel</title>
+<head>
+  <!-- meta -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+  <title>Finder</title>
+  <meta content="" name="keywords">
+  <meta content="" name="description">
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
 
-            .full-height {
-                height: 100vh;
-            }
+  <!-- Bootstrap CSS File -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  
+    <style>
+       /* nav .fa-bars{
+        top: -19px;
+    position: fixed;
+       } */
+     </style>
+ 
+</head>
 
-            .position-ref {
-                position: relative;
-            }
+<body>
+   
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+   {{-- <div class="bgded overlay" style="background-image:url('images/home-bg.jpg');">   --}}
+    <!-- Nav Bar Start -->
+    {{-- <div id="app">
+      <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" style="display: none">
+          <div class="container">
+              <a class="navbar-brand" href="{{ url('/') }}">
+                  {{ config('app.name', 'Laravel') }}
+              </a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
 
-            .content {
-                text-align: center;
-            }
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <!-- Left Side Of Navbar -->
+                  <ul class="navbar-nav mr-auto">
 
-            .title {
-                font-size: 84px;
-            }
+                  </ul>
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
+                  <!-- Right Side Of Navbar -->
+                  
+              </div>
+          </div>
+      </nav> --}}
 
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
+<!-- End section navbar -->
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+  <nav>
+    <div class="logo">clubix</div>
+    <label for="btn" class="icon">
+      <span class="fa fa-bars"></span>
+    </label>
+    <input type="checkbox" id="btn" style="display: none;">
+    <ul>
+      {{-- <li><a href="#">Home</a></li> --}}
+      <li><a href="clubs">Clubs</a></li>
+      {{-- <li ><a href="#" class="modal-btn">Sign Up / Sign in</a></li> --}}
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
+      <li data-bs-toggle="tooltip" data-bs-placement="left" title="Log Out">
+        <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                               Logout</a>
+      </li>
+
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+    </ul>
+  </nav>
+
+ 
+
+<!-- start section header -->
+<div id="header" class="home" style="background-image:url(../images/home-bg.jpg)">
+
+<div class="container">
+ <div class="header-content">
+   <h1 style="color: #1d2434;">All<span class="typed"></span></h1>
+   <p style="color: #1d2434;">Find all the associations in a second</p>
+
+   
+ </div>
+</div>
+</div>
+<!-- End section header -->
+<br>
+<br>
+<br>  
+<!-- About Start -->
+<div class="about">
+<div class="container">
+ {{-- $row3 = mysqli_fetch_assoc($sql3);  --}}
+ <div class="row align-items-center">
+     <div class="col-lg-5 col-md-6">
+         <div class="about-img">
+            <img src="images/logo.jpg" alt="Image"> 
+         </div>
+     </div>
+     <div class="col-lg-7 col-md-6">
+         <div class="section-header text-left">
+             
+             <h2>Learn About Us</h2>
+         </div>
+         <div class="about-text">
+             <p>
+              Welcome to clubix. A website for all students that are a part of  iset bizerte where you can find all the clubs and learn about them and there events .This website does not only give you an opportunity to develop yourself in all aspects but it also help you to be more active and assure you a better experience at college. So Join us to be a part of our family           
+             </p>
+             
+         </div>
+     </div>
+ </div>
+</div>
+<br>
+<!-- About End -->
+
+
+<!-- start section portfolio -->
+<div id="portfolio" class="text-center paddsection">
+
+<div class="container">
+<div class="section-header text-left">
+<h2 > Up Coming Events</h2>
+</div>
+</div>
+
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+
+ <div class="portfolio-list">
+
+   <ul class="nav list-unstyled" id="portfolio-flters">
+     <li class="filter filter-active" data-filter=".all">all</li>
+     <li class="filter" data-filter=".Informatique">Informatique</li>
+     <li class="filter" data-filter=".Electrique">Electrique</li>
+     <li class="filter" data-filter=".Mecanique">Mecanique</li>
+     <li class="filter" data-filter=".Economie">Economie</li>
+     <li class="filter" data-filter=".Genie Procedes">Genie Procedes</li>
+   </ul>
+
+
+ </div>
+
+ <div class="portfolio-container">
+    @foreach ($events as $event)
+        <div class="col-lg-4 col-md-6 portfolio-thumbnail all branding uikits {{$event -> nom_department}} " > 
+          <a class="popup-img" href="{{$event -> img}}" >
+            <img src="{{$event -> img}}" alt="img" >
+            <p> {{$event -> date}} </p>
+          
+          </a>
         </div>
-    </body>
+    @endforeach
+  
+ </div>
+</div>
+</div>
+</div>
+</div>
+<!-- End section portfolio -->
+<br>
+<!-- Counter -->
+<div class="fh5co-counter counters" style="background-color:#1d2434 ;" ">
+<div class="counter-inner site-container">
+ <div class="single-count">
+   <span class="count" data-count="30">0</span>
+   <div class="single-count__text">
+  
+          <i class="fas fa-hand-holding-heart w3-margin-bottom w3-jumbo fa-4x"></i>
+          
+          
+     <p style="font-size: large;color: white;font-weight: bold;"> Clubs</p>
+   </div>
+ </div>
+ <div class="single-count">
+   <span class="count" data-count="600">0</span>
+   <div class="single-count__text">
+   
+     
+     <i class="fas fa-users w3-margin-bottom w3-jumbo fa-4x"></i>
+     <p style="font-size: large;color: white;font-weight: bold;">Members</p>
+   </div>
+ </div>
+ <div class="single-count">
+   <span class="count" data-count="2000">0</span>
+   <div class="single-count__text">
+     
+     <i class="far fa-calendar-alt w3-margin-bottom w3-jumbo fa-4x"></i>
+     <p style="font-size: large;color: white;font-weight: bold;">Events</p>
+   </div>
+ </div>
+ <div class="single-count">
+   <span class="count" data-count="125">0</span>
+   <div class="single-count__text">
+    
+     <i class="fas fa-trophy w3-margin-bottom w3-jumbo fa-4x"></i>
+     <p style="font-size: large;color: white;font-weight: bold;">Awards</p>
+   </div>
+ </div>
+      
+</div>
+<br>
+<br>    <br>
+   <div class="custom-shape-divider-bottom-1617306237">
+       <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+           <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+       </svg>
+      
+   </div>
+ 
+</div>
+
+<!-- Counter -->
+<div class="blog">
+<div class="container">
+   <div class="section-header text-center">
+       <p></p>
+       <h2>Clubs</h2>
+   </div>
+   <div class="owl-carousel blog-carousel">
+     
+    @foreach ($clubs as $club)
+    
+       {{-- while ($row2 = mysqli_fetch_assoc($sql2)) { --}}
+       <div class="blog-item">
+           <div class="blog-img">
+           <img src="{{ $club->club_img }}" alt="Blog"> 
+               {{-- <img src="images/ $row2["logo"] " > --}}
+           </div>
+           <div class="blog-meta">
+             
+         
+           </div>
+           <div class="blog-text">
+             <h2>{{ $club->club_name }}</h2>
+             <p> {{ $club->about_us }}</p>
+               {{-- <h2>$row2["name"] </h2> --}}
+               {{-- <p>$row2["about_us"] </p> --}}
+               <a class="btn" style="background: #f0f0f1" href="club/{{ $club -> id}}">Read More <i class="fa fa-angle-right"></i></a>
+           </div>
+       </div>
+       @endforeach
+       {{-- } --}}
+       
+   </div>
+</div>
+</div>
+<!-- Blog End -->
+
+
+<!-- Footer Start -->
+<div style="background-color:#1d2434 ;">
+<div class="custom-shape-divider-top-1617272353">
+   <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+       <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+   </svg>
+</div> 
+
+<div class="footer" >
+   <div class="container">
+       <div class="row">
+           <div class="col-lg-7">
+               <div class="row">
+                   <div class="col-md-6">
+                       <div class="footer-contact">
+                           <h2>ISET Bizerte</h2>
+                           <p><i class="fa fa-map-marker-alt"></i>Bizerte , ISET Bizerte</p>
+                           <p><i class="fa fa-phone-alt"></i>+012 345 67890</p>
+                           <p><i class="fa fa-envelope"></i>IsetBizerte@gmail.com</p>
+                           <div class="footer-social">
+                               <a href=""><i class="fab fa-twitter"></i></a>
+                               <a href=""><i class="fab fa-facebook-f"></i></a>
+                               <a href=""><i class="fab fa-youtube"></i></a>
+                               <a href=""><i class="fab fa-instagram"></i></a>
+                               <a href=""><i class="fab fa-linkedin-in"></i></a>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="col-md-6">
+                       <div class="footer-link">
+                           <h2>Quick Links</h2>
+                           <a href="">Terms of use</a>
+                           <a href="">Privacy policy</a>
+                           <a href="">Cookies</a>
+                           <a href="">Help</a>
+                           <a href="">FQAs</a>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div class="col-lg-5">
+               <div class="footer-newsletter">
+                   <h2>LOCATION</h2>
+                  
+                   <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12706.149096377616!2d9.8857319!3d37.2349582!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa4da7162624c5788!2sInstitute%20of%20Technological%20Studies%20of%20Bizerte!5e0!3m2!1sen!2stn!4v1617871001141!5m2!1sen!2stn" width="534" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                  </div>
+           </div>
+       </div>
+   </div>
+</div>
+</div>
+<!-- Footer End -->
+<!-- JavaScript Libraries -->
+ {{-- <script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/jquery/jquery-migrate.min.js"></script>
+<!-- <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+<script src="lib/typed/typed.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="lib/magnific-popup/magnific-popup.min.js"></script>
+<script src="lib/isotope/isotope.pkgd.min.js"></script>
+<!-- Contact Form JavaScript File -->
+<script src="contactform/contactform.js"></script> --}}
+
+<!-- Template Main Javascript File -->
+<script src="{{ asset('js/welcome.js') }}" defer></script>
+ <!-- Contact Javascript File -->
+
+ <script>
+    $('.icon').click(function(){
+      $('span').toggleClass("cancel");
+    });
+  </script>
+
+  <script>
+    // var modalBtn = document.querySelector('.modal-btn');
+    // var modalBg = document.querySelector('.modal-bg');
+    // var modalClose = document.querySelector('.modal-close');
+
+    // modalBtn.addEventListener('click', function(){
+    //     modalBg.classList.add('active');
+    // });
+    // modalClose.addEventListener('click', function(){
+    //     modalBg.classList.remove('active');
+    // });
+  </script>
+
+  {{-- <script src="js/login_signup.js"></script>
+  <script src="js/pass_show_hide.js"></script>  --}}
+
+ 
+</body>
+
 </html>
