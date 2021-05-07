@@ -19,16 +19,8 @@ Route::get('/','HomeController@welcome');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@welcome')->name('home');
 
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/responsable', 'ResponsableController@responsable');
 Route::get('/event','ResponsableController@event' );
@@ -37,7 +29,7 @@ Route::get('/teams', 'ResponsableController@teams');
 Route::get('/themes','ResponsableController@themes' );
 Route::get('/posts','ResponsableController@posts');
 Route::get('/about','ResponsableController@about');
-=======
+
 Route::get('/clubs', 'ClubController@clubs');
 Route::get('/club/{id}', 'ClubController@one_club');
 Route::get('/admin','AdminController@admin');
