@@ -13,12 +13,12 @@ class Club extends Model
 
     public function club_info()
     {
-        return $this->hasMany('App\Club_info');
+        return $this->hasOne('App\Club_info');
     }
      
     public function post()
     {
-        return $this->hasMany('App\Post');
+        return $this->hasOne('App\Post');
     }
 
     public function team()

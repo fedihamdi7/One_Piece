@@ -1,0 +1,48 @@
+.sidebar__menu{
+    line-height: 1.2;
+  }
+  .succ-txt{
+      display: inline-block;
+      position: absolute;
+      color: #f3f3f3;
+      background-color: #4c694f;
+      z-index: 10;
+      top: 60px;
+      border: none;
+      border-radius: 5px;
+      transition: transform 0.6s ease-in-out;
+      animation: err 0.6s;
+      animation: cssAnimation 0.6s ease-in-out 4s forwards;
+  }
+  .err-txt{
+      display: inline-block;
+      position: absolute;
+      color: #f3f3f3;
+      background-color: #b55c8b;
+      z-index: 10;
+      top: 60px;
+      border: none;
+      border-radius: 5px;
+      transition: transform 0.6s ease-in-out;
+      animation: err 0.6s;
+      animation: cssAnimation 0.6s ease-in-out 5s forwards;
+  }
+  
+  @keyframes cssAnimation {
+      from {
+          opacity: 1;
+      }
+      
+      to {
+          opacity: 0;
+      }
+  }
+    @keyframes err {
+      from {
+          opacity: 0;
+      }
+      
+      to {
+          opacity: 1;
+      }
+  }
