@@ -14,12 +14,12 @@ class CreateUserRequestsTable extends Migration
     {
         Schema::create('user_requests', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string('user_name');
+            $table->string('user_email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->string('image');
-            $table->enum('type', ['admin', 'responsable','membre']);
+            $table->string('user_password');
+            $table->string('user_image')->nullable();
+            $table->enum('user_type', ['admin', 'responsable','membre']);
             $table->rememberToken();
             $table->timestamps();
         });

@@ -8,9 +8,9 @@ use Faker\Generator as Faker;
 
 $factory->define(Event::class, function (Faker $faker) {
     return [
-        'date'=> $faker->date(),
-        'img'=> $faker->imageUrl(),
+        'event_date'=> $faker->date(),
+        'event_image'=> $faker->imageUrl(),
        'club_id'=>Club::get('id')->random() ,
-       
+
     ];
 });
