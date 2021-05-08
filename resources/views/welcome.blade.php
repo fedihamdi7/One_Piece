@@ -133,9 +133,9 @@
  <div class="portfolio-container">
     @foreach ($events as $event)
         <div class="col-lg-4 col-md-6 portfolio-thumbnail all branding uikits {{$event -> nom_department}} " > 
-          <a class="popup-img" href="{{$event -> img}}" >
-            <img src="{{$event -> img}}" alt="img" >
-            <p> {{$event -> date}} </p>
+          <a class="popup-img" href="{{$event -> event_image}}" >
+            <img src="{{$event -> event_image}}" alt="img" >
+            <p> {{$event -> event_date}} </p>
 
           </a>
         </div>
