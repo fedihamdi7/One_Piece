@@ -18,7 +18,8 @@ class CreatePostsTable extends Migration
             $table->string('post_description');
             $table->string('post_image');
             $table->string('post_title');
-            $table->integer('club_id')->unsigned()->unique();
+            // $table->integer('club_id')->unsigned()->unique();
+            $table->integer('club_id')->unsigned();
             $table->timestamps();
             $table->foreign('club_id')->references('id')->on('clubs')->onDelete('restrict')->onUpdate('restrict');
         });

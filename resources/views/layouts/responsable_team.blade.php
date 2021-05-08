@@ -46,9 +46,9 @@
                     @foreach ($teams as $team)
                       <tr>
                             <th scope="row">{{$team->id}}</th>
-                            <th scope="row">{{$team->name}}</th>
-                            <th>{{$team->titre }}</th>
-                            <th>{{$team->img }}</th>
+                            <th scope="row">{{$team->team_name}}</th>
+                            <th>{{$team->team_titre }}</th>
+                            <th>{{$team->team_img }}</th>
                             <th> <a href=""> <i class="fa fa-ban" aria-hidden="true"></i> </a></th>
                             <th> <a href=""> <i class="fa fa-pencil" aria-hidden="true"></i> </a></th>
                         </tr>
