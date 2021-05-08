@@ -8,9 +8,9 @@ use Faker\Generator as Faker;
 
 $factory->define(Post::class, function (Faker $faker) {
     return [
-        'description' => $faker->sentence,
-        'img' => $faker->imageUrl(),
-        'title' => $faker->word,
+        'post_description' => $faker->sentence,
+        'post_image' => $faker->imageUrl(),
+        'post_title' => $faker->word,
         'Club_id' => Club::get('id')->random(),
     ];
 });
