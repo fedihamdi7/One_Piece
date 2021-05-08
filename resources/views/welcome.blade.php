@@ -134,7 +134,7 @@
     @foreach ($events as $event)
         <div class="col-lg-4 col-md-6 portfolio-thumbnail all branding uikits {{$event -> nom_department}} " > 
           <a class="popup-img" href="{{$event -> event_image}}" >
-            <img src="{{$event -> event_image}}" alt="img" >
+            <img src="images/club_logo/{{$event -> event_image}}" alt="img" >
             <p> {{$event -> event_date}} </p>
 
           </a>
@@ -213,7 +213,7 @@
     
        <div class="blog-item">
            <div class="blog-img">
-           <img src="{{ $club->club_img }}" alt="Blog"> 
+           <img src="images/events/{{ $club->club_img }}" alt="Blog"> 
            </div>
            <div class="blog-meta">
              
@@ -226,7 +226,7 @@
            </div>
        </div>
        @endforeach
-       {{-- } --}}
+      
        
    </div>
 </div>
