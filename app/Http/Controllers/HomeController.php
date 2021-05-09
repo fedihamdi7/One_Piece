@@ -23,7 +23,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-   
+
 
     public function index()
     {
@@ -32,7 +32,7 @@ class HomeController extends Controller
     }
     public function welcome()
     {
-       
+
         $clubs = DB::table('clubs')
         ->join('club_infos','clubs.id','=','club_infos.club_id')
         ->get();
@@ -40,7 +40,7 @@ class HomeController extends Controller
         ->join('departments','clubs.departments_id','=','departments.id')
         ->join('events','clubs.id','=','events.club_id')
         ->limit(6)
-        ->orderBy('date','desc')
+        ->orderBy('event_date','desc')
         ->get();
         return view('welcome',[
         'clubs'=>$clubs,

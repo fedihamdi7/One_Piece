@@ -34,7 +34,7 @@ class ClubController extends Controller
         ->where('clubs.id',$id)
         ->get();
         return view('club',['infos' => $infos , 'teams' => $teams , 'events' => $events]);
-        return dd($teams);
+        // return dd($infos);
         // return $infos->first()->club_name;
     }
     public function clubs()

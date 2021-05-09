@@ -17,7 +17,7 @@
         <!-- active_menu_link -->
           <div class="sidebar__link">
             <i class="fa fa-home"></i>
-            <a href="#">Home</a>
+            <a href="home">Home</a>
           </div>
           <div class="sidebar__link ">
           <i class="fa fa-desktop" axria-hidden="true"></i>
@@ -34,7 +34,7 @@
             <i class="fa fa-user-secret" aria-hidden="true"></i>
             <a href="event">Events</a>
           </div>
-          
+
           <div class="sidebar__link">
           <i class="fa fa-users" aria-hidden="true"></i>
             <a href="teams">Team</a>
@@ -51,11 +51,11 @@
           <i class="fa fa-address-card-o" aria-hidden="true"></i>
             <a href="about">About Us</a>
           </div>
-          
+
           <div class="sidebar__logout">
             <i class="fa fa-power-off"></i>
             <a href="">Log out</a>
           </div>
         </div>
-       
+
       <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>

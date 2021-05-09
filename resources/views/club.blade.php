@@ -71,7 +71,7 @@
           <div class="social-network">
             <ul class="soial-icons">
               <li data-bs-toggle="tooltip" data-bs-placement="top" title="Home">
-                <a href="../welcome"><i class="fas fa-home"></i></a>
+                <a href="../home"><i class="fas fa-home"></i></a>
               </li>
               {{-- <li data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook">
                 <a href="#"><i class="fa fa-facebook"></i></a>
@@ -112,14 +112,14 @@
           <div class="row">
             <div class="col-md-6">
               <div class="left-image">
-                <img src="../images/club_post/{{$infos->first()->img_post}}" alt="" style="width: 377.75px;height: 277.69px;" />
+                <img src="../images/club_post/{{$infos->first()->post_image}}" alt="" style="width: 377.75px;height: 277.69px;" />
               </div>
             </div>
             <div class="col-md-6">
               <div class="right-text">
                 <h4>News</h4>
                 <p>
-                    {{$infos->first()->description_post}}                </p>
+                    {{$infos->first()->post_description}}                </p>
                 <!-- <div class="white-button">
                     <a href="#">Read More</a>
                   </div> -->
@@ -164,7 +164,7 @@
             <div class="carousel-inner" role="listbox">
               @foreach( $events as $event )
                  <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                     <img class="d-block img-fluid" src="../images/events/{{ $event->img }}" alt="">
+                     <img class="d-block img-fluid" src="../images/events/{{ $event->event_image }}" alt="">
                         <div class="carousel-caption d-none d-md-block">
                            {{-- <h3>{{ $event->date }}</h3> --}}
                            {{-- <p>{{ $event->descriptoin }}</p> --}}
@@ -230,8 +230,8 @@
                 <div class="card back-face">
                   <img src="../images/club_team_image/{{$team -> team_img}}" />
                   <div class="info">
-                    <div class="title">{{$team -> name}}</div>
-                    <p>{{$team -> titre}} </p>
+                    <div class="title">{{$team -> team_name}}</div>
+                    <p>{{$team -> team_titre}} </p>
                   </div>
                   <ul>
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -251,8 +251,8 @@
                 <div class="card back-face">
                   <img src="../images/club_team_image/{{$team -> team_img}}" />
                   <div class="info">
-                    <div class="title">{{$team -> name}}</div>
-                    <p>{{$team -> titre}} </p>
+                    <div class="title">{{$team -> team_name}}</div>
+                    <p>{{$team -> team_titre}} </p>
                   </div>
                   <ul>
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
