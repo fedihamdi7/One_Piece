@@ -47,7 +47,7 @@ class HomeController extends Controller
         'events'=>$events
         ]);
 
-        // return dd($events);
+        // return dd($clubs);
     }
 }
 

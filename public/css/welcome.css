@@ -525,7 +525,7 @@ img.mfp-img {
       left: 0;
       width: 100%;
       height: 100%;
-    
+
       opacity: 0.9; }
     .fh5co-counter .site-container {
       position: relative;
@@ -534,12 +534,12 @@ img.mfp-img {
       .fh5co-counter {
         padding: 50px 0 20px;
         margin-bottom: 50px; } }
-  
+
   .counter-inner {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap; }
-  
+
   .single-count {
     width: 23%;
     text-align: center;
@@ -564,13 +564,13 @@ img.mfp-img {
         width: 100%;
         padding-bottom: 10px;
         border-bottom: 1px solid #fff; } }
-  
+
   .single-count__text {
     display: flex;
     justify-content: center; }
     .single-count__text img {
       margin-right: 20px; }
-  
+
   .fh5co-blog {
     margin-bottom: 175px; }
     .fh5co-blog .universal-h2 {
@@ -579,7 +579,7 @@ img.mfp-img {
     @media (max-width: 620px) {
       .fh5co-blog {
         margin-bottom: 105px; } }
-  
+
 
 /*
   Theme Name: Folio
@@ -1581,7 +1581,7 @@ p{
  */
 
 @media (min-width: 992px) and (max-width: 1199px) {
-  
+
 }
 
 /** Width between 768px to 991px
@@ -1955,7 +1955,7 @@ p{
     background-image: url('../background.jpg');
 }
 .modal-bg {
-    
+
     visibility: hidden;
     position: fixed;
     width: 100%;
@@ -1973,7 +1973,7 @@ p{
     visibility: visible;
     opacity: 1;
     z-index: 12;
-    
+
 }
 .modal-close{
     position: absolute;
@@ -1987,8 +1987,8 @@ p{
     display: flex;
     align-items: center;
     justify-content: center;
-    
-    
+
+
 
 }
 .modal-btn{
@@ -2198,10 +2198,10 @@ body {
 }
 
 h1,
-h2, 
-h3, 
+h2,
+h3,
 h4,
-h5, 
+h5,
 h6 {
     color: #1d2434;
 }
@@ -2405,12 +2405,12 @@ a:focus {
         background: rgba(0, 0, 0, .1) !important;
         z-index: 9;
     }
-    
+
     .navbar.nav-sticky {
         padding: 10px 60px;
         background: rgb(88 ,177, 178) !important;
     }
-    
+
     .navbar a.nav-link {
         padding: 8px 15px;
         font-size: 14px;
@@ -2419,16 +2419,16 @@ a:focus {
     }
 }
 
-@media (max-width: 991.98px) {   
+@media (max-width: 991.98px) {
     .navbar {
         padding: 15px;
         background: #1d2434 !important;
     }
-    
+
     .navbar a.nav-link {
         padding: 5px;
     }
-    
+
     .navbar .dropdown-menu {
         box-shadow: none;
     }
@@ -2607,15 +2607,15 @@ a:focus {
     .hero .hero-text {
         padding-left: 15px;
     }
-    
+
     .hero .hero-text h1 {
         font-size: 35px;
     }
-    
+
     .hero .hero-text p {
         font-size: 16px;
     }
-    
+
     .hero .hero-text .btn {
         padding: 12px 30px;
         font-size: 15px;
@@ -2628,11 +2628,11 @@ a:focus {
         font-size: 30px;
         font-weight: 600;
     }
-    
+
     .hero .hero-text p {
         font-size: 14px;
     }
-    
+
     .hero .hero-text .btn {
         padding: 10px 25px;
         font-size: 15px;
@@ -2646,11 +2646,11 @@ a:focus {
         font-size: 25px;
         font-weight: 600;
     }
-    
+
     .hero .hero-text p {
         font-size: 14px;
     }
-    
+
     .hero .hero-text .btn {
         padding: 8px 20px;
         font-size: 14px;
@@ -2708,7 +2708,7 @@ a:focus {
     .page-header h2 {
         font-size: 35px;
     }
-    
+
     .page-header a {
         font-size: 18px;
     }
@@ -3169,6 +3169,7 @@ a:focus {
 
 .blog .blog-img img {
     width: 100%;
+    max-height: 260px;
 }
 
 .blog .blog-meta {
@@ -3205,6 +3206,10 @@ a:focus {
 
 .blog .blog-text p {
     margin-bottom: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 250px;
+    max-height: 26%;
 }
 
 .blog .blog-item a.btn {
@@ -3339,8 +3344,8 @@ a:focus {
 
 .portfolio img {
     position: relative;
-    width: 100%; 
-    height: 100%; 
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -3410,7 +3415,7 @@ a:focus {
     .contact .container-fluid {
         background: none;
     }
-    
+
     .contact .contact-form {
         padding: 90px 0;
     }
@@ -3656,8 +3661,8 @@ a:focus {
     fill: #FFFFFF;
 }
     .custom-shape-divider-bottom-1617306237 {
- 
- 
+
+
         position: absolute;
     bottom: 0;
     left: 0;
@@ -3674,7 +3679,7 @@ a:focus {
   height: 90px;
  }
 
- 
+
  .custom-shape-divider-top-1617272353 .shape-fill {
   fill: #ededed;
  }

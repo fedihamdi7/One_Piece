@@ -11,7 +11,12 @@ body {
   font-weight: 400;
 }
 
-
+p{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 312px;
+    max-height: 80px;
+}
 
 .wrapper {
   display: table;

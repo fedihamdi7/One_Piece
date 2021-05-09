@@ -30,7 +30,7 @@
 <body>
 
 
-   
+
 
 <!-- End section navbar -->
 
@@ -74,7 +74,7 @@
 <!-- End section header -->
 <br>
 <br>
-<br>  
+<br>
 <!-- About Start -->
 <div class="about">
 <div class="container">
@@ -82,7 +82,7 @@
  <div class="row align-items-center">
      <div class="col-lg-5 col-md-6">
          <div class="about-img">
-            <img src="images/club.jpg" alt="Image"> 
+            <img src="images/club.jpg" alt="Image">
          </div>
      </div>
      <div class="col-lg-7 col-md-6">
@@ -92,7 +92,7 @@
          </div>
          <div class="about-text">
              <p>
-              Welcome to clubix. A website for all students that are a part of  iset bizerte where you can find all the clubs and learn about them and there events .This website does not only give you an opportunity to develop yourself in all aspects but it also help you to be more active and assure you a better experience at college. So Join us to be a part of our family           
+              Welcome to clubix. A website for all students that are a part of  iset bizerte where you can find all the clubs and learn about them and there events .This website does not only give you an opportunity to develop yourself in all aspects but it also help you to be more active and assure you a better experience at college. So Join us to be a part of our family
              </p>
 
          </div>
@@ -132,9 +132,9 @@
 
  <div class="portfolio-container">
     @foreach ($events as $event)
-        <div class="col-lg-4 col-md-6 portfolio-thumbnail all branding uikits {{$event -> nom_department}} " > 
-          <a class="popup-img" href="{{$event -> event_image}}" >
-            <img src="images/club_logo/{{$event -> event_image}}" alt="img" >
+        <div class="col-lg-4 col-md-6 portfolio-thumbnail all branding uikits {{$event -> nom_department}} " >
+          <a class="popup-img" href="images/events/{{$event -> event_image}}" >
+            <img src="images/events/{{ $event -> event_image }}" alt="img" >
             <p> {{$event -> event_date}} </p>
 
           </a>
@@ -156,18 +156,18 @@
  <div class="single-count">
    <span class="count" data-count="30">0</span>
    <div class="single-count__text">
-  
+
           <i class="fas fa-hand-holding-heart w3-margin-bottom w3-jumbo fa-4x"></i>
-          
-          
+
+
      <p style="font-size: large;color: white;font-weight: bold;"> Clubs</p>
    </div>
  </div>
  <div class="single-count">
    <span class="count" data-count="600">0</span>
    <div class="single-count__text">
-   
-     
+
+
      <i class="fas fa-users w3-margin-bottom w3-jumbo fa-4x"></i>
      <p style="font-size: large;color: white;font-weight: bold;">Members</p>
    </div>
@@ -175,7 +175,7 @@
  <div class="single-count">
    <span class="count" data-count="2000">0</span>
    <div class="single-count__text">
-     
+
      <i class="far fa-calendar-alt w3-margin-bottom w3-jumbo fa-4x"></i>
      <p style="font-size: large;color: white;font-weight: bold;">Events</p>
    </div>
@@ -183,12 +183,12 @@
  <div class="single-count">
    <span class="count" data-count="125">0</span>
    <div class="single-count__text">
-    
+
      <i class="fas fa-trophy w3-margin-bottom w3-jumbo fa-4x"></i>
      <p style="font-size: large;color: white;font-weight: bold;">Awards</p>
    </div>
  </div>
-      
+
 </div>
 <br>
 <br>    <br>
@@ -196,9 +196,9 @@
        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
        </svg>
-      
+
    </div>
- 
+
 </div>
 <!-- Counter -->
 <div class="blog">
@@ -208,16 +208,14 @@
        <h2>Clubs</h2>
    </div>
    <div class="owl-carousel blog-carousel">
-     
+
     @foreach ($clubs as $club)
-    
+
        <div class="blog-item">
            <div class="blog-img">
-           <img src="images/events/{{ $club->club_img }}" alt="Blog"> 
+           <img src="images/club_logo/{{$club->club_img}}" alt="Blog">
            </div>
            <div class="blog-meta">
-             
-         
            </div>
            <div class="blog-text">
              <h2>{{ $club->club_name }}</h2>
@@ -225,9 +223,9 @@
                <a class="btn" style="background: #f0f0f1" href="club/{{ $club -> id}}">Read More <i class="fa fa-angle-right"></i></a>
            </div>
        </div>
-       @endforeach
-      
-       
+    @endforeach
+
+
    </div>
 </div>
 </div>
@@ -238,7 +236,7 @@
    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
    </svg>
-</div> 
+</div>
 <div class="footer" >
    <div class="container">
        <div class="row">
@@ -274,7 +272,7 @@
            <div class="col-lg-5">
                <div class="footer-newsletter">
                    <h2>LOCATION</h2>
-                  
+
                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12706.149096377616!2d9.8857319!3d37.2349582!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa4da7162624c5788!2sInstitute%20of%20Technological%20Studies%20of%20Bizerte!5e0!3m2!1sen!2stn!4v1617871001141!5m2!1sen!2stn" width="534" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                   </div>
            </div>
@@ -292,4 +290,4 @@
     });
   </script>
 </body>
-</html> 
+</html>
