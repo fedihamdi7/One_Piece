@@ -51,11 +51,14 @@
           <i class="fa fa-address-card-o" aria-hidden="true"></i>
             <a href="about">About Us</a>
           </div>
-
           <div class="sidebar__logout">
             <i class="fa fa-power-off"></i>
-            <a href="">Log out</a>
+            <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+        Log out
+        </a>
           </div>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
         </div>
-
       <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
