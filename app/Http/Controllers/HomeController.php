@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 use App\Club;
 use App\Event;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -42,12 +44,15 @@ class HomeController extends Controller
         ->limit(6)
         ->orderBy('event_date','desc')
         ->get();
+
+        $user_type = Auth::user()->type;
         return view('welcome',[
         'clubs'=>$clubs,
-        'events'=>$events
+        'events'=>$events,
+        'type'=>$user_type
         ]);
 
-        // return dd($clubs);
+        // return dd($user_type);
     }
 }
 

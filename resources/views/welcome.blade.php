@@ -44,6 +44,12 @@
     <ul>
       {{-- <li><a href="#">Home</a></li> --}}
       <li><a href="clubs">Clubs</a></li>
+      @if ($type == 'admin')
+      <li><a href="admin">Dashboard</a></li>
+      @endif
+      @if ($type == 'responsable')
+      <li><a href="responsable">Dashboard</a></li>
+      @endif
       {{-- <li ><a href="#" class="modal-btn">Sign Up / Sign in</a></li> --}}
 
       <li data-bs-toggle="tooltip" data-bs-placement="left" title="Log Out">
