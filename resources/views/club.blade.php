@@ -7,8 +7,9 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
   <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" />
+  <link rel="icon" href="../images/club_logo/{{$infos->first()->club_img}}">
 
-  <title>CLUBS</title>
+  <title>{{$infos->first()->club_name}}</title>
 
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
@@ -72,6 +73,9 @@
             <ul class="soial-icons">
               <li data-bs-toggle="tooltip" data-bs-placement="top" title="Home">
                 <a href="../home"><i class="fas fa-home"></i></a>
+              </li>
+              <li data-bs-toggle="tooltip" data-bs-placement="top" title="Clubs">
+                <a href="../clubs"><i class="fab fa-cuttlefish"></i></a>
               </li>
               {{-- <li data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook">
                 <a href="#"><i class="fa fa-facebook"></i></a>
