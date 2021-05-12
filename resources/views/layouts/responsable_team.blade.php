@@ -57,7 +57,7 @@
                 </table>
         </div>
       </main>
-      @include("layouts.sidebar_responsable");
+      @include("layouts.sidebar_responsable")
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
