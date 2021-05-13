@@ -12,7 +12,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/adminuserlist.css') }}" rel="stylesheet">
     <title>DASHBOARD</title>
-    
+
     <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -21,7 +21,7 @@
 
 <body id="body">
     <div class="container">
-       
+
         <main>
             <div class="main__container">
                 <!-- MAIN TITLE STARTS HERE -->
@@ -46,19 +46,22 @@
                             <th scope="col">Decline</th>
                         </tr>
                     </thead>
-                    
+
                     <tbody>
                         @foreach ($user_requests as $user_request)
-                        
-                    
+
+
                         <tr>
                             <td scope="row">{{$user_request->id}}</td>
                             <td scope="row">{{$user_request->name}}</td>
                             <td>{{$user_request->email }}</td>
                             <td>{{$user_request->image }}</td>
-                            <td> <a href=""> <i class="fa fa-ban" aria-hidden="true"></i> </a></td>
-                            <td> <a href=""> <i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
-                            
+                            <td> <a href=""> <i class="fa fa-check-square" aria-hidden="true"></i> </a></td>
+                            <td> <a href="{{route('AllClubs.destroy', $user_request->id)}}"> <i class="fa fa-ban" aria-hidden="true"></i> </a></td>
+
+                            {{-- <form id="logout-form" action="{{ route('AllClubs.destroy', $user_request->id) }}" method="POST" style="display: none;">
+                                @csrf
+                            </form> --}}
                         </tr>
                         @endforeach
                     </tbody>
@@ -68,12 +71,12 @@
             </div>
         </main>
 
-       
-        @include('admin.sidebaradmin') 
+
+        @include('admin.sidebaradmin')
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
- 
+
 </body>
 
 </html>
