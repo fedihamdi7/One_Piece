@@ -1,1 +1,1 @@
-@include('layouts.responsable');
+@include('layouts.responsable')

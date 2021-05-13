@@ -10,6 +10,7 @@
     />
     <link rel="stylesheet" href="{{asset('css/responsable.css')}}" />
     <title>DASHBOARD</title>
+    <link rel="icon" href="admin.png">
   </head>
   <body  id="body">
     <div class="container">
