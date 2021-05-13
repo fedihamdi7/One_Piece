@@ -12,33 +12,44 @@ class AdminController extends Controller
         $this->middleware('auth');
         $this->middleware('admin');
     }
-    public function admin(){
+    public function admin()
+    {
 
-        return view('admin.dashboardadmin');}
-    public function userlist(){
+        return view('admin.dashboardadmin');
+    }
+    public function userlist()
+    {
         $users = DB::table('users')->get();
         // $users =User::get('name');
-         return view('admin.userlist',['users' => $users]);
-        }
-    public function add_user(){
-         return view('admin.add_user');}
-    public function request(){
+        return view('admin.userlist', ['users' => $users]);
+    }
+    public function add_user()
+    {
+        return view('admin.add_user');
+    }
+    public function request()
+    {
 
-        $user_requests= DB::table('user_requests')->get();
+        $user_requests = DB::table('user_requests')->get();
         // $users =User::get('name');
 
-         return view('admin.request',['user_requests' => $user_requests]);}
+        return view('admin.request', ['user_requests' => $user_requests]);
+    }
 
-         public function clubs(){
+    public function clubs()
+    {
 
-            $clubs= DB::table('clubs')->get();
-            // $users =User::get('name');
+        $clubs = DB::table('clubs')->get();
+        // $users =User::get('name');
 
-             return view('admin.AllClubs',['clubs' => $clubs]);}
-             public function department(){
-        
-                $departments= DB::table('departments')->get();
-                // $users =User::get('name');
-                 
-                 return view('admin.department',['departments' => $departments]);}
+        return view('admin.AllClubs', ['clubs' => $clubs]);
+    }
+    public function department()
+    {
+
+        $departments = DB::table('departments')->get();
+        // $users =User::get('name');
+
+        return view('admin.department', ['departments' => $departments]);
+    }
 }

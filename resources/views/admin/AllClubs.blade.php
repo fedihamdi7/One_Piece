@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   
+
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
-    
-    
+
+
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/adminuserlist.css') }}" rel="stylesheet">
 
     <title>DASHBOARD</title>
     <link rel="icon" href="admin.png">
-   
-   
+
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 
@@ -60,22 +60,22 @@
                             <th scope="col">departments id</th>
                             <th scope="col">id admin</th>
                             <th scope="col">Delete club</th>
-                            <th scope="col">Update club</th>
+                            {{-- <th scope="col">Update club</th> --}}
                         </tr>
                     </thead>
                 <tbody>
                     @foreach ($clubs as $club)
-                        
-                    
+
+
                     <tr>
                         <th scope="row">{{$club->id}}</th>
                         <td scope="row">{{$club->club_name}}</td>
                         <td scope="row">{{$club->club_theme}}</td>
                         <td>{{$club->departments_id }}</td>
-                    
+
                         <td>{{$club->users_id }}</td>
-                        <td> <a href=""> <i class="fa fa-ban" aria-hidden="true"></i> </a></td>
-                        <td> <a href=""> <i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
+                        <td> <a href="">  <i class="fa fa-trash" style="color: red" aria-hidden="true"></i> </a></td>
+                        {{-- <td> <a href=""> <i class="fa fa-pencil" aria-hidden="true"></i> </a></td> --}}
                     </tr>
                     @endforeach
                     </tbody>
@@ -85,14 +85,14 @@
             </div>
         </main>
 
-        @include('admin.sidebaradmin')  
+        @include('admin.sidebaradmin')
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-        
+
 
     <link href="{{ asset('js/admin.js') }}" rel="stylesheet">
-                        
+
 </body>
 
 </html>
