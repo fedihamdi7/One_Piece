@@ -29,6 +29,7 @@ Route::get('/teams', 'ResponsableController@teams');
 Route::get('/themes','ResponsableController@themes' );
 Route::get('/posts','ResponsableController@posts');
 Route::get('/about','ResponsableController@about');
+Route::get('/event_list','ResponsableController@event_list');
 
 Route::get('/clubs', 'ClubController@clubs');
 Route::get('/club/{id}', 'ClubController@one_club');
@@ -37,4 +38,5 @@ Route::get('/userlist','AdminController@userlist');
 Route::get('/add_user','AdminController@add_user');
 Route::get('/request','AdminController@request');
 Route::get('/AllClubs','AdminController@clubs');
+Route::get('/department','AdminController@department');
 

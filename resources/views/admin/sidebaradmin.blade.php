@@ -44,6 +44,11 @@
         <a href="AllClubs">Clubs</a>
       </div>
 
+      <div class="sidebar__link ">
+        <i class="fa fa-building"></i>
+        <a href="department">Departments</a>
+      </div>
+
      
     <div class="sidebar__logout">
       <i class="fa fa-power-off"></i>

@@ -32,4 +32,8 @@ class ResponsableController extends Controller
     public function about(){
         return view('responsable.about');
     }
+    public function event_list(){
+        $event = DB::table('events')->get();
+ return view('responsable.event_list',['events' => $event]);
+    }
 }

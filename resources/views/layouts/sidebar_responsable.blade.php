@@ -51,6 +51,10 @@
           <i class="fa fa-address-card-o" aria-hidden="true"></i>
             <a href="about">About Us</a>
           </div>
+          <div class="sidebar__link">
+            <i class="fa fa-user-secret" aria-hidden="true"></i>
+              <a href="event_list"> Events List</a>
+            </div>
           <div class="sidebar__logout">
             <i class="fa fa-power-off"></i>
             <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
