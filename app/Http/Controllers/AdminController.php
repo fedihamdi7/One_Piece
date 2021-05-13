@@ -27,4 +27,11 @@ class AdminController extends Controller
         // $users =User::get('name');
          
          return view('admin.request',['user_requests' => $user_requests]);}
+         
+         public function clubs(){
+        
+            $clubs= DB::table('clubs')->get();
+            // $users =User::get('name');
+             
+             return view('admin.AllClubs',['clubs' => $clubs]);}
 }

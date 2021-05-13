@@ -28,7 +28,7 @@
                 <div class="main__title" style="margin-bottom: 20px;">
                     <img class="animate__animated animate__fadeInDown" src="assets/user_list.svg" alt="" />
                     <div class="main__greeting">
-                        <h1 class="animate__animated animate__bounceInLeft">User List</h1>
+                        <h1 class="animate__animated animate__bounceInLeft">All clubs</h1>
                         <!-- <p>Welcome to your admin dashboard</p> -->
                     </div>
 
@@ -55,23 +55,25 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Type</th>
-                            <th scope="col">Delete User</th>
-                            <th scope="col">Update User</th>
+                            <th scope="col">club name</th>
+                            <th scope="col">club theme</th>
+                            <th scope="col">departments id</th>
+                            <th scope="col">id admin</th>
+                            <th scope="col">Delete club</th>
+                            <th scope="col">Update club</th>
                         </tr>
                     </thead>
                 <tbody>
-                    @foreach ($users as $user)
+                    @foreach ($clubs as $club)
                         
                     
                     <tr>
-                        <th scope="row">{{$user->id}}</th>
-                        <td scope="row">{{$user->name}}</td>
-                        <td>{{$user->email }}</td>
+                        <th scope="row">{{$club->id}}</th>
+                        <td scope="row">{{$club->club_name}}</td>
+                        <td scope="row">{{$club->club_theme}}</td>
+                        <td>{{$club->departments_id }}</td>
                     
-                        <td>{{$user->type }}</td>
+                        <td>{{$club->users_id }}</td>
                         <td> <a href=""> <i class="fa fa-ban" aria-hidden="true"></i> </a></td>
                         <td> <a href=""> <i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
                     </tr>

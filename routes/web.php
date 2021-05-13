@@ -36,4 +36,5 @@ Route::get('/admin','AdminController@admin');
 Route::get('/userlist','AdminController@userlist');
 Route::get('/add_user','AdminController@add_user');
 Route::get('/request','AdminController@request');
+Route::get('/AllClubs','AdminController@clubs');
 

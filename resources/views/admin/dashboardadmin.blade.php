@@ -10,8 +10,9 @@
       crossorigin="anonymous"
     />
     <link href="{{ asset('css/adminstyle.css') }}" rel="stylesheet">
+  
     <title>DASHBOARD</title>
-    <link rel="icon" href="images/icon/admin.png">
+    <link rel="icon" href="admin.png">
 
   </head>
   <body id="body">
