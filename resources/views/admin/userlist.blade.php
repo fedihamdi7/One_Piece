@@ -58,8 +58,8 @@
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
                             <th scope="col">Type</th>
-                            <th scope="col">Delete User</th>
-                            <th scope="col">Update User</th>
+                            <th scope="col" class="text-center">operations on User</th>
+                            {{-- <th scope="col">Update User</th> --}}
                         </tr>
                     </thead>
                 <tbody>
@@ -70,13 +70,16 @@
                         <th scope="row">{{$user->id}}</th>
                         <td scope="row">{{$user->name}}</td>
                         <td>{{$user->email }}</td>
-                    
                         <td>{{$user->type }}</td>
-                        <td> <a href=""> <i class="fa fa-ban" aria-hidden="true"></i> </a></td>
-                        <td> <a href=""> <i class="fa fa-pencil" aria-hidden="true"></i> </a></td>
+                        <td> <a href=""> <i class="fa fa-ban" aria-hidden="true"></i> </a>
+                            <a href=""> <i class="fa fa-edit" aria-hidden="true"></i> </a>
+                         <a href=""> <i class="fa fa-user-plus" aria-hidden="true"></i> </a></td>
                     </tr>
                     @endforeach
                     </tbody>
+                    <div class="text-center">
+                    {{$users->links() }}
+                    </div>
                 </table>
 
 
