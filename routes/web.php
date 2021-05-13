@@ -38,12 +38,16 @@ Route::get('/event_list','ResponsableController@event_list');
 Route::get('/clubs', 'ClubController@clubs');
 Route::get('/club/{id}', 'ClubController@one_club');
 Route::get('/admin','AdminController@admin');
-Route::get('/userlist','AdminController@userlist');
+// Route::get('/userlist','AdminController@userlist');
 Route::get('/add_user','AdminController@add_user');
 Route::get('/request','AdminController@request');
 // Route::get('/AllClubs','AdminController@clubs');
 Route::get('/department','AdminController@department');
 
 
+
 Route::resource('AllClubs', 'admin\ClubController');
+
+Route::resource('userlist','admin\UserListController');
+
 
