@@ -10,6 +10,7 @@ class AdminController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('admin');
     }
     public function admin(){
 
@@ -22,17 +23,17 @@ class AdminController extends Controller
     public function add_user(){
          return view('admin.add_user');}
     public function request(){
-        
+
         $user_requests= DB::table('user_requests')->get();
         // $users =User::get('name');
-         
+
          return view('admin.request',['user_requests' => $user_requests]);}
-         
+
          public function clubs(){
-        
+
             $clubs= DB::table('clubs')->get();
             // $users =User::get('name');
-             
+
              return view('admin.AllClubs',['clubs' => $clubs]);}
              public function department(){
         
