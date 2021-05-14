@@ -36,7 +36,15 @@ class UserListController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedata=$request->validate([
+        'name'=>'required|min:2',
+        'email'=>'required|email',]);
+          $user=new User;
+          $user->name=$request->name;
+          $user->email=$request->email;
+return redirect()->route('admin.show')
+
+        
     }
 
     /**

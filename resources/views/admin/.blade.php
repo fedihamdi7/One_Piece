@@ -50,8 +50,7 @@
           <div class="shadow p-3 mb-5 bg-body rounded">
             <div class="err-txt"> Wrong </div>
             <div class="succ-txt"> True </div>
-          <form action="{{route('userlist.store')}}" method="post"class="row g-3" enctype="multipart/form-data">
-            @csrf
+          <form class="row g-3" enctype="multipart/form-data">
             <div class="col-5">
                 <label for="inputAddress" class="form-label">Name</label>
                 <input type="text" name="name-up" class="form-control" id="inputAddress" placeholder="Enter Full Name...">
@@ -68,10 +67,9 @@
                 <label for="inputGroupFile02" class="form-label">Image</label>
                 <input type="file" name="image" class="form-control" id="inputGroupFile02">
               </div>
-             <br>
-            <div class="row">
-              <div class="col"><button type="submit" class="btn btn-primary add-user-btn" style="width: 150px;">submit</button></div>
-              <div class="col"><button type="reset"class="btn btn-primary add-user-btn" style="width: 150px;">Cancel</button></div>
+
+            <div class="col-5" style="margin-left: 30%; transform: translateX(-10%);">
+              <button class="btn btn-primary add-user-btn" style="width: 200px;">Add User</button>
             </div>
           </form>
         </div>

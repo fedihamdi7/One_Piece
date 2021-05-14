@@ -44,6 +44,7 @@ class User extends Authenticatable
     public function club()
     {
         // return $this->belongsTo('App\club');
+        protected $guarded=[];
         return $this->hasOne('App\club');
     }
 }
