@@ -13,7 +13,8 @@
     />   
     <link rel="stylesheet" href="{{asset('css/Style.css')}}">
     <link rel="stylesheet" href="{{asset('css/admin.css')}}" />
-    <link rel="stylesheet" href="{{asset('css/responsable.css')}}" />    <link
+    <link rel="stylesheet" href="{{asset('css/responsable.css')}}" />   
+     <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
@@ -25,93 +26,84 @@
     <main>
         <div class="main__container">
          <!-- MAIN TITLE STARTS HERE -->
-         <fieldset>
             <div class="main__title" style="margin-bottom: 20px;">   
                 <div class="main__greeting">
                 <h1 class="animate__animated animate__bounceInLeft"><i class="fa fa-user-plus"></i>   Add new Member</h1>
                 </div>
             </div>
             <div class="shadow p-3 mb-5 bg-body rounded" style="width: 1000px; height: 450px;;margin-left: 10%;margin-top: 6%;">
-            <!-- <div class="err-txt"></div>
-            <div class="succ-txt"></div> -->
-            <!-- <form action="php/gerer_events.php" method="POST" class="row g-3" style="width: 500px;" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1">Department : </label>
-                        <select class="form-control" id="exampleFormControlSelect1" name="dep" style="width: 150px;">
-                        <option>TI</option>
-                        <option>GE</option>
-                        <option>GP</option>
-                        <option>ME</option>
-                        <option>EL</option>
-                        </select>
-                    </div>
-                    <div class="col-md-5" style="width: 100%;">
-                        <label for="inputGroupFile02" class="form-label">Image</label>
-                        <input type="file" name="image" class="form-control" id="inputGroupFile02">
-                    </div>
-                    
-                    <div class="col-md-5" style="width: 50%; margin-left: -50%;">
-                        <label for="inputGroupFile002" class="form-label">Date</label>
-                        <input type="date" name="date" class="form-control" id="inputGroupFile002">
-                    </div>
-
-                    <input class="btn btn-primary"  type="submit" style="width: 120px;" value="Add event">
-
-            </form>-->
-      
-        <!-- <form action="" method="post">
+        <form action="{{route('teams.store')}}" method="post">
             @csrf
             <div class="row">
                 <div class="col">
                     <div class="form-group">
-                        <label for="firstname">Firstname</label>
-                        <input type="text" name="firstname" value="{{ old('firstname') }}" id="firstname" class="form-control @error('firstname') is-invalid @enderror @error('lastname') is-invalid @enderror" placeholder="Firstname goes here">
-                        @error('firstname')<div class="text-danger"></div>@enderror
+                        <label>Full name :</label>
+                        <input type="text" name="team_name" value="{{ old('team_name') }}" class="form-control @error('team_name') is-invalid @enderror"placeholder="fullname">
+                        @error('team_name')<div class="text-danger">{{ $message }}</div>@enderror
                       </div>
                 </div>
                 <br>
                 <div class="col">
                     <div class="form-group">
-                        <label for="lastname">Lastname</label>
-                        <input type="text" name="lastname" value="{{ old('lastname') }}" id="lastname" class="form-control @error('lastname') is-invalid @enderror" placeholder="Lastname goes here">
-                        @error('lastname')<div class="text-danger"></div>@enderror
-                      </div>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        <label for="phone">Phone</label>
-                        <input type="text" name="phone" value="{{ old('phone') }}" id="phone" class="form-control @error('phone') is-invalid @enderror" placeholder="+21612345678">
-                        @error('phone')<div class="text-danger"></div>@enderror
-                      </div>
-                </div>
-                <br>
-                <div class="col">
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" name="email" value="{{ old('email') }}" id="email" class="form-control @error('email') is-invalid @enderror" placeholder="person@example.com">
-                        @error('email')<div class="text-danger">{{ $message }}</div>@enderror
+                        <label >Titre</label>
+                        <input type="text" name="team_titre" value="{{ old('team_titre') }}"  class="form-control" placeholder="role">
+                        @error('team_titre')<div class="text-danger">{{ $message }}</div>@enderror
                       </div>
                 </div>
             </div>
             <br>
             <div class="form-group">
-              <label for="address">Address</label>
-              <input type="text" name="address" value="{{ old('address') }}" id="address" class="form-control @error('address') is-invalid @enderror" placeholder="Address goes here">
-              @error('address')<div class="text-danger">{{ $message }}</div>@enderror
+              <label >Image :</label>
+              <input type="file" name="team_img" value="{{ old('team_img') }}"  class="form-control" placeholder="photo">
+              @error('team_img')<div class="text-danger">{{ $message }}</div>@enderror
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label >Facebouk link :</label>
+                        <input type="text" name="team_fb" value="{{ old('team_fb') }}" class="form-control" placeholder="http/">
+                        @error('team_fb')<div class="text-danger">{{ $message }}</div>@enderror
+                      </div>
+                </div>
+                <br>
+                <div class="col">
+                    <div class="form-group">
+                        <label >Instagram link :</label>
+                        <input type="text" name="team_insta" value="{{ old('team_insta') }}" class="form-control" placeholder="http/">
+                        @error('team_insta')<div class="text-danger">{{ $message }}</div>@enderror
+                      </div>
+                </div>
+            </div>
+            
+            <br>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label >Twitter link :</label>
+                        <input type="text" name="team_twitter" value="{{ old('team_twitter') }}" class="form-control" placeholder="http/">
+                        @error('team_twitter')<div class="text-danger">{{ $message }}</div>@enderror
+                      </div>
+                </div>
+            <br>
+            <div class="col">
+                    <div class="form-group">
+                        <label >Linkedin link :</label>
+                        <input type="text" name="team_linkedin" value="{{ old('team_linkedin') }}" class="form-control" placeholder="http/">
+                        @error('team_linkedin')<div class="text-danger">{{ $message }}</div>@enderror
+                      </div>
+                </div>
             </div>
             <br>
             <div class="row">
                 <div class="col"><button type="submit" class="btn btn-block btn-outline-primary"><i class="fa fa-save"></i> Save</button></div>
                 <div class="col"><button type="reset" class="btn btn-block btn-outline-secondary"><i class="fa fa-window-close"></i> Cancel</button></div>
             </div>
-        </form> -->
+        </form>
         </div>
 
 </div> 
-    </fieldset>
+  
       </main>
       @include("layouts.sidebar_responsable")
       </div>

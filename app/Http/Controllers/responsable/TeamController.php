@@ -24,9 +24,9 @@ $clubId = DB::table('clubs')
 $team = DB::table('teams')
 ->join('clubs','clubs.id','=','teams.club_id')
 ->where('clubs.id',$clubId->first()->id)
-->get();
-// return view('responsable.Team.teams',['teams' => $team]);
-return view('responsable.Team.teams',['teams'=>team::paginate(6)]);
+->get('teams.*');
+return view('responsable.Team.teams',['teams' => $team]);
+// return view('responsable.Team.teams',['teams'=>team::paginate(6)]);
     }
 
     /**
@@ -48,7 +48,20 @@ return view('responsable.Team.teams',['teams'=>team::paginate(6)]);
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'team_name' => 'required',
+            'team_titre' => 'required',
+            'team_img' => 'required',
+            'team_fb' => 'required',
+            'team_insta' => 'required',
+            'team_twitter' => 'required',
+            'team_linkdlin' => 'required',
+        ]);
+        $team = Team::create($validatedData);
+        return redirect()->route('teams.show', $team);
+
+        // dd($request);
+        
     }
 
     /**
