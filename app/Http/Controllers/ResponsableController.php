@@ -35,7 +35,7 @@ $team = DB::table('teams')->get()
 return view('responsable.Team.teams',['teams' => $team]);
     }
     public  function themes(){
-        return view('responsable.theme');
+        return view('responsable.theme'); 
     }
     public function posts(){
         return view('responsable.post');
@@ -52,6 +52,6 @@ return view('responsable.Team.teams',['teams' => $team]);
         ->join('clubs','clubs.id','=','events.club_id')
         ->where('clubs.id',$clubId->first()->id)
         ->get();
- return view('responsable.event_list',['events' => $event]);
+ return view('responsable.event.event_list',['events' => $event]);
     }
 }

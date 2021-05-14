@@ -25,9 +25,9 @@ class EventController extends Controller
         $event = DB::table('events')
         ->join('clubs','clubs.id','=','events.club_id')
         ->where('clubs.id',$clubId->first()->id)
-        ->get();
-        return view('responsable.event_list',['events' => $event]);
-        // return dd($clubId);
+        ->get('events.*');
+        return view('responsable.event.event_list',['events' => $event]);
+        // return dd($event);
     }
 
     /**
@@ -59,7 +59,12 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        //
+        // $events = DB::table('events')
+        // ->join('clubs','clubs.id','=','events.club_id')
+        // ->where('id',$event->id)
+        // ->get();
+        return view('responsable.event.show',['event' => $event]);
+        // return dd($event->first());
     }
 
     /**

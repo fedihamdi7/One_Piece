@@ -59,6 +59,8 @@
                             <th scope="col">Image</th>
                             <th scope="col">Club ID</th>
                             <th scope="col" class="text-center">Operations on events</th>
+                            <th scope="col" class="text-center">Details</th>
+
                         </tr>
                     </thead>
                 <tbody>
@@ -73,6 +75,8 @@
                         <td> <a href=""> <i class="fa fa-ban" aria-hidden="true"></i> </a>
                             <a href=""> <i class="fa fa-edit" aria-hidden="true"></i> </a>
                          <a href=""> <i class="fa fa-calendar" aria-hidden="true"></i> </a></td>
+                        <td> <a href="{{ route('event_list.show',['event_list'=>$event->id]) }}"> <i class="fa fa-calendar" aria-hidden="true"></i> </a></td>
+
                     </tr>
                     @endforeach
                     </tbody>
@@ -80,6 +84,7 @@
                 {{-- {{$events->links() }} --}}
 
             </div>
+
         </main>
 
         @include("layouts.sidebar_responsable")
