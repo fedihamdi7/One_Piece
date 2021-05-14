@@ -89,11 +89,7 @@ class UserListController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validatedata=$request->validate([
-            'name'=>'required',
-            'email'=>'required',
-            'password'=>'required',
-            ]);
+        $validatedata=$request->validate($this->validationrules());
         $user=User::find($id);   
         $user->update($validatedata);
         return redirect()->route('userlist.show',$user);
@@ -109,4 +105,15 @@ class UserListController extends Controller
     {
         //
     }
+   
+    private function validationrules(){
+  return [
+    'name'=>'required',
+    'email'=>'required',
+    'password'=>'required',];
+
+    }
+
+
+
 }
