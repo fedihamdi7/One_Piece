@@ -25,7 +25,7 @@ class UserListController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.create');
     }
 
     /**
@@ -45,9 +45,14 @@ class UserListController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // public function show(User $user)
     public function show($id)
     {
-        //
+         $user=User::find($id);
+         return view('admin.show',['user'=>$user]);
+
+        //  return view('admin.show',['user'=>$user]);
+        //  return dd($user);
     }
 
     /**

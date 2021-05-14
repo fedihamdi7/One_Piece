@@ -51,6 +51,8 @@
                 </div>
 
                 <!-- MAIN TITLE ENDS HERE -->
+
+                <h2> <a href="{{route('userlist.create')}}" class="btn btn-primary"> <i class="fa fa-user-plus " aria-hidden="true"></i> Add new user</a></h2>
                 <table class="table">
                     <thead>
                         <tr>
@@ -58,6 +60,7 @@
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
                             <th scope="col">Type</th>
+                            <th scope="col">show user informations</th>
                             <th scope="col" class="text-center">operations on User</th>
                             {{-- <th scope="col">Update User</th> --}}
                         </tr>
@@ -71,9 +74,12 @@
                         <td scope="row">{{$user->name}}</td>
                         <td>{{$user->email }}</td>
                         <td>{{$user->type }}</td>
-                        <td> <a href=""> <i class="fa fa-ban" aria-hidden="true"></i> </a>
-                            <a href=""> <i class="fa fa-edit" aria-hidden="true"></i> </a>
-                         <a href=""> <i class="fa fa-user-plus" aria-hidden="true"></i> </a></td>
+                        {{-- <td> <a href="{{action('admin\UserListController@show',['userlist'=>$user->id])}}"> <i class="fa fa-user" aria-hidden="true"></i> </a></td> --}}
+                        <td> <a href="{{route('userlist.show',['userlist'=>$user->id])}}"> <i class="fa fa-user" aria-hidden="true"></i> </a></td>
+  
+                       
+                        <td> <a href=""> <i class="fa fa-edit" aria-hidden="true"></i> </a>
+                         <a href=""> <i class="fa fa-ban" aria-hidden="true"></i> </a></td>
                     </tr>
                     @endforeach
                     </tbody>
