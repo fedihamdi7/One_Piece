@@ -75,7 +75,9 @@ class UserListController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user=User::find($id);
+        return view('admin.userlist.edit',['user'=>$user]);
+
     }
 
     /**
@@ -87,7 +89,14 @@ class UserListController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedata=$request->validate([
+            'name'=>'required',
+            'email'=>'required',
+            'password'=>'required',
+            ]);
+        $user=User::find($id);   
+        $user->update($validatedata);
+        return redirect()->route('userlist.show',$user);
     }
 
     /**

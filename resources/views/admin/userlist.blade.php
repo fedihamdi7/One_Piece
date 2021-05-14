@@ -78,7 +78,7 @@
                         <td> <a href="{{route('userlist.show',['userlist'=>$user->id])}}"> <i class="fa fa-user" aria-hidden="true"></i> </a></td>
   
                        
-                        <td> <a href=""> <i class="fa fa-edit" aria-hidden="true"></i> </a>
+                        <td> <a href="{{route('userlist.edit',['userlist'=>$user->id])}}"> <i class="fa fa-edit" aria-hidden="true"></i> </a>
                          <a href=""> <i class="fa fa-ban" aria-hidden="true"></i> </a></td>
                     </tr>
                     @endforeach

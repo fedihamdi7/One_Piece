@@ -55,7 +55,8 @@
                 <h1><i class="fa fa-user  fa-2x text-red" aria-hidden="true"></i>Type of user:</h1>
                 <h4 > {{$user->type}}</strong></h4>
                 <div class="row">
-                    <div class="col"><button type="submit" class="btn btn-primary add-user-btn" style="  width: 125px;">Modify</button></div>
+                    {{-- <div class="col"><button type="submit" class="btn btn-primary add-user-btn" style="  width: 125px;">Modify</button></div> --}}
+                    <td> <a href="{{route('userlist.edit',['userlist'=>$user->id])}}" class="btn btn-primary add-user-btn" style="  width: 125px;"> <i class="fa fa-edit" aria-hidden="true"></i> modidier</a>
                     <div class="col"><button type="reset"class="btn btn-primary add-user-btn btn-danger" style="width: 125px;">delete</button></div>
                   </div>
                     </div>
