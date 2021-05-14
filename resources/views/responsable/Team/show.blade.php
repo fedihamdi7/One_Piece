@@ -32,20 +32,7 @@
                 <!-- <p>Welcome to your admin dashboard</p> -->
                 </div>
             </div>
-            <!-- <div class="card" style="width: 38rem;">
-         <div class="card-body">
-            <h5 class="card-title"><i class="fa fa-user"></i> <strong>{{$team->team_name}}</strong>
-            <ul class="list-group list-group-flush">Details:
-                <li class="list-group-item"> {{$team->team_titre }}</li>
-                <li class="list-group-item">{{$team->team_img }}</li>
-               </h5>
-            </ul>
-            <hr>
-            <a href="#" class="btn btn-warning" ><i class="fa fa-edit"></i></a>
-            <a href="#" class="btn btn-danger" ><i class="fa fa-dash"></i></a>
-        </div>
-      </div> -->
-       
+      
       <div class="shadow p-3 mb-5 bg-body rounded" style="width: 500px;margin-left: 20%;margin-top: 6%;">
             <!-- <div class="err-txt"></div>
             <div class="succ-txt"></div> -->
@@ -57,9 +44,6 @@
                     </div>
                     <hr>
                     <h6>Details :</h6>  
-                      
-                    
-                 
                     <div class="col-md-5" style="width: 100%;">
                         <strong>Role</strong>
                         <p>{{$team->team_titre}}</p>
@@ -75,7 +59,6 @@
                         <p>{{$team->team_twitter}}</p>
                         <p>{{$team->team_linkedin}}</p>
                     </div>
-                    <input class="btn btn-primary"  type="submit" style="width: 120px;" value="Add event">
 
         </div>
 

@@ -28,10 +28,10 @@ $resp_id= Auth::user()->id;
 $clubId=DB::table('clubs')
 ->where('club.users_id',$resp_id)
 ->get('id');
-$team = DB::table('teams')->get()
+$team = DB::table('teams')
 ->join('clubs','club.id','=','teams.club_id')
 ->where('club.id',$clubId->first()->id)
-->get();
+->get('teams.*');
 return view('responsable.Team.teams',['teams' => $team]);
     }
     public  function themes(){
