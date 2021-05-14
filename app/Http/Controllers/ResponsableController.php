@@ -19,20 +19,29 @@ class ResponsableController extends Controller
         return view('responsable.event');
        }
        public  function change_lo(){
-        return view('responsable.change_lo');
+        return view('responsable.change_logo');
     }
     public function teams(){
-        $team = DB::table('teams')->get();
- return view('responsable.teams',['teams' => $team]);
+        // $team = DB::table('teams')->get();
+//  return view('responsable.Team.teams',['teams' => $team]);
+$resp_id= Auth::user()->id;
+$clubId=DB::table('clubs')
+->where('club.users_id',$resp_id)
+->get('id');
+$team = DB::table('teams')->get()
+->join('clubs','club.id','=','teams.club_id')
+->where('club.id',$clubId->first()->id)
+->get();
+return view('responsable.Team.teams',['teams' => $team]);
     }
     public  function themes(){
         return view('responsable.theme');
     }
     public function posts(){
-        return view('responsable.posts');
+        return view('responsable.post');
     }
     public function about(){
-        return view('responsable.about');
+        return view('responsable.about_us');
     }
     public function event_list(){
         $resp_id=Auth::user()->id;

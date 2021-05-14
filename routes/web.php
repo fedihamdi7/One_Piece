@@ -29,7 +29,7 @@ Route::get('/home', 'HomeController@welcome')->name('home');
 Route::get('/responsable', 'ResponsableController@responsable');
 Route::get('/event','ResponsableController@event' );
 Route::get('/change','ResponsableController@change_lo');
-Route::get('/teams', 'ResponsableController@teams');
+// Route::get('/teams', 'ResponsableController@teams');
 Route::get('/themes','ResponsableController@themes' );
 Route::get('/posts','ResponsableController@posts');
 Route::get('/about','ResponsableController@about');
@@ -47,7 +47,7 @@ Route::get('/department','AdminController@department');
 
 
 Route::resource('AllClubs', 'admin\ClubController');
-
+Route::resource('teams', 'responsable\TeamController');
 Route::resource('userlist','admin\UserListController');
 Route::resource('event_list','responsable\EventController');
 
