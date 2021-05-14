@@ -39,7 +39,7 @@
         </div>
 
       </div>
-      
+
     </main>
     @include("layouts.sidebar_responsable")
   </div>
