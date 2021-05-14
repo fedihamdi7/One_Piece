@@ -29,16 +29,45 @@
                 <div class="main__title" style="margin-bottom: 20px;">
                     <img src="assets/user_list.svg" alt="" />
                     <div class="main__greeting">
-                        <h1 class="animate__animated animate__bounceInLeft">Pending Requests</h1>
+                        <h1 class="animate__animated animate__bounceInLeft"></h1>
+                        {{-- <h3 ><i class="fa fa-user animate__animated animate__bounceInLeft" aria-hidden="true"></i><strong class="animate__animated animate__bounceInLeft">user details {{$user->name}}</strong></h3> --}}
+                       
                         <!-- <p>Welcome to your admin dashboard</p> -->
+                        
+            {{-- <div class="card">
+                <i class="fa fa-user animate__animated animate__bounceInLeft fa-2x text-red" aria-hidden="true"></i>
+                <div class="card_inner">
+                  <p class="text-primary-p"><strong class="animate__animated animate__bounceInLeft">user details {{$user->name}}</strong></p>
+                  <span class="font-bold text-title">2467</span>
+                </div>
+              </div> --}}
+
+
+              <h2 class="text-primary-p"><strong class="animate__animated animate__bounceInLeft">user details </strong></h2>
+              <div class="charts">
+                <div class="charts__left">
+                  <div class="charts__left__title">
+                    <div>
+                        <h1 style="text-align: center"> about {{$user->name}}</strong></h1>
+            <hr>
+            <h1><i class="fa fa-envelope"></i> email:</h1>
+                <h4 > {{$user->email}}</strong></h4>
+                <h1><i class="fa fa-user  fa-2x text-red" aria-hidden="true"></i>Type of user:</h1>
+                <h4 > {{$user->type}}</strong></h4>
+                <div class="row">
+                    <div class="col"><button type="submit" class="btn btn-primary add-user-btn" style="  width: 125px;">Modify</button></div>
+                    <div class="col"><button type="reset"class="btn btn-primary add-user-btn btn-danger" style="width: 125px;">delete</button></div>
+                  </div>
+                    </div>
+                 
+                  </div>
+                  <div id="apex1"></div>
+                </div>
+
                     </div>
                 </div>
 
-                <h3 >{{$user->name}}</strong></h3>
-            
-                <h3 > {{$user->email}}</strong></h3>
                 
-                <h3 > {{$user->type}}</strong></h3>
              
 
 

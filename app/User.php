@@ -41,10 +41,12 @@ class User extends Authenticatable
     // {
     //     return $this->hasOne('App\Club');
     // }
+
+     protected $guarded=[];
     public function club()
     {
         // return $this->belongsTo('App\club');
-        protected $guarded=[];
+       
         return $this->hasOne('App\club');
     }
 }
