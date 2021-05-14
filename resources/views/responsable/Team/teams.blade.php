@@ -23,6 +23,7 @@
   <body id="body">
     <div class="container">
     <main>
+
         <div class="main__container">
          <!-- MAIN TITLE STARTS HERE -->
             <div class="main__title" style="margin-bottom: 20px;">
@@ -32,15 +33,17 @@
                 <!-- <p>Welcome to your admin dashboard</p> -->
                 </div>
             </div>
+<br>
             <table class="table">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Name</th>
+                            <th scope="col"><i class="fa fa-user"></i> Name</th>
                             <th scope="col">Titre</th>
-                            <th scope="col">image</th>
-                            <th scope="col">Delete User</th>
-                            <th scope="col">Update User</th>
+                            <th scope="col"><i class="fa fa-picture-o" ></i> image</th>
+                            <th scope="col">Show</th>
+                            <th scope="col">Delete</th>
+                            <th scope="col">Update</th>
                         </tr>
                     </thead>
                     <tbody id="result">
@@ -50,12 +53,18 @@
                             <th scope="row">{{$team->team_name}}</th>
                             <th>{{$team->team_titre }}</th>
                             <th>{{$team->team_img }}</th>
-                            <th> <a href=""> <i class="fa fa-ban" aria-hidden="true"></i> </a></th>
-                            <th> <a href=""> <i class="fa fa-pencil" aria-hidden="true"></i> </a></th>
+                            <th>  <a href="{{ route('teams.show', ['team' => $team->id]) }}"><i class="fa fa-tag" style="color: blue" ></i></a></th>
+                            <th>   <a href="#" ><i class="fa fa-trash" style="color: red" ></i></a></th>
+                            <th> <a href="#" *><i class="fa fa-edit" style="color: #ffdd00" ></i></a></th>
+                            <!-- <th> <a href=""> <i class="fa fa-ban" aria-hidden="true"></i> </a></th>
+                            <th> <a href=""> <i class="fa fa-pencil" aria-hidden="true"></i> </a></th> -->
                         </tr>
                         @endforeach
                     </tbody>
-                </table>
+                </table>      
+                <br>    
+                  <a href="{{ route('teams.create') }}" class="btn btn-outline-primary float-right"><i class="fa fa-user-plus"></i>   Add new Member</a>
+
         </div>
       </main>
       @include("layouts.sidebar_responsable")
