@@ -50,26 +50,32 @@
           <div class="shadow p-3 mb-5 bg-body rounded">
             <div class="err-txt"> Wrong </div>
             <div class="succ-txt"> True </div>
-          <form class="row g-3" enctype="multipart/form-data">
+          <form action="{{route('userlist.store')}}" method="post"class="row g-3" enctype="multipart/form-data">
+            @csrf
             <div class="col-5">
                 <label for="inputAddress" class="form-label">Name</label>
-                <input type="text" name="name-up" class="form-control" id="inputAddress" placeholder="Enter Full Name...">
+                <input type="text" name="name"  value="{{ old('name') }} "class="form-control @error('name') is-invalid @enderror" id="inputAddress" placeholder="Enter Full Name...">
+                @error('name')<div class="text-danger">{{ $message }}</div>@enderror
               </div>
             <div class="col-md-5">
               <label for="inputEmail4" class="form-label">Email</label>
-              <input type="email" name="email-up" class="form-control" id="inputEmail4" placeholder="Enter Email...">
+              <input type="email" name="email"  value="{{ old('email') }} "class="form-control @error('email') is-invalid @enderror" id="inputEmail4" placeholder="Enter Email...">
+              @error('email')<div class="text-danger">{{ $message }}</div>@enderror
             </div>
             <div class="col-md-5">
               <label for="inputPassword4" class="form-label">Password</label>
-              <input type="password" name="pwd-up" class="form-control" id="inputPassword4">
+              <input type="password" name="password"  value="{{ old('password') }}" class="form-control @error('password') is-invalid @enderror" id="inputPassword4">
+              @error('password')<div class="text-danger">{{ $message }}</div>@enderror
             </div>
             <div class="col-md-5">
                 <label for="inputGroupFile02" class="form-label">Image</label>
-                <input type="file" name="image" class="form-control" id="inputGroupFile02">
+                <input type="file" name="image"  value="{{ old('image') }}" class="form-control @error('image') is-invalid @enderror" id="inputGroupFile02">
+                @error('image')<div class="text-danger">{{ $message }}</div>@enderror
               </div>
-
-            <div class="col-5" style="margin-left: 30%; transform: translateX(-10%);">
-              <button class="btn btn-primary add-user-btn" style="width: 200px;">Add User</button>
+             <br>
+            <div class="row">
+              <div class="col"><button type="submit" class="btn btn-primary add-user-btn" style="width: 150px;">submit</button></div>
+              <div class="col"><button type="reset"class="btn btn-primary add-user-btn" style="width: 150px;">Cancel</button></div>
             </div>
           </form>
         </div>

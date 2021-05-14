@@ -25,7 +25,7 @@ class UserListController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.userlist.create');
     }
 
     /**
@@ -36,7 +36,19 @@ class UserListController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedata=$request->validate([
+        'name'=>'required',
+        'email'=>'required',
+        'password'=>'required',
+        ]);
+        //   $user=new User;
+        //   $user->name=$request->name;
+        //   $user->email=$request->email;
+
+        $user=User::create($validatedata);
+        return redirect()->route('userlist.show',$user);
+
+        
     }
 
     /**
@@ -45,9 +57,14 @@ class UserListController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // public function show(User $user)
     public function show($id)
     {
-        //
+         $user=User::find($id);
+         return view('admin.userlist.show',['user'=>$user]);
+
+        //  return view('admin.show',['user'=>$user]);
+        //  return dd($user);
     }
 
     /**

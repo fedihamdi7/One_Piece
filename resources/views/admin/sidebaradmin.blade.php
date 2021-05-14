@@ -26,14 +26,14 @@
       </div>
       <h2>Users</h2>
       <div class="sidebar__link">
-        <i class="fa fa-building-o"></i>
+        <i class="fa fa-user"></i>
         <a href="userlist">Users List</a>
       </div>
 
-      <div class="sidebar__link ">
+      {{-- <div class="sidebar__link ">
         <i class="fa fa-user-secret" aria-hidden="true"></i>
         <a href="add_user">Add User</a>
-      </div>
+      </div> --}}
       
       <div class="sidebar__link ">
         <i class="fa fa-wrench"></i>
