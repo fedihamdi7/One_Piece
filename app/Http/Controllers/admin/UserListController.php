@@ -25,7 +25,7 @@ class UserListController extends Controller
      */
     public function create()
     {
-        return view('admin.create');
+        return view('admin.userlist.create');
     }
 
     /**
@@ -61,7 +61,7 @@ class UserListController extends Controller
     public function show($id)
     {
          $user=User::find($id);
-         return view('admin.show',['user'=>$user]);
+         return view('admin.userlist.show',['user'=>$user]);
 
         //  return view('admin.show',['user'=>$user]);
         //  return dd($user);
