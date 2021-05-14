@@ -43,6 +43,6 @@ class ResponsableController extends Controller
         ->join('clubs','clubs.id','=','events.club_id')
         ->where('clubs.id',$clubId->first()->id)
         ->get();
- return view('responsable.event_list',['events' => $event]);
+ return view('responsable.event.event_list',['events' => $event]);
     }
 }
