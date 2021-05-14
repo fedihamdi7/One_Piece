@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   
+
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
-    
-    
+
+
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/adminuserlist.css') }}" rel="stylesheet">
 
     <title>DASHBOARD</title>
     <link rel="icon" href="admin.png">
-   
-   
+
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 
@@ -58,23 +58,26 @@
                             <th scope="col">Date</th>
                             <th scope="col">Image</th>
                             <th scope="col">Club ID</th>
+                            <th scope="col" class="text-center">Operations on events</th>
                         </tr>
                     </thead>
                 <tbody>
                     @foreach ($events as $event)
-                        
-                    
+
+
                     <tr>
                         <th scope="row">{{$event->id}}</th>
                         <td scope="row">{{$event->event_date}}</td>
                         <td>{{$event->event_image }}</td>
                         <td>{{$event->club_id }}</td>
-                        
+                        <td> <a href=""> <i class="fa fa-ban" aria-hidden="true"></i> </a>
+                            <a href=""> <i class="fa fa-edit" aria-hidden="true"></i> </a>
+                         <a href=""> <i class="fa fa-calendar" aria-hidden="true"></i> </a></td>
                     </tr>
                     @endforeach
                     </tbody>
                 </table>
-
+                {{-- {{$events->links() }} --}}
 
             </div>
         </main>
@@ -83,10 +86,10 @@
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-        
+
 
     <link href="{{ asset('js/admin.js') }}" rel="stylesheet">
-                        
+
 </body>
 
 </html>

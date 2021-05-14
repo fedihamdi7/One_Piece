@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ResponsableController extends Controller
 {
@@ -34,7 +35,14 @@ class ResponsableController extends Controller
         return view('responsable.about');
     }
     public function event_list(){
-        $event = DB::table('events')->get();
+        $resp_id=Auth::user()->id;
+        $clubId = DB::table('clubs')
+        ->where('clubs.users_id',$resp_id)
+        ->get('id');
+        $event = DB::table('events')
+        ->join('clubs','clubs.id','=','events.club_id')
+        ->where('clubs.id',$clubId->first()->id)
+        ->get();
  return view('responsable.event_list',['events' => $event]);
     }
 }
