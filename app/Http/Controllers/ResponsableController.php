@@ -26,7 +26,7 @@ class ResponsableController extends Controller
  return view('responsable.teams',['teams' => $team]);
     }
     public  function themes(){
-        return view('responsable.theme');
+        return view('responsable.theme'); 
     }
     public function posts(){
         return view('responsable.posts');
