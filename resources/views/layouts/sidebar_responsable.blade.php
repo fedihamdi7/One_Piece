@@ -52,7 +52,7 @@
             <a href="about">About Us</a>
           </div>
           <div class="sidebar__link">
-            <i class="fa fa-user-secret" aria-hidden="true"></i>
+            <i class="fa fa-calendar" aria-hidden="true"></i>
               <a href="event_list"> Events List</a>
             </div>
           <div class="sidebar__logout">

@@ -15,6 +15,10 @@
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 Route::get('/','HomeController@welcome');
 
 Auth::routes();
@@ -29,7 +33,7 @@ Route::get('/teams', 'ResponsableController@teams');
 Route::get('/themes','ResponsableController@themes' );
 Route::get('/posts','ResponsableController@posts');
 Route::get('/about','ResponsableController@about');
-Route::get('/event_list','ResponsableController@event_list');
+// Route::get('/event_list','ResponsableController@event_list');
 
 Route::get('/clubs', 'ClubController@clubs');
 Route::get('/club/{id}', 'ClubController@one_club');
@@ -41,4 +45,5 @@ Route::get('/AllClubs','AdminController@clubs');
 Route::get('/department','AdminController@department');
 
 Route::resource('userlist','admin\UserListController');
+Route::resource('event_list','responsable\EventController');
 
