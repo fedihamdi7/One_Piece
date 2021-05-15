@@ -28,7 +28,8 @@ Route::get('/home', 'HomeController@welcome')->name('home');
 
 Route::get('/responsable', 'ResponsableController@responsable');
 Route::get('/event','ResponsableController@event' );
-Route::get('/change','ResponsableController@change_lo');
+Route::get('/change','responsable\LogoController@index')->name('changelogo');
+Route::post('/change','responsable\LogoController@update')->name('changelogo.update');
 // Route::get('/teams', 'ResponsableController@teams');
 Route::get('/themes','ResponsableController@themes' );
 Route::get('/posts','ResponsableController@posts');

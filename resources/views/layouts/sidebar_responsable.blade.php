@@ -27,7 +27,7 @@
           <h2>Users</h2>
           <div class="sidebar__link ">
           <i class="fa fa-picture-o" aria-hidden="true"></i>
-            <a href="change">Change Logo</a>
+            <a href=" {{ route('changelogo')}} ">Change Logo</a>
           </div>
 
           <div class="sidebar__link ">
