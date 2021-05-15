@@ -49,7 +49,14 @@
                         </button>
                     </div>
                 </div>
-
+                @if (session('deleteClub'))
+                    <div class="alert alert-dismissible alert-success fade show" role="alert">
+                        {{ session('deleteClub') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
                 <!-- MAIN TITLE ENDS HERE -->
                 <table class="table">
                     <thead>
@@ -74,7 +81,13 @@
                         <td>{{$club->departments_id }}</td>
 
                         <td>{{$club->users_id }}</td>
-                        <td> <a href="">  <i class="fa fa-trash" style="color: red" aria-hidden="true"></i> </a></td>
+                        <td> <a href=""onclick="event.preventDefault(); document.querySelector('#delete-club-form').submit()">
+                            <i class="fa fa-trash" style="color: red" aria-hidden="true" title="Delete Club {{ $club -> club_name}}"></i>
+                            </a>
+                        </td>
+                        <form action="{{ route('AllClubs.destroy', ['AllClub' => $club->id]) }}" method="post" id="delete-club-form">@csrf @method('DELETE')</form>
+
+
                         {{-- <td> <a href=""> <i class="fa fa-pencil" aria-hidden="true"></i> </a></td> --}}
                     </tr>
                     @endforeach

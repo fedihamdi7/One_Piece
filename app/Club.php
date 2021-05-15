@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Club extends Model
 {
+    protected $guarded = [];
+
     public function department()
     {
         return $this->belongsTo('App\Department');
@@ -15,7 +17,7 @@ class Club extends Model
     {
         return $this->hasOne('App\Club_info');
     }
-     
+
     public function post()
     {
         return $this->hasOne('App\Post');
