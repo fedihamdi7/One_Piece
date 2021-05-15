@@ -46,7 +46,7 @@ class UserListController extends Controller
         //   $user->email=$request->email;
 
         $user=User::create($validatedata);
-        return redirect()->route('userlist.show',$user);
+        return redirect()->route('userlist.show',$user)->with('storeUser',"user has been added successfuly");
 
         
     }
@@ -75,7 +75,9 @@ class UserListController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user=User::find($id);
+        return view('admin.userlist.edit',['user'=>$user]);
+
     }
 
     /**
@@ -87,7 +89,10 @@ class UserListController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedata=$request->validate($this->validationrules());
+        $user=User::find($id);   
+        $user->update($validatedata);
+        return redirect()->route('userlist.show',$user)->with('updateUser',"user has been updated successfuly");
     }
 
     /**
@@ -98,6 +103,19 @@ class UserListController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user=User::find($id); 
+        $user->delete();
+        return redirect()->route('userlist.index')->with('deletUser','user has been deleted successfuly');
     }
+   
+    private function validationrules(){
+  return [
+    'name'=>'required',
+    'email'=>'required',
+    'password'=>'required',];
+
+    }
+
+
+
 }

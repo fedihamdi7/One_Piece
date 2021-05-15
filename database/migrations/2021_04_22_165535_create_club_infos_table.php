@@ -19,7 +19,7 @@ class CreateClubInfosTable extends Migration
             $table->string('event_description');
             $table->integer('club_id')->unsigned();
             $table->timestamps();
-            $table->foreign('club_id')->references('id')->on('clubs')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('club_id')->references('id')->on('clubs')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

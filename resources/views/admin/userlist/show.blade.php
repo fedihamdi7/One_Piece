@@ -25,6 +25,26 @@
         <main>
             <div class="main__container">
                 <!-- MAIN TITLE STARTS HERE -->
+                
+
+                @if(session('storeUser'))
+                <div class="alert alert-dismissible alert-success fade show">
+                    {{session('storeUser')}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</<span>
+                    </button>
+                </div>
+                @endif
+
+                @if(session('updateUser'))
+                <div class="alert alert-dismissible alert-success fade show">
+                    {{session('updateUser')}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</<span>
+                    </button>
+                </div>
+                @endif
+                
 
                 <div class="main__title" style="margin-bottom: 20px;">
                     <img src="assets/user_list.svg" alt="" />
@@ -55,8 +75,12 @@
                 <h1><i class="fa fa-user  fa-2x text-red" aria-hidden="true"></i>Type of user:</h1>
                 <h4 > {{$user->type}}</strong></h4>
                 <div class="row">
-                    <div class="col"><button type="submit" class="btn btn-primary add-user-btn" style="  width: 125px;">Modify</button></div>
-                    <div class="col"><button type="reset"class="btn btn-primary add-user-btn btn-danger" style="width: 125px;">delete</button></div>
+                    {{-- <div class="col"><button type="submit" class="btn btn-primary add-user-btn" style="  width: 125px;">Modify</button></div> --}}
+                    <td> <a href="{{route('userlist.edit',['userlist'=>$user->id])}}" class="btn btn-primary add-user-btn" style="  width: 125px;"> <i class="fa fa-edit" aria-hidden="true"></i> modidier</a>
+                      <a href="" title="Delete user {{$user->name}}"> <i class="fa fa-ban" aria-hidden="true" 
+                        onclick="event.preventDefault();
+                        document.querySelector('#delete-user-form').submit()"></i> </a>
+                    <form action="{{route('userlist.destroy',['userlist'=>$user->id])}}" method="post" id="delete-user-form">@csrf @method('DELETE')</form>
                   </div>
                     </div>
                  

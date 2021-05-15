@@ -20,8 +20,8 @@ class CreateClubsTable extends Migration
             $table->string('club_theme', 100);
             $table->integer('departments_id')->unsigned();
             $table->integer('users_id')->unsigned();
-            $table->foreign('departments_id')->references('id')->on('departments')->onDelete('restrict')->onUpdate('restrict');
-            $table->foreign('users_id')->references('id')->on('users')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('departments_id')->references('id')->on('departments')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

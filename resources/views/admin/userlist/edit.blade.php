@@ -40,7 +40,7 @@
             <div class="main__title" style="margin-bottom: 20px;">
                 <img src="assets/add_user.svg" alt="" />
                 <div class="main__greeting">
-                <h1 class="animate__animated animate__bounceInLeft">Add User</h1>
+                <h1 class="animate__animated animate__bounceInLeft">Modify User:<strong>{{$user->name}}</strong></h1>
                 <!-- <p>Welcome to your admin dashboard</p> -->
                 </div>
             </div>
@@ -50,9 +50,9 @@
           <div class="shadow p-3 mb-5 bg-body rounded">
             <div class="err-txt"> Wrong </div>
             <div class="succ-txt"> True </div>
-          <form action="{{route('userlist.store')}}" method="post"class="row g-3" enctype="multipart/form-data">
+          <form action="{{route('userlist.update',['userlist'=>$user->id])}}" method="post"class="row g-3" enctype="multipart/form-data">
+            @method('PUT')
             @include('admin.userlist.form')
-     
           </form>
         </div>
 

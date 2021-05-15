@@ -19,11 +19,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 
+
+
+
+
+
+
 <body id="body">
     <div class="container">
         <main>
             <div class="main__container">
                 <!-- MAIN TITLE STARTS HERE -->
+
+                @if(session('deletUser'))
+                <div class="alert alert-dismissible alert-success fade show">
+                    {{session('deletUser')}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</<span>
+                    </button>
+                </div>
+                @endif
 
                 <div class="main__title" style="margin-bottom: 20px;">
                     <img class="animate__animated animate__fadeInDown" src="assets/user_list.svg" alt="" />
@@ -78,8 +93,14 @@
                         <td> <a href="{{route('userlist.show',['userlist'=>$user->id])}}"> <i class="fa fa-user" aria-hidden="true"></i> </a></td>
   
                        
-                        <td> <a href=""> <i class="fa fa-edit" aria-hidden="true"></i> </a>
-                         <a href=""> <i class="fa fa-ban" aria-hidden="true"></i> </a></td>
+                        <td> <a href="{{route('userlist.edit',['userlist'=>$user->id])}}"> <i class="fa fa-edit" aria-hidden="true"></i> </a>
+                         <a href="" title="Delete user {{$user->name}}"> <i class="fa fa-ban" aria-hidden="true" 
+                            onclick="event.preventDefault();
+                            document.querySelector('#delete-user-form').submit()"></i> </a>
+                        <form action="{{route('userlist.destroy',['userlist'=>$user->id])}}" method="post" id="delete-user-form">@csrf @method('DELETE')</form>
+                        
+                        </td>
+
                     </tr>
                     @endforeach
                     </tbody>
