@@ -22,6 +22,7 @@
 <body id="body">
     <div class="container">
         <main>
+            <a href="{{ route('event_list.create')}}"class="btn btn-outline-primary btn-lg float-right"><i class="fa fa-calendar"> Add New Event</i></a>
             <div class="main__container">
                 <!-- MAIN TITLE STARTS HERE -->
 
