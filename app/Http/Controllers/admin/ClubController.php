@@ -83,8 +83,11 @@ class ClubController extends Controller
      * @param  \App\Club  $club
      * @return \Illuminate\Http\Response
      */
+    // public function destroy(Club $club)
     public function destroy(Club $club)
     {
-        //
+        $club->delete();
+        return redirect()->route('AllClubs.index')->with('deleteClub', 'Club has been deleted!');
+        // return dd($club->first());
     }
 }

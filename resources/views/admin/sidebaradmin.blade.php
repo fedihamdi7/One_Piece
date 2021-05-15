@@ -27,7 +27,7 @@
       <h2>Users</h2>
       <div class="sidebar__link">
         <i class="fa fa-user"></i>
-        <a href="userlist">Users List</a>
+        <a href="{{route('userlist.index')}}">Users List</a>
       </div>
 
       {{-- <div class="sidebar__link ">
@@ -41,7 +41,7 @@
       </div>
       <div class="sidebar__link ">
         <i class="fa fa-users"></i>
-        <a href="AllClubs">Clubs</a>
+        <a href="{{route('AllClubs.index')}}">Clubs</a>
       </div>
 
       <div class="sidebar__link ">
