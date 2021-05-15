@@ -76,14 +76,22 @@
                 <h4 > {{$user->type}}</strong></h4>
                 <div class="row">
                     {{-- <div class="col"><button type="submit" class="btn btn-primary add-user-btn" style="  width: 125px;">Modify</button></div> --}}
+                    <div class="col">
                     <td> <a href="{{route('userlist.edit',['userlist'=>$user->id])}}" class="btn btn-primary add-user-btn" style="  width: 125px;"> <i class="fa fa-edit" aria-hidden="true"></i> modidier</a>
-                      <a href="" title="Delete user {{$user->name}}"> <i class="fa fa-ban" aria-hidden="true" 
+                    </div>
+                    <div class="col">
+                    <button class="btn btn-primary add-user-btn  btn-danger" >
+                      <a href="" title="Delete user {{$user->name}}"> <i class="fa fa-ban"  
                         onclick="event.preventDefault();
-                        document.querySelector('#delete-user-form').submit()"></i> </a>
+                        document.querySelector('#delete-user-form').submit()">delete</i> </a>
                     <form action="{{route('userlist.destroy',['userlist'=>$user->id])}}" method="post" id="delete-user-form">@csrf @method('DELETE')</form>
+                  </button>
                   </div>
                     </div>
                  
+
+                    
+
                   </div>
                   <div id="apex1"></div>
                 </div>
