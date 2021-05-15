@@ -23,7 +23,7 @@ class CreateTeamsTable extends Migration
             $table->string('team_twitter');
             $table->string('team_linkedin');
             $table->integer('club_id')->unsigned();
-            $table->foreign('club_id')->references('id')->on('clubs')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('club_id')->references('id')->on('clubs')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

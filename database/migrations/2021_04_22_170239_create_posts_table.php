@@ -21,7 +21,7 @@ class CreatePostsTable extends Migration
             // $table->integer('club_id')->unsigned()->unique();
             $table->integer('club_id')->unsigned();
             $table->timestamps();
-            $table->foreign('club_id')->references('id')->on('clubs')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('club_id')->references('id')->on('clubs')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

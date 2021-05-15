@@ -18,7 +18,7 @@ class CreateEventsTable extends Migration
             $table->date('event_date');
             $table->string('event_image');
             $table->integer('club_id')->unsigned();
-            $table->foreign('club_id')->references('id')->on('clubs')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('club_id')->references('id')->on('clubs')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
