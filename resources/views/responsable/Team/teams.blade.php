@@ -55,7 +55,7 @@
                             <th>{{$team->team_img }}</th>
                             <th>  <a href="{{ route('teams.show', ['team' => $team->id]) }}"><i class="fa fa-tag" style="color: blue" ></i></a></th>
                             <th>   <a href="#" ><i class="fa fa-trash" style="color: red" ></i></a></th>
-                            <th> <a href="#" *><i class="fa fa-edit" style="color: #ffdd00" ></i></a></th>
+                            <th> <a href="{{route('teams.edit', ['team' => $team->id])}}"><i class="fa fa-edit" style="color: #ffdd00" ></i></a></th>
                             <!-- <th> <a href=""> <i class="fa fa-ban" aria-hidden="true"></i> </a></th>
                             <th> <a href=""> <i class="fa fa-pencil" aria-hidden="true"></i> </a></th> -->
                         </tr>

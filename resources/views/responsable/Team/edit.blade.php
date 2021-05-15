@@ -23,54 +23,55 @@
 
         <div class="main__title" style="margin-bottom: 20px;">
           <div class="main__greeting">
-            <h1 class="animate__animated animate__bounceInLeft"><i class="fa fa-user-plus"></i>   Add new Member</h1>
+            <h1 class="animate__animated animate__bounceInLeft"><i class="fa fa-calendar"> Edit <strong>{{$team->team_name}}</strong> details</i></h1>
             <!-- <p>Welcome to your admin dashboard</p> -->
           </div>
         </div>
         <div class="shadow p-3 mb-5 bg-body rounded" style="width: 500px;margin-left: 20%;margin-top: 6%;">
           <fieldset>
               <legend></legend>
-              <form action="{{route('teams.store')}}" method="post">
+              <form action="{{route('teams.update', ['team' => $team->id])}}" method="post">
+            @method('PUT')
                 @csrf
                         <div class="form-group">
                             <label for="name">nom :</label>
-                            <input type="text" name="team_name" id="team_name" value="{{ old('team_name') }}" class="form-control" >
+                            <input type="text" name="team_name" id="team_name" value="{{ $team->team_name }}" class="form-control" >
                             @error('team_name')<div class="text-danger">{{ $message }}</div>@enderror
                           </div>
                 <br>
                 <div class="form-group">
                             <label for="name">titre :</label>
-                            <input type="text" name="team_titre" id="team_titre" value="{{ old('team_titre') }}" class="form-control" >
+                            <input type="text" name="team_titre" id="team_titre" value="{{ $team->team_titre }}" class="form-control" >
                             @error('team_titre')<div class="text-danger">{{ $message }}</div>@enderror
                           </div>
                 <br>
                 <div class="form-group">
                   <label for="image">Image :</label>
-                  <input type="file" name="team_img" id="team_img"  class="form-control" >
+                  <input type="file" name="team_img" id="team_img" value="{{ $team->team_img }}" class="form-control" >
                   @error('team_img')<div class="text-danger">{{ $message }}</div>@enderror
                 </div>
                 <br>
                 <div class="form-group">
                             <label for="name">Facebook :</label>
-                            <input type="text" name="team_fb" id="team_fb" value="{{ old('team_fb') }}" class="form-control" >
+                            <input type="text" name="team_fb" id="team_fb" value="{{ $team->team_fb }}" class="form-control" >
                             @error('team_fb')<div class="text-danger">{{ $message }}</div>@enderror
                           </div>
                 <br>
                 <div class="form-group">
                             <label for="name">Instagram :</label>
-                            <input type="text" name="team_insta" id="team_insta" value="{{ old('team_name') }}" class="form-control" >
+                            <input type="text" name="team_insta" id="team_insta" value="{{ $team->team_insta }}" class="form-control" >
                             @error('team_insta')<div class="text-danger">{{ $message }}</div>@enderror
                           </div>
                 <br>
                 <div class="form-group">
                             <label for="name">twitter :</label>
-                            <input type="text" name="team_twitter" id="team_twitter" value="{{ old('team_name') }}" class="form-control" >
+                            <input type="text" name="team_twitter" id="team_twitter" value="{{ $team->team_twitter }}" class="form-control" >
                             @error('team_twitter')<div class="text-danger">{{ $message }}</div>@enderror
                           </div>
                 <br>
                 <div class="form-group">
                             <label for="name">linkedin :</label>
-                            <input type="text" name="team_linkedin" id="team_linkedin" value="{{ old('team_name') }}" class="form-control" >
+                            <input type="text" name="team_linkedin" id="team_linkedin" value="{{ $team->team_linkedin }}" class="form-control" >
                             @error('team_linkedin')<div class="text-danger">{{ $message }}</div>@enderror
                           </div>
                 <br>
