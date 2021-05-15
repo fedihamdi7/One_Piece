@@ -18,9 +18,7 @@ class ResponsableController extends Controller
     public function event(){
         return view('responsable.event');
        }
-       public  function change_lo(){
-        return view('responsable.change_logo');
-    }
+
     public function teams(){
         // $team = DB::table('teams')->get();
 //  return view('responsable.Team.teams',['teams' => $team]);
@@ -35,7 +33,7 @@ $team = DB::table('teams')
 return view('responsable.Team.teams',['teams' => $team]);
     }
     public  function themes(){
-        return view('responsable.theme'); 
+        return view('responsable.theme');
     }
     public function posts(){
         return view('responsable.post');

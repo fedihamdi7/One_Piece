@@ -22,10 +22,10 @@
     <title>DASHBOARD</title>
     <link rel="icon" href="admin.png">
   </head>
-  
+
   <body id="body">
     <div class="container">
-      
+
 
       <main>
         <div class="main__container">
@@ -40,21 +40,31 @@
             </div>
 
           <!-- MAIN TITLE ENDS HERE -->
-          
+                @if (session('logoupload'))
+                    <div class="alert alert-dismissible alert-success fade show" role="alert">
+                        {{ session('logoupload') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
+
           <div class="shadow p-3 mb-5 bg-body rounded">
+              <img src="../images/club_logo/{{ $club->first()->club_img}}" style="width: 24%;margin-left: 34%;" alt="">
             <!-- <div class="err-txt"></div>
             <div class="succ-txt"></div> -->
           <!-- <form class="row g-3" enctype="multipart/form-data" method="GET" action="php/add_image.php"> -->
-          <form action="php/change_logo.php" method="POST" enctype="multipart/form-data" class="row g-3">
-
+          <form action=" {{route('changelogo.update')}} " method="POST" enctype="multipart/form-data" class="row g-3">
+            @csrf
             <div class="col-md-5">
                 <label for="inputGroupFile02" class="form-label">Image</label>
-                <input type="file" name="image" class="form-control" id="inputGroupFile02">
+                <input type="file" name="logoimage" class="form-control @error('logoimage') is-invalid @enderror " id="inputGroupFile02">
+                @error('logoimage')<div class="text-danger">{{ $message }}</div>@enderror
               </div>
 
             <div class="col-5" style="margin-left: 30%; transform: translateX(-10%);">
-            <input class="btn btn-primary add-user-btn" style="width: 200px;" type="submit" value="Save">
-              <!-- <button class="btn btn-primary add-user-btn" type="submit" style="width: 200px;">Save</button> -->
+            {{-- <input class="btn btn-primary add-user-btn" style="width: 200px;" type="submit" value="Save"> --}}
+               <button class="btn btn-primary add-user-btn" type="submit" style="width: 200px;">Save</button>
             </div>
           </form>
         </div>
