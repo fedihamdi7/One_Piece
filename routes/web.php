@@ -42,7 +42,7 @@ Route::get('/admin','AdminController@admin')->name('admin.dashboard');
 Route::get('/add_user','AdminController@add_user');
 Route::get('/request','AdminController@request');
 // Route::get('/AllClubs','AdminController@clubs');
-Route::get('/department','AdminController@department');
+Route::resource('/department','admin\DepartmentController');
 
 
 
