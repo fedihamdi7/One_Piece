@@ -47,9 +47,5 @@ class AdminController extends Controller
     public function department()
     {
 
-        $departments = DB::table('departments')->get();
-        // $users =User::get('name');
-
-        return view('admin.department', ['departments' => $departments]);
     }
 }

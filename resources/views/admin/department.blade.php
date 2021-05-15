@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   
+
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
-    
-    
+
+
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/adminuserlist.css') }}" rel="stylesheet">
 
     <title>DASHBOARD</title>
     <link rel="icon" href="admin.png">
-   
-   
+
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 
@@ -57,19 +57,24 @@
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
                             <th scope="col">Clubs Count</th>
-                           
+                            <th scope="col">Operations</th>
+
+
                         </tr>
                     </thead>
                 <tbody>
                     @foreach ($departments as $department)
-                        
-                    
+
+
                     <tr>
                         <th scope="row">{{$department->id}}</th>
                         <td scope="row">{{$department->nom_department}}</td>
                         <td>{{$department->clubs_count }}</td>
-                    
-                        
+
+                        <td> <a href="{{route ('department.edit',['department' => $department->id])}}"> <i class="fa fa-edit" aria-hidden="true"></i> </a>
+                            <a href=""> <i class="fa fa-ban" aria-hidden="true"></i> </a></td>
+
+
                     </tr>
                     @endforeach
                     </tbody>
@@ -79,14 +84,14 @@
             </div>
         </main>
 
-        @include('admin.sidebaradmin')  
+        @include('admin.sidebaradmin')
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-        
+
 
     <link href="{{ asset('js/admin.js') }}" rel="stylesheet">
-                        
+
 </body>
 
 </html>
