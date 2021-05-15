@@ -21,7 +21,7 @@
     </div>
     <div class="sidebar__link">
         <i class="fa fa-desktop"></i>
-        
+
          <a href="admin">dashboard</a>
       </div>
       <h2>Users</h2>
@@ -34,7 +34,7 @@
         <i class="fa fa-user-secret" aria-hidden="true"></i>
         <a href="add_user">Add User</a>
       </div> --}}
-      
+
       <div class="sidebar__link ">
         <i class="fa fa-wrench"></i>
         <a href="request">Pending Requests</a>
@@ -46,10 +46,10 @@
 
       <div class="sidebar__link ">
         <i class="fa fa-building"></i>
-        <a href="department">Departments</a>
+        <a href="{{route('department.index')}}">Departments</a>
       </div>
 
-     
+
     <div class="sidebar__logout">
       <i class="fa fa-power-off"></i>
       <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
