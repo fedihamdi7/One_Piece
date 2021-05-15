@@ -86,7 +86,7 @@ class DepartmentController extends Controller
 
 
         // $department->update($validatedData);
-        return redirect()->route('department.edit', $department);
+        return redirect()->route('department.edit', $department)->with('dep_update','Department updated Successfully');
         // return dd($department);
 
 
