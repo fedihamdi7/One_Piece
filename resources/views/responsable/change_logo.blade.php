@@ -58,7 +58,8 @@
             @csrf
             <div class="col-md-5">
                 <label for="inputGroupFile02" class="form-label">Image</label>
-                <input type="file" name="logoimage" class="form-control" id="inputGroupFile02">
+                <input type="file" name="logoimage" class="form-control @error('logoimage') is-invalid @enderror " id="inputGroupFile02">
+                @error('logoimage')<div class="text-danger">{{ $message }}</div>@enderror
               </div>
 
             <div class="col-5" style="margin-left: 30%; transform: translateX(-10%);">
