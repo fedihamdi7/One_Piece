@@ -61,7 +61,7 @@ return view('responsable.Team.teams',['teams' => $team]);
         return redirect()->route('teams.show', $team);
 
         // dd($request);
-        
+
     }
 
     /**

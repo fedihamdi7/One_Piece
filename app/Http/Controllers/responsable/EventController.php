@@ -37,7 +37,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        return view('responsable.event.create');
     }
 
     /**
@@ -48,7 +48,22 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $resp_id=Auth::user()->id;
+        $clubId = DB::table('clubs')
+        ->where('clubs.users_id',$resp_id)
+        ->get('id');
+        $validateData=$request->validate([
+            'event_date' =>'required',
+            'event_image' =>'required',
+        ]);
+        $event=new Event ;
+        $event->event_date=$request->event_date;
+        $event->event_image=$request->event_image;
+        $event->club_id=$clubId->first()->id;
+        $event->save();
+        // return dd($clubId->first()->id);
+        return view('event_list.show', ['event' => $event]);
+
     }
 
     /**
@@ -63,8 +78,8 @@ class EventController extends Controller
         // ->join('clubs','clubs.id','=','events.club_id')
         // ->where('id',$event->id)
         // ->get();
+
         return view('responsable.event.show',['event' => $event]);
-        // return dd($event->first());
     }
 
     /**
