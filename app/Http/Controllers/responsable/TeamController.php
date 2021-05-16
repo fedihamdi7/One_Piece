@@ -118,7 +118,8 @@ return view('responsable.Team.teams',['teams' => $team]);
      */
     public function destroy(Team $team)
     {
-        //
+        $team->delete();
+        return redirect()->route('teams.index');
     }
     private function validationrules(){
      return [
