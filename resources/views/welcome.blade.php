@@ -66,7 +66,7 @@
 
 
 <!-- start section header -->
-<div id="header" class="home" style="background-image:url(../images/home-bg.jpg)">
+<div id="header" class="home" style="background-image:url(../storage/images/home-bg.jpg)">
 
 <div class="container">
  <div class="header-content">
@@ -88,7 +88,7 @@
  <div class="row align-items-center">
      <div class="col-lg-5 col-md-6">
          <div class="about-img">
-            <img src="images/club.jpg" alt="Image">
+            <img src="../storage/images/club.jpg" alt="Image">
          </div>
      </div>
      <div class="col-lg-7 col-md-6">
@@ -140,7 +140,7 @@
     @foreach ($events as $event)
         <div class="col-lg-4 col-md-6 portfolio-thumbnail all branding uikits {{$event -> nom_department}} " >
           <a class="popup-img" href="images/events/{{$event -> event_image}}" >
-            <img src="images/events/{{ $event -> event_image }}" alt="img" >
+            <img src="../storage/images/events/{{ $event -> event_image }}" alt="img" >
             <p> {{$event -> event_date}} </p>
 
           </a>
@@ -219,7 +219,7 @@
 
        <div class="blog-item">
            <div class="blog-img">
-           <img src="images/club_logo/{{$club->club_img}}" alt="Blog">
+           <img src="../storage/images/club_logo/{{$club->club_img}}" alt="Blog">
            </div>
            <div class="blog-meta">
            </div>
