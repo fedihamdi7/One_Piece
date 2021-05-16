@@ -31,76 +31,7 @@
           <fieldset>
               <legend></legend>
               <form action="{{route('teams.store')}}" method="post">
-                @csrf
-                <div class="row">
-                <div class="col">
-                        <div class="form-group">
-                            <label for="name">Full Name  :</label>
-                            <input type="text" name="team_name" id="team_name" value="{{ old('team_name') }}" class="form-control" >
-                            @error('team_name')<div class="text-danger">{{ $message }}</div>@enderror
-                          </div>
-                          </div>
-
-                <br>
-                <div class="col">
-                <div class="form-group">
-                            <label for="name">Titre :</label>
-                            <input type="text" name="team_titre" id="team_titre" value="{{ old('team_titre') }}" class="form-control" >
-                            @error('team_titre')<div class="text-danger">{{ $message }}</div>@enderror
-                          </div>
-                          </div>
-                          </div>
-
-                <br>
-                <div class="form-group">
-                  <label for="image">Image :</label>
-                  <input type="file" name="team_img" id="team_img"  class="form-control" >
-                  @error('team_img')<div class="text-danger">{{ $message }}</div>@enderror
-                </div>
-                <br>
-                <div class="row">
-                <div class="col">
-                <div class="form-group">
-                            <label for="name">Facebook :</label>
-                            <input type="text" name="team_fb" id="team_fb" value="{{ old('team_fb') }}" class="form-control" >
-                            @error('team_fb')<div class="text-danger">{{ $message }}</div>@enderror
-                          </div>
-                          </div>
-                <br>
-                <div class="col">
-                <div class="form-group">
-                            <label for="name">Instagram :</label>
-                            <input type="text" name="team_insta" id="team_insta" value="{{ old('team_name') }}" class="form-control" >
-                            @error('team_insta')<div class="text-danger">{{ $message }}</div>@enderror
-                          </div>
-                          </div>
-                          </div>
-
-                <br>
-                <div class="row">
-                <div class="col">
-                <div class="form-group">
-                            <label for="name">twitter :</label>
-                            <input type="text" name="team_twitter" id="team_twitter" value="{{ old('team_name') }}" class="form-control" >
-                            @error('team_twitter')<div class="text-danger">{{ $message }}</div>@enderror
-                          </div>
-                          </div>
-
-                <br>
-                <div class="col">
-                <div class="form-group">
-                            <label for="name">linkedin :</label>
-                            <input type="text" name="team_linkedin" id="team_linkedin" value="{{ old('team_name') }}" class="form-control" >
-                            @error('team_linkedin')<div class="text-danger">{{ $message }}</div>@enderror
-                          </div>
-                          </div>
-                          </div>
-
-                <br>
-                <div class="row">
-                    <div class="col"><button type="submit" class="btn btn-block btn-outline-primary"><i class="fa fa-save"></i>  Add</button></div>
-                    <div class="col"><button type="reset" class="btn btn-block btn-outline-secondary"><i class="fa fa-window-close"></i>  Cancel</button></div>
-                </div>
+              @include("responsable.Team.form")
             </form>
           </fieldset>
         </div>
