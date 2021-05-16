@@ -36,8 +36,8 @@ return view('responsable.Team.teams',['teams' => $team]);
      */
     public function create()
     {
+        // return view('responsable.Team.create');
         return view('responsable.Team.create');
-
     }
 
     /**
@@ -48,19 +48,30 @@ return view('responsable.Team.teams',['teams' => $team]);
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
+        $resp_id=Auth::user()->id;
+        $clubId = DB::table('clubs')
+        ->where('clubs.users_id',$resp_id)
+        ->get('id');
+        $validateData=$request->validate([
             'team_name' => 'required',
             'team_titre' => 'required',
             'team_img' => 'required',
             'team_fb' => 'required',
             'team_insta' => 'required',
+            'team_linkedin' => 'required',
             'team_twitter' => 'required',
-            'team_linkdlin' => 'required',
         ]);
-        $team = Team::create($validatedData);
-        return redirect()->route('teams.show', $team);
-
-        // dd($request);
+        $team=new team ;
+        $team->team_name=$request->team_name;
+        $team->team_titre=$request->team_titre;
+        $team->team_img=$request->team_img;
+        $team->team_fb=$request->team_fb;
+        $team->team_insta=$request->team_insta;
+        $team->team_linkedin=$request->team_linkedin;
+        $team->team_twitter=$request->team_twitter;
+        $team->club_id=$clubId->first()->id;
+        $team->save();
+        return view('responsable.Team.show', ['team' => $team]);
 
     }
 
@@ -86,7 +97,8 @@ return view('responsable.Team.teams',['teams' => $team]);
      */
     public function edit(Team $team)
     {
-        //
+        return view('responsable.Team.edit', ['team' => $team]);
+
     }
 
     /**
@@ -98,7 +110,15 @@ return view('responsable.Team.teams',['teams' => $team]);
      */
     public function update(Request $request, Team $team)
     {
-        //
+        $validateData=$request->validate([
+            'team_name' => 'required',
+            'team_titre' => 'required',
+        ]);
+        $team->update($validateData);
+        return redirect()->route('teams.show', $team);
+
+
+        
     }
 
     /**
