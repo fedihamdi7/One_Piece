@@ -26,7 +26,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@welcome')->name('home');
 
 
-Route::get('/responsable', 'ResponsableController@responsable');
+Route::get('/responsable', 'ResponsableController@responsable')->name('responsable.dashboard');
 Route::get('/event','ResponsableController@event' );
 Route::get('/change','responsable\LogoController@index')->name('changelogo');
 Route::post('/change','responsable\LogoController@update')->name('changelogo.update');
@@ -36,7 +36,7 @@ Route::get('/posts','ResponsableController@posts');
 Route::get('/about','ResponsableController@about');
 // Route::get('/event_list','ResponsableController@event_list');
 
-Route::get('/clubs', 'ClubController@clubs');
+Route::get('/clubs', 'ClubController@clubs')->name('clubs.show');
 Route::get('/club/{id}', 'ClubController@one_club');
 Route::get('/admin','AdminController@admin')->name('admin.dashboard');
 // Route::get('/userlist','AdminController@userlist');

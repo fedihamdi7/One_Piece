@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ClubController extends Controller
@@ -15,6 +16,9 @@ class ClubController extends Controller
 
     public function one_club($id)
     {
+        $user_type = Auth::user()->type;
+      
+
         $infos = DB::table('clubs')
         ->join('club_infos', 'clubs.id', '=', 'club_infos.club_id')
         ->join('departments', 'clubs.departments_id', '=', 'departments.id')
@@ -33,7 +37,7 @@ class ClubController extends Controller
         ->join('teams', 'clubs.id', '=', 'teams.club_id')
         ->where('clubs.id',$id)
         ->get();
-        return view('club',['infos' => $infos , 'teams' => $teams , 'events' => $events]);
+        return view('club',['infos' => $infos , 'teams' => $teams , 'events' => $events , 'type'=>$user_type]);
         // return dd($infos);
         // return $infos->first()->club_name;
     }

@@ -7,7 +7,7 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
   <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" />
-  <link rel="icon" href="../images/club_logo/{{$infos->first()->club_img}}">
+  <link rel="icon" href="../storage/images/club_logo/{{$infos->first()->club_img}}">
 
   <title>{{$infos->first()->club_name}}</title>
 
@@ -55,7 +55,7 @@
         <i class="fa fa-times" id="menu-close"></i>
         <div class="container">
           <div class="image">
-            <a href="#"><img src="../images/club_logo/{{$infos->first()->club_img}}" alt="" /></a>
+            <a href="#"><img src="../storage/images/club_logo/{{$infos->first()->club_img}}" alt="" /></a>
           </div>
           <div class="author-content">
             <h4>{{$infos->first()->club_name}}</h4>
@@ -72,11 +72,21 @@
           <div class="social-network">
             <ul class="soial-icons">
               <li data-bs-toggle="tooltip" data-bs-placement="top" title="Home">
-                <a href="../home"><i class="fas fa-home"></i></a>
+                <a href="{{ route ('home')}}"><i class="fas fa-home"></i></a>
               </li>
               <li data-bs-toggle="tooltip" data-bs-placement="top" title="Clubs">
-                <a href="../clubs"><i class="fab fa-cuttlefish"></i></a>
+                <a href=" {{ route ('clubs.show')}} "><i class="fab fa-cuttlefish"></i></a>
               </li>
+              @if ($type == 'admin')
+              <li data-bs-toggle="tooltip" data-bs-placement="top" title="Dashboard">
+                <a href=" {{ route ('admin.dashboard')}} "><i class="fab fa-cuttlefish"></i></a>
+              </li>
+              @endif
+              @if ($type == 'responsable')
+              <li data-bs-toggle="tooltip" data-bs-placement="top" title="Dashboard">
+                <a href=" {{ route ('responsable.dashboard')}} "><i class="fas fa-user-shield"></i></a>
+              </li>
+              @endif
               {{-- <li data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook">
                 <a href="#"><i class="fa fa-facebook"></i></a>
               </li> --}}
@@ -116,7 +126,7 @@
           <div class="row">
             <div class="col-md-6">
               <div class="left-image">
-                <img src="../images/club_post/{{$infos->first()->post_image}}" alt="" style="width: 377.75px;height: 277.69px;" />
+                <img src="../storage/images/club_post/{{$infos->first()->post_image}}" alt="" style="width: 377.75px;height: 277.69px;" />
               </div>
             </div>
             <div class="col-md-6">
@@ -148,7 +158,7 @@
           <div class="isotope-wrapper">
                     <div class="owl-carousel owl-theme">
                         @foreach ($infos as $info)
-                        <div class="item"><img src="../events/{{$info -> img}}" alt=""></div>
+                        <div class="item"><img src="../storage/events/{{$info -> img}}" alt=""></div>
                         @endforeach
 
 
@@ -168,7 +178,7 @@
             <div class="carousel-inner" role="listbox">
               @foreach( $events as $event )
                  <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                     <img class="d-block img-fluid" src="../images/events/{{ $event->event_image }}" alt="">
+                     <img class="d-block img-fluid" src="../storage/images/events/{{ $event->event_image }}" alt="">
                         <div class="carousel-caption d-none d-md-block">
                            {{-- <h3>{{ $event->date }}</h3> --}}
                            {{-- <p>{{ $event->descriptoin }}</p> --}}
@@ -190,7 +200,7 @@
             <div class="carousel-inner">
             @foreach ($events as $event)
                 <div class="carousel-item active">
-                  <img src="../images/events/{{$event->img}}" class="d-block w-100" alt="...">
+                  <img src="../storage/images/events/{{$event->img}}" class="d-block w-100" alt="...">
                 </div>
             @endforeach
             </div>
@@ -229,10 +239,10 @@
 
             <div class="wrapper">
                 <div class="card front-face">
-                  <img src="../images/club_team_image/{{$team -> team_img}}" />
+                  <img src="../storage/images/club_team_image/{{$team -> team_img}}" />
                 </div>
                 <div class="card back-face">
-                  <img src="../images/club_team_image/{{$team -> team_img}}" />
+                  <img src="../storage/images/club_team_image/{{$team -> team_img}}" />
                   <div class="info">
                     <div class="title">{{$team -> team_name}}</div>
                     <p>{{$team -> team_titre}} </p>
@@ -250,10 +260,10 @@
 
             <div class="wrapper">
                 <div class="card front-face">
-                  <img src="../images/club_team_image/{{$team -> team_img}}" />
+                  <img src="../storage/images/club_team_image/{{$team -> team_img}}" />
                 </div>
                 <div class="card back-face">
-                  <img src="../images/club_team_image/{{$team -> team_img}}" />
+                  <img src="../storage/images/club_team_image/{{$team -> team_img}}" />
                   <div class="info">
                     <div class="title">{{$team -> team_name}}</div>
                     <p>{{$team -> team_titre}} </p>

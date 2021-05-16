@@ -18,7 +18,7 @@
                     <div class="col-xs-12 col-sm-4">
                         <div class="card">
                             <a class="img-card" href="/club/{{$club->club_id}}">
-                            <img src="images/club_logo/{{$club -> club_img}}" />
+                            <img src="storage/images/club_logo/{{$club -> club_img}}" />
                           </a>
                             <div class="card-content">
                                 <h4 class="card-title">

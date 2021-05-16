@@ -20,7 +20,7 @@ class LogoController extends Controller
     public  function update(Request $request){
 
         $this -> validate($request,[
-            'logoimage' => 'image|max:1999'
+            'logoimage' => 'image|max:1999|required'
         ]);
 
         // if ($request->hasFile('logoimage')){
