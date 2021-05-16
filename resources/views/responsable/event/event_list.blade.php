@@ -22,6 +22,16 @@
 <body id="body">
     <div class="container">
         <main>
+            @if (session('deleteEvent'))
+            <div class="alert alert-dismissible alert-success fade show" role="alert">
+                {{session('deleteEvent')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            @endif
+            
             <a href="{{ route('event_list.create')}}"class="btn btn-outline-primary btn-lg float-right"><i class="fa fa-calendar"> Add New Event</i></a>
             <div class="main__container">
                 <!-- MAIN TITLE STARTS HERE -->
@@ -59,8 +69,8 @@
                             <th scope="col">Date</th>
                             <th scope="col">Image</th>
                             <th scope="col">Club ID</th>
-                            <th scope="col" class="text-center">Operations on events</th>
                             <th scope="col" class="text-center">Details</th>
+                            <th scope="col" class="text-center">Operations on events</th>
 
                         </tr>
                     </thead>
@@ -73,11 +83,16 @@
                         <td scope="row">{{$event->event_date}}</td>
                         <td>{{$event->event_image }}</td>
                         <td>{{$event->club_id }}</td>
-                        <td> <a href=""> <i class="fa fa-ban" aria-hidden="true"></i> </a>
-                            <a href=""> <i class="fa fa-edit" aria-hidden="true"></i> </a>
-                         <a href=""> <i class="fa fa-calendar" aria-hidden="true"></i> </a></td>
-                        <td> <a href="{{ route('event_list.show',['event_list'=>$event->id]) }}"> <i class="fa fa-calendar" aria-hidden="true"></i> </a></td>
 
+                        <td> <a href="{{ route('event_list.show',['event_list'=>$event->id]) }}"> <i class="fa fa-calendar" aria-hidden="true"></i> </a></td>
+                        <td>
+                            <a href="{{ route('event_list.edit',['event_list'=>$event->id]) }}"> <i class="fa fa-edit" aria-hidden="true"></i> </a>
+                         <a href="" title="Delete event{{ $event->event_image.' '.$event->event_date }}" onclick="event.preventDefault():document.querySelector('#delet-event-form').submit()"> <i class="fa fa-ban" aria-hidden="true" ></i> </a>
+                            <form action="{{ route('event_list.destroy',['event_list'=>$event->id]) }}" method="POST" id="delete-event-form">
+                            @csrf @method('DELETE')
+                            </form>
+
+                        </td>
                     </tr>
                     @endforeach
                     </tbody>

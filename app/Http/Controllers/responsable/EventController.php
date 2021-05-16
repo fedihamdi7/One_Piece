@@ -62,8 +62,7 @@ class EventController extends Controller
         $event->club_id=$clubId->first()->id;
         $event->save();
         // return dd($clubId->first()->id);
-        return view('event_list.show', ['event' => $event]);
-
+        return view('responsable.event.show', ['event' => $event])->with('storeEvent','Event has been added successfuly');
     }
 
     /**
@@ -90,7 +89,8 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        //
+        // return dd($event);
+        return view('responsable.event.edit',['event' => $event]);
     }
 
     /**
@@ -102,7 +102,13 @@ class EventController extends Controller
      */
     public function update(Request $request, Event $event)
     {
-        //
+        $validateData=$request->validate([
+            'event_date' =>'required',
+            'event_image' =>'required',
+        ]);
+        $event->update($validateData);
+        return redirect()->route('event.show',$event)->with('updateEvent','Event has been updated successfuly');
+
     }
 
     /**
@@ -113,6 +119,9 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        //
+        $event->delete();
+        return redirect()->route('event.event_list',$event)->with('deleteEvent','Event has been deleted successfuly');
+
     }
+
 }

@@ -18,39 +18,41 @@
 <body id="body">
   <div class="container">
   <main>
-
       <div class="main__container">
         <!-- MAIN TITLE STARTS HERE -->
 
         <div class="main__title" style="margin-bottom: 20px;">
           <img src="assets/about.svg" alt="" />
           <div class="main__greeting">
-            <h1 class="animate__animated animate__bounceInLeft">More Details</h1>
+            <h1 class="animate__animated animate__bounceInLeft"><i class="fa fa-calendar"> Edit Event</i></h1>
             <!-- <p>Welcome to your admin dashboard</p> -->
           </div>
-          @if(session('updateEvent'))
-          <div class="alert alert-dismissible alert-success fade show" role="alert">
-              {{session('updateEvent')}}
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</<span>
-              </button>
-          </div>
-          @endif
-          @if(session('storeEvent'))
-                  <div class="alert alert-dismissible alert-success fade show" role="alert">
-                      {{session('storeEvent')}}
-                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                          <span aria-hidden="true">&times;</<span>
-                      </button>
-                  </div>
-                  @endif
         </div>
         <div class="shadow p-3 mb-5 bg-body rounded" style="width: 500px;margin-left: 20%;margin-top: 6%;">
+          <fieldset>
+              <legend></legend>
+              <form action="{{ route('event_list.update',['event_list'=>$event->id])}}" method="post">
+                @method('PUT')
+                @csrf
 
-            <h4> Date:</h4>
-          <p>{{ $event ->event_date}}</p>
-            <h4> Image:</h4>
-            <img src="../images/events/{{ $event ->event_image}}">
+                        <div class="form-group">
+                            <label for="date">Date :</label>
+                            <input type="date" name="event_date" id="event_date" value="{{ $event->event_date }}" class="form-control" >
+                            @error('event_date')<div class="text-danger">{{ $message }}</div>@enderror
+                          </div>
+                <br>
+                <div class="form-group">
+                  <label for="image">Image :</label>
+                  <input type="file" name="event_image" id="event_image" value="{{ $event->event_image }}" class="form-control" >
+                  @error('event_image')<div class="text-danger">{{ $message }}</div>@enderror
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col"><button type="submit" class="btn btn-block btn-outline-primary"><i class="fa fa-save"></i>  Add</button></div>
+                    <div class="col"><button type="reset" class="btn btn-block btn-outline-secondary"><i class="fa fa-window-close"></i>  Cancel</button></div>
+                </div>
+            </form>
+          </fieldset>
         </div>
 
       </div>
