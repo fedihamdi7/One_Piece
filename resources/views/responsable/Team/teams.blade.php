@@ -27,13 +27,21 @@
         <div class="main__container">
          <!-- MAIN TITLE STARTS HERE -->
             <div class="main__title" style="margin-bottom: 20px;">
-                <img src="assets/team.svg" alt="" />
+                <!-- <img src="assets/team.svg" alt="" /> -->
                 <div class="main__greeting">
                 <h1 class="animate__animated animate__bounceInLeft">Team</h1>
                 <!-- <p>Welcome to your admin dashboard</p> -->
                 </div>
             </div>
 <br>
+@if(session('deletTeam'))
+<div class="alert alert-dismissible alert-success fade show" role="alert">
+        {{ session('deletTeam') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@endif
             <table class="table">
                     <thead>
                         <tr>
@@ -54,10 +62,14 @@
                             <th>{{$team->team_titre }}</th>
                             <th>{{$team->team_img }}</th>
                             <th>  <a href="{{ route('teams.show', ['team' => $team->id]) }}"><i class="fa fa-tag" style="color: blue" ></i></a></th>
-                            <th>   <a href="#" ><i class="fa fa-trash" style="color: red" ></i></a></th>
-                            <th> <a href="{{route('teams.edit', ['team' => $team->id])}}"><i class="fa fa-edit" style="color: #ffdd00" ></i></a></th>
-                            <!-- <th> <a href=""> <i class="fa fa-ban" aria-hidden="true"></i> </a></th>
-                            <th> <a href=""> <i class="fa fa-pencil" aria-hidden="true"></i> </a></th> -->
+
+                            <th><a href="#" onclick="event.preventDefault(); document.querySelector('#delete-team-form').submit()" ><i class="fa fa-trash" style="color: red" ></i> </a>
+                    <form action="{{route('teams.destroy', ['team' => $team->id])}}" method="post" id="delete-team-form">
+                    @method('DELETE')
+                     @csrf
+                      </form>
+               </th>
+               <th> <a href="{{route('teams.edit', ['team' => $team->id])}}"><i class="fa fa-edit" style="color: #ffdd00" ></i></a></th>
                         </tr>
                         @endforeach
                     </tbody>

@@ -32,8 +32,23 @@
                 <!-- <p>Welcome to your admin dashboard</p> -->
                 </div>
             </div>
-      
-      <div class="shadow p-3 mb-5 bg-body rounded" style="width: 500px;margin-left: 20%;margin-top: 6%;">
+            @if(session('storeTeam'))
+<div class="alert alert-dismissible alert-success fade show" role="alert">
+        {{ session('storeTeam') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@endif
+@if(session('updateTeam'))
+<div class="alert alert-dismissible alert-success fade show" role="alert">
+        {{ session('updateTeam') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@endif
+      <div class="shadow p-3 mb-5 bg-body rounded" style="width: 600px;margin-left: 20%;margin-top: 6%;">
             <!-- <div class="err-txt"></div>
             <div class="succ-txt"></div> -->
             <div>
@@ -42,26 +57,44 @@
                    <center>   
                         <h3>{{$team->team_name}}</h3> </center>
                     </div>
-                    <hr>
-                    <h6>Details :</h6>  
-                    <div class="col-md-5" style="width: 100%;">
-                        <strong>Role</strong>
-                        <p>{{$team->team_titre}}</p>
-                    </div>
-                    <div class="col-md-5" style="width: 100%;">
+                    <hr> 
+  <div class="row g-0">
+    <div class="col-md-4">
                         <strong>photo:</strong>
-                        <p>{{$team->team_img}}</p>
+                        <br>
+                       <img src="../image/club_team_image/{{$team->team_img}}">
                     </div>
-                    <div class="col-md-5" style="width: 100%;">
-                        <strong>social media :</strong>
-                        <p>{{$team->team_fb}}</p>
-                        <p>{{$team->team_insta}}</p>
-                        <p>{{$team->team_twitter}}</p>
-                        <p>{{$team->team_linkedin}}</p>
+                    <div class="col-md-8">
+                    <h6>Details :</h6>  
+                    
+                        <strong>Role</strong>
+                        <p><i class="fa fa-user"></i>  {{$team->team_titre}}</p>
+                    <hr>
+                    <strong>Social Media :</strong>
+                        <p><i class="fa fa-facebook"></i> :{{$team->team_fb}}</p>
+                        <hr>
+                        <p><i class="fa fa-instagram"> </i> :{{$team->team_insta}}</p>
+                        <hr>
+                        <p><i class="fa fa-twitter"></i> :{{$team->team_twitter}}</p>
+                        <hr>
+                        <p><i class="fa fa-linkedin"></i> :{{$team->team_linkedin}}</p>
                     </div>
-
+                    </div>
+                    <!-- <div class="row">
+                    <div class="col"><button type="submit" class="btn btn-block btn-outline-primary"><i class="fa fa-save"></i>  Add</button></div>
+                    <div class="col"><button type="reset" class="btn btn-block btn-outline-secondary"><i class="fa fa-window-close"></i>  Cancel</button></div>
+                </div> -->  
+                 
+                <div class="row" style="margin-left: 30%;"><div class="col-md-8">
+                  <a href="{{route('teams.edit', ['team' => $team->id])}}" class="btn btn-block btn-outline-warning" ><i class="fa fa-edit" style="color: #ffdd00" ></i> Edit</a>
+                   <a href="#" onclick="event.preventDefault(); document.querySelector('#delete-team-form').submit()" class="btn btn-block btn-outline-danger" ><i class="fa fa-trash" style="color: red" ></i> Destory</a>
+                    <form action="{{route('teams.destroy', ['team' => $team->id])}}" method="post" id="delete-team-form">
+                    @method('DELETE')
+                     @csrf
+                      </form>
+                      </div>
+                      </div>
         </div>
-
         </div>
       </main>
       @include("layouts.sidebar_responsable")

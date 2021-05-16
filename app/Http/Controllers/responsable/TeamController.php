@@ -52,15 +52,7 @@ return view('responsable.Team.teams',['teams' => $team]);
         $clubId = DB::table('clubs')
         ->where('clubs.users_id',$resp_id)
         ->get('id');
-        $validateData=$request->validate([
-            'team_name' => 'required',
-            'team_titre' => 'required',
-            'team_img' => 'required',
-            'team_fb' => 'required',
-            'team_insta' => 'required',
-            'team_linkedin' => 'required',
-            'team_twitter' => 'required',
-        ]);
+        $validateData=$request->validate($this->validationrules());
         $team=new team ;
         $team->team_name=$request->team_name;
         $team->team_titre=$request->team_titre;
@@ -71,7 +63,7 @@ return view('responsable.Team.teams',['teams' => $team]);
         $team->team_twitter=$request->team_twitter;
         $team->club_id=$clubId->first()->id;
         $team->save();
-        return view('responsable.Team.show', ['team' => $team]);
+        return view('responsable.Team.show', ['team' => $team])->with('storeTeam','member has been added successfuly');
 
     }
 
@@ -110,12 +102,9 @@ return view('responsable.Team.teams',['teams' => $team]);
      */
     public function update(Request $request, Team $team)
     {
-        $validateData=$request->validate([
-            'team_name' => 'required',
-            'team_titre' => 'required',
-        ]);
+        $validateData=$request->validate($this->validationrules());
         $team->update($validateData);
-        return redirect()->route('teams.show', $team);
+        return redirect()->route('teams.show', $team)->with('updateTeam','member has been updated successfuly');
 
 
         
@@ -129,6 +118,18 @@ return view('responsable.Team.teams',['teams' => $team]);
      */
     public function destroy(Team $team)
     {
-        //
+        $team->delete();
+        return redirect()->route('teams.index')->with('deletTeam','member has been deleted successfuly');
+    }
+    private function validationrules(){
+     return [
+        'team_name' => 'required',
+        'team_titre' => 'required',
+        'team_img' => 'required',
+        'team_fb' => 'required',
+        'team_insta' => 'required',
+        'team_linkedin' => 'required',
+        'team_twitter' => 'required',
+        ];
     }
 }
