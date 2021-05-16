@@ -63,7 +63,7 @@ return view('responsable.Team.teams',['teams' => $team]);
         $team->team_twitter=$request->team_twitter;
         $team->club_id=$clubId->first()->id;
         $team->save();
-        return view('responsable.Team.show', ['team' => $team]);
+        return view('responsable.Team.show', ['team' => $team])->with('storeTeam','member has been added successfuly');
 
     }
 
@@ -104,7 +104,7 @@ return view('responsable.Team.teams',['teams' => $team]);
     {
         $validateData=$request->validate($this->validationrules());
         $team->update($validateData);
-        return redirect()->route('teams.show', $team);
+        return redirect()->route('teams.show', $team)->with('updateTeam','member has been updated successfuly');
 
 
         
@@ -119,7 +119,7 @@ return view('responsable.Team.teams',['teams' => $team]);
     public function destroy(Team $team)
     {
         $team->delete();
-        return redirect()->route('teams.index');
+        return redirect()->route('teams.index')->with('deletTeam','member has been deleted successfuly');
     }
     private function validationrules(){
      return [

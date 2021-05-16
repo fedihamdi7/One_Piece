@@ -32,7 +32,22 @@
                 <!-- <p>Welcome to your admin dashboard</p> -->
                 </div>
             </div>
-      
+            @if(session('storeTeam'))
+<div class="alert alert-dismissible alert-success fade show" role="alert">
+        {{ session('storeTeam') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@endif
+@if(session('updateTeam'))
+<div class="alert alert-dismissible alert-success fade show" role="alert">
+        {{ session('updateTeam') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@endif
       <div class="shadow p-3 mb-5 bg-body rounded" style="width: 500px;margin-left: 20%;margin-top: 6%;">
             <!-- <div class="err-txt"></div>
             <div class="succ-txt"></div> -->

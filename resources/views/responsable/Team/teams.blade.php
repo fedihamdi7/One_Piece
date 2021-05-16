@@ -34,6 +34,14 @@
                 </div>
             </div>
 <br>
+@if(session('deletTeam'))
+<div class="alert alert-dismissible alert-success fade show" role="alert">
+        {{ session('deletTeam') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@endif
             <table class="table">
                     <thead>
                         <tr>
