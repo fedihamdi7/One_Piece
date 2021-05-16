@@ -52,15 +52,7 @@ return view('responsable.Team.teams',['teams' => $team]);
         $clubId = DB::table('clubs')
         ->where('clubs.users_id',$resp_id)
         ->get('id');
-        $validateData=$request->validate([
-            'team_name' => 'required',
-            'team_titre' => 'required',
-            'team_img' => 'required',
-            'team_fb' => 'required',
-            'team_insta' => 'required',
-            'team_linkedin' => 'required',
-            'team_twitter' => 'required',
-        ]);
+        $validateData=$request->validate($this->validationrules());
         $team=new team ;
         $team->team_name=$request->team_name;
         $team->team_titre=$request->team_titre;
@@ -110,10 +102,7 @@ return view('responsable.Team.teams',['teams' => $team]);
      */
     public function update(Request $request, Team $team)
     {
-        $validateData=$request->validate([
-            'team_name' => 'required',
-            'team_titre' => 'required',
-        ]);
+        $validateData=$request->validate($this->validationrules());
         $team->update($validateData);
         return redirect()->route('teams.show', $team);
 
@@ -130,5 +119,16 @@ return view('responsable.Team.teams',['teams' => $team]);
     public function destroy(Team $team)
     {
         //
+    }
+    private function validationrules(){
+     return [
+        'team_name' => 'required',
+        'team_titre' => 'required',
+        'team_img' => 'required',
+        'team_fb' => 'required',
+        'team_insta' => 'required',
+        'team_linkedin' => 'required',
+        'team_twitter' => 'required',
+        ];
     }
 }
