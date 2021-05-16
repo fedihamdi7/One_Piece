@@ -48,7 +48,7 @@
         </button>
     </div>
 @endif
-      <div class="shadow p-3 mb-5 bg-body rounded" style="width: 600px;margin-left: 20%;margin-top: 6%;">
+      <div class="shadow p-3 mb-5 bg-body rounded" style="width: 800px;margin-left: 15%;margin-top: 6%;">
             <!-- <div class="err-txt"></div>
             <div class="succ-txt"></div> -->
             <div>
@@ -60,11 +60,11 @@
                     <hr> 
   <div class="row g-0">
     <div class="col-md-4">
-                        <strong>photo:</strong>
+                        <!-- <strong>Photo :</strong> -->
                         <br>
-                       <img src="../image/club_team_image/{{$team->team_img}}">
+                       <img src="../storage/images/club_team_image/{{$team->team_img}}" style="width: 90%; height: 110%;margin-right: 10%;margin-top: -8%;">
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-8" >
                     <h6>Details :</h6>  
                     
                         <strong>Role</strong>
