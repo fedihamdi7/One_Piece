@@ -52,6 +52,7 @@ Route::resource('/department','admin\DepartmentController');
 Route::resource('AllClubs', 'admin\ClubController');
 Route::resource('teams', 'responsable\TeamController');
 Route::resource('userlist','admin\UserListController');
+Route::resource('PendingRequest','admin\PendingRequestController');
 Route::resource('event_list','responsable\EventController');
 
 
