@@ -25,6 +25,14 @@
         <main>
             <div class="main__container">
                 <!-- MAIN TITLE STARTS HERE -->
+                @if(session('deletUser'))
+                <div class="alert alert-dismissible alert-success fade show">
+                    {{session('deletUser')}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</<span>
+                    </button>
+                </div>
+                @endif
 
                 <div class="main__title" style="margin-bottom: 20px;">
                     <img src="assets/user_list.svg" alt="" />
@@ -57,7 +65,16 @@
                             <td>{{$user_request->email }}</td>
                             <td>{{$user_request->image }}</td>
                             <td> <a href=""> <i class="fa fa-check-square" aria-hidden="true"></i> </a></td>
-                            <td> <a href="{{route('AllClubs.destroy', $user_request->id)}}"> <i class="fa fa-ban" aria-hidden="true"></i> </a></td>
+                            {{-- <td> <a href="{{route('AllClubs.destroy', $user_request->id)}}"> <i class="fa fa-ban" aria-hidden="true"></i> </a></td> --}}
+                            <td>
+                            <a href="" title="Delete user {{$user_request->name}}"> <i class="fa fa-ban" aria-hidden="true" 
+                                onclick="event.preventDefault();
+                                document.querySelector('#delete-user-form').submit()"></i> </a>
+                            <form action="{{route('PendingRequest.destroy',['PendingRequest'=>$user_request->id])}}" method="post" id="delete-user-form">@csrf @method('DELETE')</form>
+                            
+                            </td>
+
+
 
                             {{-- <form id="logout-form" action="{{ route('AllClubs.destroy', $user_request->id) }}" method="POST" style="display: none;">
                                 @csrf
