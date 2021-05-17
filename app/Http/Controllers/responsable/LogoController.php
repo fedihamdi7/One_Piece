@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\DB;
 
 class LogoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('responsable');
+    }
     public  function index(){
         $resp_id=Auth::user()->id;
         $club = DB::table('clubs')
