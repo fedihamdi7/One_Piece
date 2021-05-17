@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\DB;
 
 class AboutUsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('responsable');
+    }
 
     public  function index(){
         $resp_id=Auth::user()->id;
