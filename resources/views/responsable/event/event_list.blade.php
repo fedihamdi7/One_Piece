@@ -31,7 +31,7 @@
             </div>
 
             @endif
-            
+
             <a href="{{ route('event_list.create')}}"class="btn btn-outline-primary btn-lg float-right"><i class="fa fa-calendar"> Add New Event</i></a>
             <div class="main__container">
                 <!-- MAIN TITLE STARTS HERE -->
@@ -87,7 +87,7 @@
                         <td> <a href="{{ route('event_list.show',['event_list'=>$event->id]) }}"> <i class="fa fa-calendar" aria-hidden="true"></i> </a></td>
                         <td>
                             <a href="{{ route('event_list.edit',['event_list'=>$event->id]) }}"> <i class="fa fa-edit" aria-hidden="true"></i> </a>
-                         <a href="" title="Delete event{{ $event->event_image.' '.$event->event_date }}" onclick="event.preventDefault():document.querySelector('#delet-event-form').submit()"> <i class="fa fa-ban" aria-hidden="true" ></i> </a>
+                         <a href="" title="Delete event{{ $event->event_image.' '.$event->event_date }}" onclick="event.preventDefault();document.querySelector('#delete-event-form').submit()"> <i class="fa fa-ban" aria-hidden="true" ></i> </a>
                             <form action="{{ route('event_list.destroy',['event_list'=>$event->id]) }}" method="POST" id="delete-event-form">
                             @csrf @method('DELETE')
                             </form>

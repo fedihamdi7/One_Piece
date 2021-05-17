@@ -49,8 +49,8 @@
           </div>
           <div class="sidebar__link">
           <i class="fa fa-address-card-o" aria-hidden="true"></i>
-            <a href="about">About Us</a>
-          </div>
+          <a href="{{ route('aboutus')}}">About Us</a>
+         </div>
           <div class="sidebar__link">
             <i class="fa fa-calendar" aria-hidden="true"></i>
               <a href="event_list"> Events List</a>
