@@ -30,10 +30,10 @@
             <a href=" {{ route('changelogo')}} ">Change Logo</a>
           </div>
 
-          <div class="sidebar__link ">
+          {{-- <div class="sidebar__link ">
             <i class="fa fa-user-secret" aria-hidden="true"></i>
             <a href="event">Events</a>
-          </div>
+          </div> --}}
 
           <div class="sidebar__link">
           <i class="fa fa-users" aria-hidden="true"></i>
