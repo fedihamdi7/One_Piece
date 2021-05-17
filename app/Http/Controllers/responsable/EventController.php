@@ -15,6 +15,11 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('responsable');
+    }
     public function index()
     {
         // return view('responsable.event_list',['events'=>Event::paginate(10)]);
