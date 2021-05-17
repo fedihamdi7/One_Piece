@@ -20,7 +20,14 @@
   <main>
       <div class="main__container">
         <!-- MAIN TITLE STARTS HERE -->
-
+        @if (session('about_update'))
+        <div class="alert alert-dismissible alert-success fade show" role="alert">
+            {{ session('about_update') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
         <div class="main__title" style="margin-bottom: 20px;">
           <img src="assets/about.svg" alt="" />
           <div class="main__greeting">
@@ -29,13 +36,12 @@
           </div>
         </div>
         <div class="shadow p-3 mb-5 bg-body rounded" style="width: 500px;margin-left: 20%;margin-top: 6%;">
-          <form action="php/gerer_aboutus.php" method="POST" class="row g-3" style="width: 516px;" enctype="multipart/form-data">
+            <form action=" {{route('aboutus.update')}}" method="POST" class="row g-3" style="width: 516px;" enctype="multipart/form-data">
+                @csrf
             <div class="form-group" style="width: 461px;margin-left: -38px;">
               <label for="exampleFormControlTextarea1">About Us</label>
-              <textarea class="form-control" name="desc" id="exampleFormControlTextarea1" aria-valuenow="fezfz" rows="3"></textarea>
-            </div>
-<input class="btn btn-primary" type="submit" style="width: 120px;" value="Save">
-          </form>
+              <textarea class="form-control" name="aboutus" id="exampleFormControlTextarea1" aria-valuenow="fezfz" rows="6" >{{$club_info->first()->about_us}}</textarea>            </div>
+              <button class="btn btn-primary" type="submit" style="width: 120px;">Save</button>          </form>
         </div>
 
       </div>

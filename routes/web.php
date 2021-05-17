@@ -33,7 +33,9 @@ Route::post('/change','responsable\LogoController@update')->name('changelogo.upd
 // Route::get('/teams', 'ResponsableController@teams');
 Route::get('/themes','ResponsableController@themes' );
 Route::get('/posts','ResponsableController@posts');
-Route::get('/about','ResponsableController@about');
+// Route::get('/about','ResponsableController@about');
+Route::get('/about','responsable\AboutUsController@index')->name('aboutus');
+Route::post('/about','responsable\AboutUsController@update')->name('aboutus.update');
 // Route::get('/event_list','ResponsableController@event_list');
 
 Route::get('/clubs', 'ClubController@clubs')->name('clubs.show');
