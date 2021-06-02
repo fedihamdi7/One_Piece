@@ -53,7 +53,7 @@
          </div>
           <div class="sidebar__link">
             <i class="fa fa-calendar" aria-hidden="true"></i>
-              <a href="event_list"> Events List</a>
+              <a href="{{ route('event_list.index')}}"> Events List</a>
             </div>
           <div class="sidebar__logout">
             <i class="fa fa-power-off"></i>
