@@ -134,7 +134,7 @@ class EventController extends Controller
 
         $event->event_date = $request->event_date;
         $event->event_image =  $request->event_image;
-        $event->update();
+        $event->update($validateData);
         return redirect()->route('event_list.show',$event)->with('updateEvent','Event has been updated successfuly');
 
     }
