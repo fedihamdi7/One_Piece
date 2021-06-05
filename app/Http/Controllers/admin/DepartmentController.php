@@ -107,7 +107,9 @@ class DepartmentController extends Controller
      */
     public function destroy(Department $department)
     {
-        //
+
+        $department->delete();
+        return redirect()->route('department.index')->with('depDelete','Department has been deleted successfuly');
     }
 
     private function validationRules()

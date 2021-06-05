@@ -72,7 +72,10 @@
                         <td>{{$department->clubs_count }}</td>
 
                         <td> <a href="{{route ('department.edit',['department' => $department->id])}}"> <i class="fa fa-edit" aria-hidden="true"></i> </a>
-                            <a href=""> <i class="fa fa-ban" aria-hidden="true"></i> </a></td>
+                            <a href="" title="Delete department {{$department->nom_department}}"> <i class="fa fa-ban" aria-hidden="true"
+                                onclick="event.preventDefault();
+                                document.querySelector('#delete-department-form').submit()"></i> </a>
+                            <form action="{{route('department.destroy',['department'=>$department->id])}}" method="post" id="delete-department-form">@csrf @method('DELETE')</form>
 
 
                     </tr>
