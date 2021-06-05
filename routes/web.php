@@ -46,7 +46,7 @@ Route::get('/add_user','AdminController@add_user');
 Route::get('/request','AdminController@request');
 // Route::get('/AllClubs','AdminController@clubs');
 Route::resource('/department','admin\DepartmentController');
-
+Route::post('updateEvent','responsable\TestEventController@update')->name('upEvent');
 
 
 Route::resource('AllClubs', 'admin\ClubController');

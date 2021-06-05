@@ -11,7 +11,7 @@
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/adminuserlist.css') }}" rel="stylesheet">
-
+ 
     <title>DASHBOARD</title>
     <link rel="icon" href="admin.png">
 
