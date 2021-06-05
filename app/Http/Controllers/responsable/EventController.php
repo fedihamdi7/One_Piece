@@ -103,7 +103,7 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        // return dd($event);
+        return dd($event);
         return view('responsable.event.edit',['event' => $event]);
     }
 
@@ -120,8 +120,10 @@ class EventController extends Controller
             'event_date' =>'required',
             'event_image' =>'required',
         ]);
-        $event->update($validateData);
-        return redirect()->route('event.show',$event)->with('updateEvent','Event has been updated successfuly');
+        $event->event_date = $request->event_date;
+        $event->event_image = 'image';
+        $event->save($validateData);
+        return redirect()->route('event_list.show',$event)->with('updateEvent','Event has been updated successfuly');
 
     }
 
