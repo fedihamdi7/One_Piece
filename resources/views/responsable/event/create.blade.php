@@ -31,7 +31,7 @@
         <div class="shadow p-3 mb-5 bg-body rounded" style="width: 500px;margin-left: 20%;margin-top: 6%;">
           <fieldset>
               <legend></legend>
-              <form action="{{ route('event_list.store')}}" method="post">
+              <form action="{{ route('event_list.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                         <div class="form-group">
                             <label for="date">Date :</label>
