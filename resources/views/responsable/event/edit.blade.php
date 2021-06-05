@@ -31,7 +31,7 @@
         <div class="shadow p-3 mb-5 bg-body rounded" style="width: 500px;margin-left: 20%;margin-top: 6%;">
           <fieldset>
               <legend></legend>
-              <form action="{{ route('event_list.update',['event_list'=>$event->id])}}" method="POST" enctype="multipart/form-data">
+              <form action="{{ route('event_list.update',['event_list'=>$event->first()->id])}}" method="POST" enctype="multipart/form-data">
                 @method('PUT')
                 @csrf
 
