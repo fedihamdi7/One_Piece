@@ -61,9 +61,18 @@ class EventController extends Controller
             'event_date' =>'required',
             'event_image' =>'required',
         ]);
+        $fileNameWithExt = $request->file('event_image')->getClientOriginalName();
+        //just filename
+        $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+        //just extension
+        $extension = $request ->file('event_image')->getClientOriginalExtension();
+        //filename to store
+        $filenametoStore = $filename.'_'.time().'.'.$extension;
+        //upload
+        $path = $request->file('event_image')->storeAs('public/images/events/',$filenametoStore);
         $event=new Event ;
         $event->event_date=$request->event_date;
-        $event->event_image=$request->event_image;
+        $event->event_image=$filenametoStore;
         $event->club_id=$clubId->first()->id;
         $event->save();
         // return dd($clubId->first()->id);
