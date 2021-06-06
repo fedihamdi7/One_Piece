@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-
+use Symfony\Component\VarDumper\Cloner\Data;
 class EventController extends Controller
 {
     /**
@@ -85,7 +85,7 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function show(Event $event)
+    public function show(Event $event )
     {
         // $events = DB::table('events')
         // ->join('clubs','clubs.id','=','events.club_id')
@@ -106,7 +106,15 @@ class EventController extends Controller
         // return dd($event);
         return view('responsable.event.edit',['event' => $event]);
     }
-
+    public function ed($id)
+    {
+        // return dd($id);
+        $event = DB::table('events')
+        ->where('id',$id)
+        ->get();
+        // return dd($event->first());
+        return view('responsable.event.edit',['event' => $event->first()]);
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -130,12 +138,12 @@ class EventController extends Controller
         $filenametoStore = $filename.'_'.time().'.'.$extension;
         //upload
         $path = $request->file('event_image')->storeAs('public/images/events/',$filenametoStore);
+        $update= DB::table('events')
+        ->where('id',$request->id)
+        ->update(['event_date' => $request->event_date,
+                  'event_image'=>$filenametoStore]);
+        return redirect()->route('event_list.index')->with('updateEvent','Event has been updated successfuly');
 
-
-        $event->event_date = $request->event_date;
-        $event->event_image =  $request->event_image;
-        $event->update($validateData);
-        return redirect()->route('event_list.show',$event)->with('updateEvent','Event has been updated successfuly');
 
     }
 

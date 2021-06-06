@@ -31,10 +31,11 @@
         <div class="shadow p-3 mb-5 bg-body rounded" style="width: 500px;margin-left: 20%;margin-top: 6%;">
           <fieldset>
               <legend></legend>
-              <form action="{{ route('event_list.update',['event_list'=>$event->first()->id])}}" method="POST" enctype="multipart/form-data">
-                @method('PUT')
+              <img src="public/images/events/{{ $event->event_image }}" alt="">
+              <form action="{{ route('event_list.update',['event_list'=>$event->id])}}" method="POST" enctype="multipart/form-data">
+              @method('PUT')
                 @csrf
-
+                <input type="hidden" name="id" value="{{$event->id}}">
                         <div class="form-group">
                             <label for="date">Date :</label>
                             <input type="date" name="event_date" id="event_date" value="{{ $event->event_date }}" class="form-control" >
