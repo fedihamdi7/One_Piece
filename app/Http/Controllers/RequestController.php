@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User_request;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RequestController extends Controller
 {
@@ -41,7 +42,7 @@ class RequestController extends Controller
             'club_logo' => 'image|required',
 
         ]);
-        
+
         return dd($request);
     }
 
@@ -88,5 +89,10 @@ class RequestController extends Controller
     public function destroy(User_request $user_request)
     {
         //
+    }
+
+    public function model()
+    {
+        return view('request.ClubModel');
     }
 }
