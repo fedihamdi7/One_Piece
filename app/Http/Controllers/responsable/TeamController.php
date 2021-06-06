@@ -137,10 +137,7 @@ return view('responsable.Team.teams',['teams' => $team]);
         'team_name' => 'required',
         'team_titre' => 'required',
         'team_img' => 'required',
-        'team_fb' => 'required',
-        'team_insta' => 'required',
-        'team_linkedin' => 'required',
-        'team_twitter' => 'required',
+       
         ];
     }
 }
