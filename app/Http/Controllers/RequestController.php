@@ -77,7 +77,34 @@ class RequestController extends Controller
      */
     public function update(Request $request, User_request $user_request)
     {
-        //
+        $this -> validate($request,[
+            'club_logo' => 'image|max:1999|required',
+            'Cname' => 'required|max:30',
+            'about_club' => 'required|max:255',
+            'Deps' => 'required',
+        ]);
+
+        // if ($request->hasFile('logoimage')){
+            //file name with the extension
+            $fileNameWithExt = $request->file('club_logo')->getClientOriginalName();
+            //just filename
+            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            //just extension
+            $extension = $request ->file('club_logo')->getClientOriginalExtension();
+            //filename to store
+            $filenametoStore = $filename.'_'.time().'.'.$extension;
+            //upload
+            $path = $request->file('club_logo')->storeAs('public/images/club_logo/',$filenametoStore);
+            // Save into database
+
+               $update= DB::table('user_requests')
+              ->where('id',$request->id)
+              ->update(['club_logo' => $filenametoStore,
+                        'about_us'=>$request->about_club,
+                        'club_name' => $request->Cname,
+                        'department' => $request->Deps]);
+
+            return view('auth.login');
     }
 
     /**
