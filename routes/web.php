@@ -54,3 +54,4 @@ Route::resource('PendingRequest','admin\PendingRequestController');
 Route::resource('event_list','responsable\EventController');
 
 
+Route::resource('/requestform','RequestController');

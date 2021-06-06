@@ -32,7 +32,8 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    // protected $redirectTo = '/';
+    protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -52,10 +53,33 @@ class RegisterController extends Controller
      */
     public function register(Request $request)
     {
-        $this->validator($request->all())->validate();
-        event(new Registered($user = $this->create($request->all())));
-        return $this->registered($request, $user)
-            ?: redirect($this->redirectPath());
+        $imageName = time() . $request['UserImage']->getClientOriginalName();
+        $request['UserImage']->move(base_path() . '/public/storage/images/user_avatar/', $imageName);
+
+
+        if ($request['Role'] == 'Responsable') {
+            $user= User_request::create([
+                'name' => $request['name'],
+                'email' => $request['email'],
+                'password' => Hash::make($request['password']),
+                'image' => $imageName,
+                'type' => 'pending'
+            ]);
+            return redirect(route('requestform.index',['user'=>$user]));
+            // return redirect()->route('requestform.index',['user'=>$user]);
+            // return view('logout')->with('RegisterSucc','A Request has been send to administration , Check you E-mail');
+        }
+
+        if ($request['Role'] == 'Membre') {
+            return User::create([
+                'name' => $request['name'],
+                'email' => $request['email'],
+                'password' => Hash::make($request['password']),
+                'image' => $imageName,
+                'type' => 'membre'
+            ]);
+        }
+        return dd($request);
     }
     protected function validator(array $data)
     {
@@ -64,6 +88,8 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
+
+
     }
 
     /**
@@ -72,40 +98,35 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
-    {
+    // protected function create(array $data)
+    // {
 
-        $imageName = time() . $data['UserImage']->getClientOriginalName();
-        $data['UserImage']->move(base_path() . '/public/storage/images/user_avatar/', $imageName);
+    //     $imageName = time() . $data['UserImage']->getClientOriginalName();
+    //     $data['UserImage']->move(base_path() . '/public/storage/images/user_avatar/', $imageName);
 
 
-        if ($data['Role'] == 'Responsable') {
-             User_request::create([
-                'name' => $data['name'],
-                'email' => $data['email'],
-                'password' => Hash::make($data['password']),
-                'image' => $imageName,
-                'type' => 'pending'
-            ]);
-            return redirect()->route('logout');
-            // return view('logout')->with('RegisterSucc','A Request has been send to administration , Check you E-mail');
-        }
+    //     if ($data['Role'] == 'Responsable') {
+    //         $user= User_request::create([
+    //             'name' => $data['name'],
+    //             'email' => $data['email'],
+    //             'password' => Hash::make($data['password']),
+    //             'image' => $imageName,
+    //             'type' => 'pending'
+    //         ]);
+    //         return redirect(route('requestform.index'));
+    //         // return redirect()->route('requestform.index',['user'=>$user]);
+    //         // return view('logout')->with('RegisterSucc','A Request has been send to administration , Check you E-mail');
+    //     }
 
-        if ($data['Role'] == 'Membre') {
-            return User::create([
-                'name' => $data['name'],
-                'email' => $data['email'],
-                'password' => Hash::make($data['password']),
-                'image' => $imageName,
-                'type' => 'membre'
-            ]);
-        }
+    //     if ($data['Role'] == 'Membre') {
+    //         return User::create([
+    //             'name' => $data['name'],
+    //             'email' => $data['email'],
+    //             'password' => Hash::make($data['password']),
+    //             'image' => $imageName,
+    //             'type' => 'membre'
+    //         ]);
+    //     }
 
-        return dd($data);
-        // return User::create([
-        //     'name' => $data['name'],
-        //     'email' => $data['email'],
-        //     'password' => Hash::make($data['password']),
-        // ]);
-    }
+    // }
 }
