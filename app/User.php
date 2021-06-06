@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','image'
     ];
 
     /**
@@ -46,7 +46,7 @@ class User extends Authenticatable
     public function club()
     {
         // return $this->belongsTo('App\club');
-       
+
         return $this->hasOne('App\club');
     }
 }
