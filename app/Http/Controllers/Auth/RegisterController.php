@@ -65,7 +65,10 @@ class RegisterController extends Controller
                 'image' => $imageName,
                 'type' => 'pending'
             ]);
-            return redirect(route('requestform.index',['user'=>$user]));
+
+            return view('request.form',['user'=>$user]);
+            return redirect(route('requestform.index',['id'=>$user]));
+
             // return redirect()->route('requestform.index',['user'=>$user]);
             // return view('logout')->with('RegisterSucc','A Request has been send to administration , Check you E-mail');
         }
