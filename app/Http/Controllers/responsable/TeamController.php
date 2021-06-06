@@ -57,11 +57,17 @@ return view('responsable.Team.teams',['teams' => $team]);
         $clubId = DB::table('clubs')
         ->where('clubs.users_id',$resp_id)
         ->get('id');
+
+        $fileNameWithExt = $request->file('team_img')->getClientOriginalName();
+        $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+        $extension = $request ->file('team_img')->getClientOriginalExtension();
+        $filenametoStore = $filename.'_'.time().'.'.$extension;
+        $path = $request->file('team_img')->storeAs('public/images/club_team_image/',$filenametoStore);
         $validateData=$request->validate($this->validationrules());
         $team=new team ;
         $team->team_name=$request->team_name;
         $team->team_titre=$request->team_titre;
-        $team->team_img=$request->team_img;
+        $team->team_img=$filenametoStore;
         $team->team_fb=$request->team_fb;
         $team->team_insta=$request->team_insta;
         $team->team_linkedin=$request->team_linkedin;
@@ -131,10 +137,7 @@ return view('responsable.Team.teams',['teams' => $team]);
         'team_name' => 'required',
         'team_titre' => 'required',
         'team_img' => 'required',
-        'team_fb' => 'required',
-        'team_insta' => 'required',
-        'team_linkedin' => 'required',
-        'team_twitter' => 'required',
+       
         ];
     }
 }

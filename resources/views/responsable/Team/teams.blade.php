@@ -17,6 +17,8 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
+ 
+
     <title>DASHBOARD</title>
     <link rel="icon" href="admin.png">
   </head>
@@ -42,16 +44,21 @@
         </button>
     </div>
 @endif
+
             <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col"><i class="fa fa-user"></i> Name</th>
-                            <th scope="col">Titre</th>
-                            <th scope="col"><i class="fa fa-picture-o" ></i> image</th>
-                            <th scope="col">Show</th>
-                            <th scope="col">Delete</th>
-                            <th scope="col">Update</th>
+                            <th scope="col"><p>#</p></th>
+                            <th scope="col"><p style="margin-left:10%;"><i class="fa fa-user"></i>Name</p> </th>
+                            <th scope="col"><p style="margin-left:60%;">Titre</p></th>
+                            <th ><p style="margin-left:60%;"><i class="fa fa-picture-o" ></i> image</p></th>
+                            <th scope="col"  ><p>Facebook</p>  </th>
+                            <th scope="col" ><p>Instagram</p> </th>
+                            <th scope="col" ><p>Twitter</p> </th>
+                            <th scope="col" ><p>Linkdlin</p></th>
+                            <th scope="col"><p>Show</p></th>
+                            <th scope="col"><p>Delete</p></th>
+                            <th scope="col"><p>Update</p></th>
                         </tr>
                     </thead>
                     <tbody id="result">
@@ -59,10 +66,13 @@
                       <tr>
                             <th scope="row">{{$team->id}}</th>
                             <th scope="row">{{$team->team_name}}</th>
-                            <th>{{$team->team_titre }}</th>
-                            <th>{{$team->team_img }}</th>
+                            <th><p style="margin-left:58%;">{{$team->team_titre }}</p></th>
+                            <th><img src="../storage/images/club_team_image/{{$team->team_img}}" style="width: 20%;margin-left:60%;"></th>
+                            <th>{{$team->team_fb }}</th>
+                            <th>{{$team->team_insta }}</th>
+                            <th>{{$team->team_twitter }}</th>
+                            <th>{{$team->team_linkedin }}</th>
                             <th>  <a href="{{ route('teams.show', ['team' => $team->id]) }}"><i class="fa fa-tag" style="color: blue" ></i></a></th>
-
                             <th><a href="#" onclick="event.preventDefault(); document.querySelector('#delete-team-form').submit()" ><i class="fa fa-trash" style="color: red" ></i> </a>
                     <form action="{{route('teams.destroy', ['team' => $team->id])}}" method="post" id="delete-team-form">
                     @method('DELETE')
@@ -84,5 +94,6 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="{{ asset('js/script.js') }}" defer></script>
+    
   </body>
 </html>

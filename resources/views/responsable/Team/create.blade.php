@@ -30,7 +30,7 @@
         <div class="shadow p-3 mb-5 bg-body rounded" style="width: 900px;heght: 400px;;margin-left: 10%;margin-top: 6%;">
           <fieldset>
               <legend></legend>
-              <form action="{{route('teams.store')}}" method="post">
+              <form action="{{route('teams.store')}}" method="post" enctype="multipart/form-data">
               @include("responsable.Team.form")
             </form>
           </fieldset>

@@ -45,7 +45,7 @@
           </div>
           <div class="sidebar__link">
           <i class="fa fa-comment-o" aria-hidden="true"></i>
-            <a href="posts">Post</a>
+            <a href="{{route('posts')}}">Post</a>
           </div>
           <div class="sidebar__link">
           <i class="fa fa-address-card-o" aria-hidden="true"></i>
