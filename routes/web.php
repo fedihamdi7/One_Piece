@@ -56,3 +56,6 @@ Route::resource('event_list','responsable\EventController');
 
 Route::resource('/requestform','RequestController');
 Route::get('/ClubModel','RequestController@model')->name('ClubModel');
+
+
+Route::get('/editevent/{id}','responsable\EventController@ed')->name('editevent');

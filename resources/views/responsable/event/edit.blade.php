@@ -31,9 +31,11 @@
         <div class="shadow p-3 mb-5 bg-body rounded" style="width: 500px;margin-left: 20%;margin-top: 6%;">
           <fieldset>
               <legend></legend>
-              <form action="{{ route('event_list.update',['event_list'=>$event->first()->id])}}" method="POST" enctype="multipart/form-data">
+              <img src="public/images/events/{{ $event->event_image }}" alt="">
+              <form action="{{ route('event_list.update',['event_list'=>$event->id])}}" method="POST" enctype="multipart/form-data">
                 @method('PUT')
                 @csrf
+                <input type="hidden" name="id" value="{{$event->id}}">
 
                         <div class="form-group">
                             <label for="date">Date :</label>
@@ -43,6 +45,7 @@
                 <br>
                 <div class="form-group">
                   <label for="image">Image :</label>
+
                   <input type="file" name="event_image" id="event_image" value="{{ $event->event_image }}" class="form-control" >
                   @error('event_image')<div class="text-danger">{{ $message }}</div>@enderror
                 </div>
