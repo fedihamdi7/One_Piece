@@ -60,7 +60,7 @@
                             <th scope="row">{{$team->id}}</th>
                             <th scope="row">{{$team->team_name}}</th>
                             <th>{{$team->team_titre }}</th>
-                            <th>{{$team->team_img }}</th>
+                            <th><img src="../storage/images/club_team_image/{{$team->team_img}}" style="width: 10%;margin-left=16%;"></th>
                             <th>  <a href="{{ route('teams.show', ['team' => $team->id]) }}"><i class="fa fa-tag" style="color: blue" ></i></a></th>
 
                             <th><a href="#" onclick="event.preventDefault(); document.querySelector('#delete-team-form').submit()" ><i class="fa fa-trash" style="color: red" ></i> </a>

@@ -13,7 +13,8 @@
     />
     <link rel="stylesheet" href="{{asset('css/Style.css')}}">
     <link rel="stylesheet" href="{{asset('css/admin.css')}}" />
-    <link rel="stylesheet" href="{{asset('css/responsable.css')}}" />    <link
+    <link rel="stylesheet" href="{{asset('css/responsable.css')}}" />   
+     <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
@@ -26,7 +27,14 @@
       <main>
         <div class="main__container">
          <!-- MAIN TITLE STARTS HERE -->
-
+         @if (session('updatePost'))
+        <div class="alert alert-dismissible alert-success fade show" role="alert">
+            {{ session('updatePost') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endify
             <div class="main__title" style="margin-bottom: 20px;">
                 <img src="assets/post.svg" alt="" />
                 <div class="main__greeting">
@@ -36,17 +44,18 @@
             </div>
 
             <div class="shadow p-3 mb-5 bg-body rounded" style="width: 500px;margin-left: 20%;margin-top: 6%;">
-            <form action="php/gerer_aboutus.php" method="POST" class="row g-3" style="width: 516px;" enctype="multipart/form-data">
-            <div class="form-group" style="width: 461px;margin-left: -38px;">
+            <form action="{{route('posts.update )}}" method="POST" class="row g-3" style="width: 516px;" enctype="multipart/form-data">
+                @csrf          
+                  <div class="form-group" style="width: 461px;margin-left: -38px;">
                 <label for="exampleFormControlTextarea1">Post</label>
-                <textarea class="form-control" name="desc" id="exampleFormControlTextarea1" aria-valuenow="fezfz" rows="3"></textarea>
+                <textarea class="form-control" name="posts" id="exampleFormControlTextarea1" aria-valuenow="fezfz" rows="3">{{$post->first()->post_description}}</textarea>
             </div>
             <div class="col-md-5" style="width: 460px;margin-left: -38px;">
-                        <label for="inputGroupFile02" class="form-label">Image</label>
-                        <input type="file" name="image" class="form-control" id="inputGroupFile02">
-                    </div>
-
-                    <input class="btn btn-primary"  type="submit" style="width: 120px;" value="Add Post">
+             <label for="inputGroupFile02" class="form-label">Image</label>
+                <input type="file" name="post_image" class="form-control @error('post_image') is-invalid @enderror" id="inputGroupFile02">
+                @error('post_image')<div class="text-danger">{{ $message }}</div>@enderror
+              </div>
+              <button class="btn btn-primary" type="submit" style="width: 120px;">Add Post</button>  
 
             </form>
         </div>

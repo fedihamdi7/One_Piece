@@ -57,10 +57,28 @@ return view('responsable.Team.teams',['teams' => $team]);
         $clubId = DB::table('clubs')
         ->where('clubs.users_id',$resp_id)
         ->get('id');
+        $input=$request->all();
+        if($request->hasFile('team_img')){
+            $destination_path='../storage/images/club_team_image';
+            $team_img=$request->file('team_img');
+            $img_name=$team_img->getClientOriginalName();
+            $path=$request->file('team_img')->storeAs($destination_path,$img_name);
+            $input['team_img']=$img_name;
+        }
+        // $fileNameWithExt = $request->file('team_img')->getClientOriginalName();
+        // //just filename
+        // $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+        // //just extension
+        // $extension = $request ->file('team_img')->getClientOriginalExtension();
+        // //filename to store
+        // $filenametoStore = $filename.'_'.time().'.'.$extension;
+        // //upload
+        // $path = $request->file('team_img')->storeAs('public/images/club_team_image/',$filenametoStore);
         $validateData=$request->validate($this->validationrules());
         $team=new team ;
         $team->team_name=$request->team_name;
         $team->team_titre=$request->team_titre;
+        // $team->team_img=$filenametoStore;
         $team->team_img=$request->team_img;
         $team->team_fb=$request->team_fb;
         $team->team_insta=$request->team_insta;
