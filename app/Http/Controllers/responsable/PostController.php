@@ -87,17 +87,9 @@ class PostController extends Controller
         ->get('clubs.id');
         $club_id = $club->first()->id;
 
-        DB::table('posts')
-              ->where('club_id', $club_id)
-              ->update(['post_description' => $request -> post_description]);
-        // return dd($request->aboutus);
-        return redirect()->route('post_description',$post)->with('Postupdate','Post has been updated Successfully');
-
-
         $this -> validate($request,[
             'post_image' => 'image|max:1999|required'
         ]);
-
         // if ($request->hasFile('post_image')){
             //file name with the extension
             $fileNameWithExt = $request->file('post_image')->getClientOriginalName();
@@ -115,19 +107,15 @@ class PostController extends Controller
             ->where('clubs.users_id',$resp_id)
             ->get();
 
-           
-            // ->join('clubs','clubs.id','=','posts.club_id')
-            // ->where('clubs.id',$clubId->first()->id)
-            // ->get('posts.*');
-            
-
-            $post = DB::table('posts')
+             DB::table('posts') 
+            ->join('clubs','clubs.id','=','posts.club_id')
             ->where('clubs.id',$clubId->first()->id)
-              ->update(['post_image' => $filenametoStore]);
-
-        // $request->file('post_image')->store('images');
-        // return dd($update);
-        return view('responsable.post',['posts' => $post])->with('Postupload','Post Uploaded Successfully');
+          ->update(['post_image' => $filenametoStore,'post_description'=>$request->posts]);
+          $post = DB::table('posts')
+          ->join('clubs','clubs.id','=','posts.club_id')
+          ->where('clubs.id',$clubId->first()->id)
+          ->get('posts.*');
+        return view('responsable.post',['posts' => $post])->with('Postupload','Post has been Uploaded Successfully');
     }
     /**
      * Remove the specified resource from storage.
