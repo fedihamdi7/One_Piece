@@ -68,19 +68,23 @@
                 <div class="charts__left">
                   <div class="charts__left__title">
                     <div>
+                      
+                      <img src="storage/images/user_image/{{$user->image}}" style="width: 100%; height: 100%">
                         <h1 style="text-align: center"> about {{$user->name}}</strong></h1>
             <hr>
-            <h1><i class="fa fa-envelope"></i> email:</h1>
-                <h4 > {{$user->email}}</strong></h4>
-                <h1><i class="fa fa-user  fa-2x text-red" aria-hidden="true"></i>Type of user:</h1>
-                <h4 > {{$user->type}}</strong></h4>
+            <h1><i class="fa fa-envelope fa-x"></i> email:
+                 {{$user->email}}</strong></h1>
+                <h1><i class="fa fa-user  fa-2x " aria-hidden="true"></i>Type of user:
+                 {{$user->type}}</strong></h1>
+                 <br>
                 <div class="row">
+
                     {{-- <div class="col"><button type="submit" class="btn btn-primary add-user-btn" style="  width: 125px;">Modify</button></div> --}}
                     <div class="col">
                     <td> <a href="{{route('userlist.edit',['userlist'=>$user->id])}}" class="btn btn-primary add-user-btn" style="  width: 125px;"> <i class="fa fa-edit" aria-hidden="true"></i> modidier</a>
                     </div>
                     <div class="col">
-                    <button class="btn btn-primary add-user-btn  btn-danger" >
+                    <button class="btn btn-primary add-user-btn  btn-dark" >
                       <a href="" title="Delete user {{$user->name}}"> <i class="fa fa-ban"  
                         onclick="event.preventDefault();
                         document.querySelector('#delete-user-form').submit()">delete</i> </a>

@@ -11,7 +11,7 @@ class UserListController extends Controller
      public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('admin');
+        // $this->middleware('admin');
     }
     /**
      * Display a listing of the resource.
@@ -46,11 +46,29 @@ class UserListController extends Controller
         'email'=>'required',
         'password'=>'required',
         ]);
-        //   $user=new User;
-        //   $user->name=$request->name;
-        //   $user->email=$request->email;
+       
+        // $fileNameWithExt = $request->file('image')->getClientOriginalName();
+        // //just filename
+        // $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+        // //just extension
+        // $extension = $request ->file('image')->getClientOriginalExtension();
+        // //filename to store
+        // $filenametoStore = $filename.'_'.time().'.'.$extension;
+        // //upload
+        // $path = $request->file('image')->storeAs('storage/images/user_image/',$filenametoStore);
+    
+          $user=new User;
+          $user->name=$request->name;
+          $user->email=$request->email;
+          $user->password=$request->password;
+            //   $user->image=$filenametoStore;
+        // $event=new Event ;
+        // $event->event_date=$request->event_date;
+        // $event->event_image=$filenametoStore;
+        // $event->club_id=$clubId->first()->id;
+        $user->save();
 
-        $user=User::create($validatedata);
+        // $user=User::create($validatedata);
         return redirect()->route('userlist.show',$user)->with('storeUser',"user has been added successfuly");
 
         
@@ -94,7 +112,19 @@ class UserListController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validatedata=$request->validate($this->validationrules());
+         $validatedata=$request->validate($this->validationrules());
+        // $fileNameWithExt = $request->file('image')->getClientOriginalName();
+        // //just filename
+        // $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+        // //just extension
+        // $extension = $request ->file('image')->getClientOriginalExtension();
+        // //filename to store
+        // $filenametoStore = $filename.'_'.time().'.'.$extension;
+        // //upload
+        // $path = $request->file('image')->storeAs('storage/images/user_image/',$filenametoStore);
+     
+     
+      
         $user=User::find($id);   
         $user->update($validatedata);
         return redirect()->route('userlist.show',$user)->with('updateUser',"user has been updated successfuly");

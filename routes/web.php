@@ -55,8 +55,10 @@ Route::resource('userlist','admin\UserListController');
 Route::resource('PendingRequest','admin\PendingRequestController');
 Route::resource('event_list','responsable\EventController');
 
+Route::get('/theme','responsable\PostController@update')->name('theme.update');
 
 Route::resource('/requestform','RequestController');
 Route::get('/ClubModel','RequestController@model')->name('ClubModel');
 
 Route::get('/editevent/{id}','responsable\EventController@ed')->name('editevent');
+Route::get('/PendingRequest/{id}','admin\PendingRequestController@clubs')->name('clubsRequest');

@@ -8,7 +8,7 @@ class CreateUserRequestsTable extends Migration
 {
     /**
      * Run the migrations.
-     * @return void
+     * @return voidgit
      */
     public function up()
     {

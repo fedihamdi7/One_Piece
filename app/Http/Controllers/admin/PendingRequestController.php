@@ -4,14 +4,19 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\User_request;
+use App\User;
+use App\Club;
+
 use Illuminate\Http\Request;
+use Illuminate\Http\uploadedfile;
+use Illuminate\Support\Facades\DB;
 
 class PendingRequestController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
-        $this->middleware('admin');
+        // $this->middleware('auth');
+        // $this->middleware('admin');
     }
 
     /**
@@ -21,7 +26,8 @@ class PendingRequestController extends Controller
      */
     public function index()
     {
-        return view('admin.request',['user_requests'=>User_request::paginate(10)]);
+        
+        return view('admin.request',['user_requests'=>User_request::paginate(15)]);
     }
 
     /**
@@ -31,8 +37,30 @@ class PendingRequestController extends Controller
      */
     public function create()
     {
-        //
+        $user= User::create([
+
+            'name'=>$request['name'],
+            'email'=>$request['email'],
+            'password'=>$request['password'],
+            'image'=>$request['image'],
+            'type'=>$request['type']
+        ]);
+        if($user)
+        {
+          $club = Club::create([
+            'club_name' => $request['club_name'],
+            'club_logo'=>$request['club_logo'],
+            //'about_us'=>$request['about_us'],
+            // 'club_theme  '=>$request['club_theme'],
+            'departments_id'=>$request['departments_id'],
+            'users_id'=>$user->id
+             ]);
+
+        }
+        return redirect()->route('PendingRequest.index');
+   
     }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -40,11 +68,39 @@ class PendingRequestController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-    }
+    public function clubs(User_request $id){
+        $user=User_request::find($id);
+        echo $id;
+        dd($id);   
+        return view('admin.userlist.request',$user);
 
+
+    }
+    // public function store(Request $request)
+    // {
+    //    dd($request);
+    //     $user= User::create([
+
+    //         'name'=>$request['name'],
+    //         'email'=>$request['email'],
+    //         'password'=>$request['password'],
+    //         'image'=>$request['image'],
+    //         'type'=>$request['type']
+    //     ]);
+    //     if($user)
+    //     {
+    //       $club = Club::create([
+    //         'club_name' => $request['club_name'],
+    //         'club_logo'=>$request['club_logo'],
+    //         //'about_us'=>$request['about_us'],
+    //         // 'club_theme  '=>$request['club_theme'],
+    //         'departments_id'=>$request['departments_id'],
+    //         'users_id'=>$user->id
+    //          ]);
+
+    //     }
+    //     return redirect()->route('PendingRequest.index');
+    // }
     /**
      * Display the specified resource.
      *
@@ -52,8 +108,28 @@ class PendingRequestController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+    {   $clubUser = new User;
+        $user=User_request::find($id);
+            $club = new Club;
+            $club->club_name=$user->club_name ;
+            $club->club_img=$user->club_logo ;
+            $club->club_theme ="test";
+            $club->departments_id=1;
+            
+            $club->users_id=$user->id;
+            $clubUser->id=$user->id;
+            $clubUser->name=$user->name;
+            $clubUser->email=$user->email;
+            $clubUser->password=$user->password;
+            $clubUser->image=$user->image;
+            // $clubUser->type=$user->type;
+            
+            DB::update('update user_requests set type=? where id=?',['accepted',$user->id]);
+             $clubUser->save();
+             $club->save();
+             $user->type="accepted";
+             return redirect()->back();
+
     }
 
     /**
@@ -76,7 +152,7 @@ class PendingRequestController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**
