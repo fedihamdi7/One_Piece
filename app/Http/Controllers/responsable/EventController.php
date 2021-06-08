@@ -151,6 +151,17 @@ class EventController extends Controller
         return redirect()->route('event_list.index')->with('deleteEvent','Event has been deleted successfuly');
 
     }
+    public function del($id)
+    {
+        dd($id);
+        $eventdel = DB::table('events')
+        ->where('id',$id)
+        ->delete();
+        return redirect()->route('event_list.index')->with('deleteEvent','Event has been deleted successfuly');
+
+    }
+
+   
 
     public function showEvent($id)
     {
