@@ -113,7 +113,13 @@ return view('responsable.Team.teams',['teams' => $team]);
      */
     public function update(Request $request, Team $team)
     {
+        // return dd($request);
         $validateData=$request->validate($this->validationrules());
+        // $team->update($validateData);
+        $team->team_fb=$request->team_fb;
+        $team->team_insta=$request->team_insta;
+        $team->team_linkedin=$request->team_linkedin;
+        $team->team_twitter=$request->team_twitter;
         $team->update($validateData);
         return redirect()->route('teams.show', $team)->with('updateTeam','member has been updated successfuly');
 
