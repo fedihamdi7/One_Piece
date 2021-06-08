@@ -37,7 +37,7 @@
                 <div class="col">
                 <div class="form-group">
                             <label for="name">Instagram :</label>
-                            <input type="text" name="team_insta" id="team_insta" value="{{$team->team_insta ?? old('team_name') }}" class="form-control" >
+                            <input type="text" name="team_insta" id="team_insta" value="{{$team->team_insta ?? old('team_insta') }}" class="form-control" >
                             @error('team_insta')<div class="text-danger">{{ $message }}</div>@enderror
                           </div>
                           </div>
@@ -48,7 +48,7 @@
                 <div class="col">
                 <div class="form-group">
                             <label for="name">twitter :</label>
-                            <input type="text" name="team_twitter" id="team_twitter" value="{{$team->team_twitter ?? old('team_name') }}" class="form-control" >
+                            <input type="text" name="team_twitter" id="team_twitter" value="{{$team->team_twitter ?? old('team_twitter') }}" class="form-control" >
                             @error('team_twitter')<div class="text-danger">{{ $message }}</div>@enderror
                           </div>
                           </div>
@@ -57,7 +57,7 @@
                 <div class="col">
                 <div class="form-group">
                             <label for="name">linkedin :</label>
-                            <input type="text" name="team_linkedin" id="team_linkedin" value="{{ $team->team_linkedin ?? old('team_name') }}" class="form-control" >
+                            <input type="text" name="team_linkedin" id="team_linkedin" value="{{ $team->team_linkedin ?? old('team_linkedin') }}" class="form-control" >
                             @error('team_linkedin')<div class="text-danger">{{ $message }}</div>@enderror
                           </div>
                           </div>
@@ -66,5 +66,5 @@
                 <br>
                 <div class="row">
                     <div class="col"><button type="submit" class="btn btn-block btn-outline-primary"><i class="fa fa-save"></i>  Add</button></div>
-                    <div class="col"><button type="reset" class="btn btn-block btn-outline-secondary"><i class="fa fa-window-close"></i>  Cancel</button></div>
+                    <div class="col"><button type="reset" class="btn btn-block btn-outline-secondary"><i class="fa fa-window-close"></i>Cancel</button></div>
                 </div>
