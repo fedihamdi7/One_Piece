@@ -8,7 +8,7 @@ class CreateUserRequestsTable extends Migration
 {
     /**
      * Run the migrations.
-     * @return void
+     * @return voidgit
      */
     public function up()
     {
@@ -20,6 +20,7 @@ class CreateUserRequestsTable extends Migration
             $table->string('password');
             $table->string('image')->nullable();
             $table->enum('type', ['admin', 'responsable','membre']);
+            $table->Boolean('etat')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

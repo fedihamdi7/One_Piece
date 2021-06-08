@@ -58,18 +58,20 @@
                     <tbody>
                         @foreach ($user_requests as $user_request)
 
-
+@php
+@endphp
                         <tr>
                             <td scope="row">{{$user_request->id}}</td>
                             <td scope="row">{{$user_request->name}}</td>
                             <td>{{$user_request->email }}</td>
                             <td>{{$user_request->image }}</td>
                             <td> <a href=""> <i class="fa fa-check-square" aria-hidden="true"></i> </a></td>
-                            {{-- <td> <a href="{{route('AllClubs.destroy', $user_request->id)}}"> <i class="fa fa-ban" aria-hidden="true"></i> </a></td> --}}
+                            <td> <a href="{{route('PendingRequest.show', $user_request->id)}} "title="Accept User request {{ $user_request->name}}"> <i class="fa fa-ban" aria-hidden="true">
+                        </i> </a> 
                             <td>
                             <a href="" title="Delete user {{$user_request->name}}"> <i class="fa fa-ban" aria-hidden="true" 
                                 onclick="event.preventDefault();
-                                document.querySelector('#delete-user-form').submit()"></i> </a>
+                                document.querySelector('#delete-user-form').submit();"></i> </a>
                             <form action="{{route('PendingRequest.destroy',['PendingRequest'=>$user_request->id])}}" method="post" id="delete-user-form">@csrf @method('DELETE')</form>
                             
                             </td>
