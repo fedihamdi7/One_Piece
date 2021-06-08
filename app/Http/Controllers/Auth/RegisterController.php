@@ -67,22 +67,23 @@ class RegisterController extends Controller
             ]);
 
             return view('request.form',['user'=>$user]);
-            return redirect(route('requestform.index',['id'=>$user]));
+            // return redirect(route('requestform.index',['id'=>$user]));
 
             // return redirect()->route('requestform.index',['user'=>$user]);
             // return view('logout')->with('RegisterSucc','A Request has been send to administration , Check you E-mail');
         }
 
         if ($request['Role'] == 'Membre') {
-            return User::create([
+            User::create([
                 'name' => $request['name'],
                 'email' => $request['email'],
                 'password' => Hash::make($request['password']),
                 'image' => $imageName,
                 'type' => 'membre'
             ]);
+            return redirect(route('login'));
         }
-        return redirect(route('home'));
+
     }
     protected function validator(array $data)
     {
