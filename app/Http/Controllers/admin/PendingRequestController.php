@@ -9,6 +9,7 @@ use App\Club;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\uploadedfile;
+use Illuminate\Support\Facades\DB;
 
 class PendingRequestController extends Controller
 {
@@ -121,14 +122,12 @@ class PendingRequestController extends Controller
             $clubUser->email=$user->email;
             $clubUser->password=$user->password;
             $clubUser->image=$user->image;
-            $clubUser->type=$user->type;
+            // $clubUser->type=$user->type;
+            
+            DB::update('update user_requests set type=? where id=?',['accepted',$user->id]);
              $clubUser->save();
              $club->save();
-             if($club->save()==1){
-                 $user->etat=1;
-                 $user->update();
-                 
-             }
+             $user->type="accepted";
              return redirect()->back();
 
     }

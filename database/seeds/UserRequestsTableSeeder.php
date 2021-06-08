@@ -12,7 +12,7 @@ class UserRequestsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(User_request::class, 10)->create();
+        factory(User_request::class, 1)->create();
 
     }
 }

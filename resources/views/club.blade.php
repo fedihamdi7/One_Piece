@@ -79,7 +79,7 @@
               </li>
               @if ($type == 'admin')
               <li data-bs-toggle="tooltip" data-bs-placement="top" title="Dashboard">
-                <a href=" {{ route ('admin.dashboard')}} "><i class="fab fa-cuttlefish"></i></a>
+                <a href=" {{ route ('admin.dashboard')}} "><i class="fas fa-user-shield"></i></a>
               </li>
               @endif
               @if ($type == 'responsable')

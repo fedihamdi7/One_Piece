@@ -13,7 +13,12 @@ $factory->define(User_request::class, function (Faker $faker) {
         'email_verified_at' => now(),
         'password'=> $faker -> password,
         'image' => $faker-> imageUrl(),
-        'type' => $faker-> randomElement(['admin', 'responsable','membre']),
+        'type' => $faker-> randomElement(['pending']),
         'remember_token' => $faker -> word,
+        'club_logo' => $faker -> imageUrl(),
+        'about_us' => $faker -> word,
+        'club_name' => $faker -> word,
+        'department' => $faker -> word,
+
     ];
 });
