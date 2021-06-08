@@ -11,7 +11,7 @@ class Club_infosTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Club_info::class, 20)->create();
+        factory(Club_info::class, 1)->create();
 
     }
 }

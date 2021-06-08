@@ -19,7 +19,11 @@ class CreateUserRequestsTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('image')->nullable();
-            $table->enum('type', ['admin', 'responsable','membre']);
+            $table->enum('type', ['pending']);
+            $table->string('club_logo')->nullable();
+            $table->string('about_us')->nullable();
+            $table->string('club_name')->nullable();
+            $table->string('department')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
