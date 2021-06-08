@@ -31,7 +31,7 @@
         <div class="shadow p-3 mb-5 bg-body rounded" style="width: 500px;margin-left: 20%;margin-top: 6%;">
           <fieldset>
               <legend></legend>
-              <img src="public/images/events/{{ $event->event_image }}" alt="">
+
               <form action="{{ route('event_list.update',['event_list'=>$event->id])}}" method="POST" enctype="multipart/form-data">
               @method('PUT')
                 @csrf
@@ -42,6 +42,7 @@
                             @error('event_date')<div class="text-danger">{{ $message }}</div>@enderror
                           </div>
                 <br>
+
                 <div class="form-group">
                   <label for="image">Image :</label>
                   <input type="file" name="event_image" id="event_image" value="{{ $event->event_image }}" class="form-control" >
@@ -50,7 +51,7 @@
                 <br>
                 <div class="row">
                     <div class="col"><button type="submit" class="btn btn-block btn-outline-primary"><i class="fa fa-save"></i>  Add</button></div>
-                    <div class="col"><button type="reset" class="btn btn-block btn-outline-secondary"><i class="fa fa-window-close"></i>  Cancel</button></div>
+                    <div class="col">  <button  class="btn btn-block btn-outline-secondary"><i class="fa fa-window-close"></i> <a href="{{ route('event_list.index')}}" style="text-decoration: none;color:#6c757d;">  Cancel </a></button></div>
                 </div>
             </form>
           </fieldset>

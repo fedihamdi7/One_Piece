@@ -50,7 +50,7 @@
             <h4> Date:</h4>
           <p>{{ $event ->event_date}}</p>
             <h4> Image:</h4>
-            <img style="max-width: 101%;" src="storage/images/events/{{ $event ->event_image}}">        </div>
+            <img style="max-width: 101%;" src="../storage/images/events/{{ $event ->event_image}}">        </div>
 
       </div>
 
