@@ -113,7 +113,7 @@ class EventController extends Controller
         ->where('id',$id)
         ->get();
         // return dd($event->first());
-        return view('responsable.event.edit',['event' => $event->first()]);
+        return view('responsable.event.edit',['event' => $event->first()]) ;
     }
     /**
      * Update the specified resource in storage.
@@ -159,5 +159,24 @@ class EventController extends Controller
         return redirect()->route('event_list.index',$event)->with('deleteEvent','Event has been deleted successfuly');
 
     }
+    public function del($id)
+    {
+        dd($id);
+        $eventdel = DB::table('events')
+        ->where('id',$id)
+        ->delete();
+        return redirect()->route('event_list.index')->with('deleteEvent','Event has been deleted successfuly');
 
+    }
+
+    public function showEvent($id)
+    {
+
+        $eventshow = DB::table('events')
+        ->where('id',$id)
+        ->get();
+        $event = $eventshow->first();
+        return view('responsable.event.show',['event' => $event]);
+
+    }
 }

@@ -60,3 +60,5 @@ Route::resource('/requestform','RequestController');
 Route::get('/ClubModel','RequestController@model')->name('ClubModel');
 
 Route::get('/editevent/{id}','responsable\EventController@ed')->name('editevent');
+Route::delete('/deleteevent/{id}','responsable\EventController@del')->name('delEvent');
+Route::get('/showevent/{id}','responsable\EventController@showEvent')->name('showEvent');
