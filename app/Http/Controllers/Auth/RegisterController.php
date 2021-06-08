@@ -82,7 +82,7 @@ class RegisterController extends Controller
                 'type' => 'membre'
             ]);
         }
-        return dd($request);
+        return redirect(route('home'));
     }
     protected function validator(array $data)
     {
