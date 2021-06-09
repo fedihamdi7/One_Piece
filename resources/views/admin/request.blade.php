@@ -35,7 +35,7 @@
                 @endif
 
                 <div class="main__title" style="margin-bottom: 20px;">
-                    <img src="assets/user_list.svg" alt="" />
+                <img class="animate__animated animate__fadeInDown"  src="../storage/images/pending.svg" alt="Image">
                     <div class="main__greeting">
                         <h1 class="animate__animated animate__bounceInLeft">Pending Requests</h1>
                         <!-- <p>Welcome to your admin dashboard</p> -->

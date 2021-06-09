@@ -30,7 +30,7 @@
         <div class="shadow p-3 mb-5 bg-body rounded" style="width: 700px;margin-left: 20%;margin-top: 6%;">
           <fieldset>
               <legend></legend>
-              <form action="{{route('teams.update', ['team' => $team->id])}}" method="post">
+              <form action="{{route('teams.update', ['team' => $team->id])}}" method="post" enctype="multipart/form-data">
             @method('PUT')
             @include("responsable.Team.form")
             </form>

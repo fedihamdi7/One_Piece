@@ -10,9 +10,11 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
   <link rel="stylesheet" href="{{asset('css/Style.css')}}">
     <link rel="stylesheet" href="{{asset('css/admin.css')}}" />
-    <link rel="stylesheet" href="{{asset('css/responsable.css')}}" />  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="{{asset('css/responsable.css')}}" /> 
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <title>DASHBOARD</title>
   <link rel="icon" href="admin.png">
+ 
 
 </head>
 <body id="body">
@@ -29,7 +31,7 @@
         </div>
     @endif
         <div class="main__title" style="margin-bottom: 20px;">
-          <img src="assets/about.svg" alt="" />
+        <img class="animate__animated animate__fadeInDown"  src="../storage/images/about_us.svg" alt="Image">
           <div class="main__greeting">
             <h1 class="animate__animated animate__bounceInLeft">About Us</h1>
             <!-- <p>Welcome to your admin dashboard</p> -->

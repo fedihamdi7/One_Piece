@@ -2,7 +2,7 @@
 <div id="sidebar">
     <div class="sidebar__title">
       <div class="sidebar__img">
-        {{-- <img src="images/user_profile_image/" alt="logo" /> --}}
+      <img src="../storage/images/user_avatar/{{ Auth::user()->image }} " alt="logo" />
         <h1>Clubix</h1>
       </div>
       <i

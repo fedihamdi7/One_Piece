@@ -26,7 +26,7 @@
                 <!-- MAIN TITLE STARTS HERE -->
 
                 <div class="main__title" style="margin-bottom: 20px;">
-                    <img class="animate__animated animate__fadeInDown" src="assets/user_list.svg" alt="" />
+                <img class="animate__animated animate__fadeInDown"  src="../storage/images/club.svg" alt="Image">
                     <div class="main__greeting">
                         <h1 class="animate__animated animate__bounceInLeft">All clubs</h1>
                         <!-- <p>Welcome to your admin dashboard</p> -->

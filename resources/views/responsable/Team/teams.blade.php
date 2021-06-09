@@ -29,7 +29,7 @@
         <div class="main__container">
          <!-- MAIN TITLE STARTS HERE -->
             <div class="main__title" style="margin-bottom: 20px;">
-                <!-- <img src="assets/team.svg" alt="" /> -->
+            <img class="animate__animated animate__fadeInDown"  src="../storage/images/team.svg" alt="Image">
                 <div class="main__greeting">
                 <h1 class="animate__animated animate__bounceInLeft">Team</h1>
                 <!-- <p>Welcome to your admin dashboard</p> -->
