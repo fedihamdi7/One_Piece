@@ -11,14 +11,15 @@ class AcceptedRequest extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $clubUser;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($data)
     {
-        //
+        $this->clubUser = $data;
     }
 
     /**

@@ -130,7 +130,7 @@ class PendingRequestController extends Controller
              $club->save();
              $user->type="accepted";
 
-             Mail::to($clubUser->email)->send(new AcceptedRequest());
+             Mail::to($clubUser->email)->send(new AcceptedRequest($clubUser));
              return redirect()->back();
 
     }
