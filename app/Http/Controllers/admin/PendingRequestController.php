@@ -118,6 +118,7 @@ class PendingRequestController extends Controller
             $club->departments_id=1;
 
             $club->users_id=$user->id;
+            $clubUser->id=$user->id;
             $clubUser->name=$user->name;
             $clubUser->email=$user->email;
             $clubUser->password=$user->password;
