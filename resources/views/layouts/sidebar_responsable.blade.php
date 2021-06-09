@@ -17,14 +17,20 @@
         <!-- active_menu_link -->
           <div class="sidebar__link">
             <i class="fa fa-home"></i>
-            <a href="home">Home</a>
+            <a href="{{route('home')}}">Home</a>
           </div>
           <div class="sidebar__link ">
           <i class="fa fa-desktop" axria-hidden="true"></i>
 
             <a href="responsable">Dashboard</a>
           </div>
-          <h2>Users</h2>
+
+          <div class="sidebar__link ">
+            <i class="fa fa-dropbox" aria-hidden="true"></i>
+
+            <a href=" {{route('sidebarClub')}} ">My Club</a>
+          </div>
+
           <div class="sidebar__link ">
           <i class="fa fa-picture-o" aria-hidden="true"></i>
             <a href=" {{ route('changelogo')}} ">Change Logo</a>

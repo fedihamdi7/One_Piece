@@ -14,10 +14,13 @@ class ClubController extends Controller
         $this->middleware('auth');
     }
 
+    
+
     public function one_club($id)
     {
+
         $user_type = Auth::user()->type;
-      
+
 
         $infos = DB::table('clubs')
         ->join('club_infos', 'clubs.id', '=', 'club_infos.club_id')

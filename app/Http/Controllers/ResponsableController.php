@@ -52,4 +52,14 @@ return view('responsable.Team.teams',['teams' => $team]);
         ->get();
  return view('responsable.event.event_list',['events' => $event]);
     }
+
+    public function sidebarClub(){
+        $resp_id=Auth::user()->id;
+        $clubId = DB::table('clubs')
+        ->where('clubs.users_id',$resp_id)
+        ->get('id');
+        // dd($clubId->first()->id);
+        return redirect(route('club.pick',['id'=>$clubId->first()->id]));
+
+    }
 }
