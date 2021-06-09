@@ -34,7 +34,8 @@ Route::post('/change','responsable\LogoController@update')->name('changelogo.upd
 Route::get('/themes','ResponsableController@themes' )->name('ClubTheme');
 Route::get('/posts','ResponsableController@posts');
 Route::get('/posts','responsable\PostController@index')->name('posts');
-Route::post('/posts','responsable\PostController@update')->name('posts.update');
+Route::post('/posts','responsable\PostController@create')->name('posts.create');
+Route::put('/posts','responsable\PostController@update')->name('posts.update');
 // Route::get('/about','ResponsableController@about');
 Route::get('/about','responsable\AboutUsController@index')->name('aboutus');
 Route::post('/about','responsable\AboutUsController@update')->name('aboutus.update');

@@ -19,7 +19,7 @@
                           </div>
 
                 <br>
-                <input type="hidden" value="{{$team->id}}" name="id">
+                <input type="hidden" value="{{$team->id ?? ''}}" name="id">
                 <div class="form-group">
                   <label for="image">Image :</label>
                   <input type="file" name="team_img" id="team_img" value="{{ $team->team_img ?? ''}}" class="form-control" >
