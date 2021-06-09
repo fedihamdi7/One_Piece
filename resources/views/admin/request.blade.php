@@ -50,6 +50,11 @@
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
                             <th scope="col">Image</th>
+                            <th scope="col">club_logo</th>
+                            <th scope="col">about_us</th>
+                            <th scope="col">club_name</th>
+                            <th scope="col">department</th>
+                            <th scope="col">currently</th>
                             <th scope="col">Accept</th>
                             <th scope="col">Decline</th>
                         </tr>
@@ -65,8 +70,13 @@
                             <td scope="row">{{$user_request->name}}</td>
                             <td>{{$user_request->email }}</td>
                             <td>{{$user_request->image }}</td>
-                            <td> <a href=""> <i class="fa fa-check-square" aria-hidden="true"></i> </a></td>
-                            <td> <a href="{{route('PendingRequest.show', $user_request->id)}} "title="Accept User request {{ $user_request->name}}"> <i class="fa fa-ban" aria-hidden="true">
+                            <td>{{$user_request->club_logo }}</td>
+                            <td>{{$user_request->about_us }}</td>
+                            <td>{{$user_request->club_name }}</td>
+                            <td>{{$user_request->department }}</td>
+                            <td>{{$user_request->type }}</td>
+                          
+                            <td> <a href="{{route('PendingRequest.show', $user_request->id)}} "title="Accept User request {{ $user_request->name}}"> <i class="fa fa-check-square" aria-hidden="true">
                         </i> </a> 
                             <td>
                             <a href="" title="Delete user {{$user_request->name}}"> <i class="fa fa-ban" aria-hidden="true" 
