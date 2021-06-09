@@ -41,7 +41,7 @@
           </div>
           <div class="sidebar__link ">
           <i class="fa fa-paint-brush" aria-hidden="true"></i>
-            <a href="themes">Change Theme</a>
+            <a href="{{route('ClubTheme')}}">Change Theme</a>
           </div>
           <div class="sidebar__link">
           <i class="fa fa-comment-o" aria-hidden="true"></i>
