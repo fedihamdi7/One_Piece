@@ -29,7 +29,7 @@
         </div>
     @endif
         <div class="main__title" style="margin-bottom: 20px;">
-          <img src="assets/about.svg" alt="" />
+        <img class="animate__animated animate__fadeInDown"  src="../storage/images/about_us.svg" alt="Image">
           <div class="main__greeting">
             <h1 class="animate__animated animate__bounceInLeft">About Us</h1>
             <!-- <p>Welcome to your admin dashboard</p> -->

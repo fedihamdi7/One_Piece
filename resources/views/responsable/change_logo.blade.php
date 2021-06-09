@@ -32,7 +32,8 @@
          <!-- MAIN TITLE STARTS HERE -->
 
             <div class="main__title" style="margin-bottom: 20px;">
-                <img src="assets/change_logo.svg" alt="" />
+            <img class="animate__animated animate__fadeInDown"  src="../storage/images/change.svg" alt="Image">
+
                 <div class="main__greeting">
                 <h1 class="animate__animated animate__bounceInLeft">Change logo</h1>
                 <!-- <p>Welcome to your admin dashboard</p> -->

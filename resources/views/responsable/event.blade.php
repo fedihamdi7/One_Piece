@@ -30,7 +30,7 @@
          <!-- MAIN TITLE STARTS HERE -->
 
             <div class="main__title" style="margin-bottom: 20px;">
-                <img src="assets/events.svg" alt="" />
+            <img src="../storage/images/events.svg" alt="Image">
                 <div class="main__greeting">
                 <h1 class="animate__animated animate__bounceInLeft">Events</h1>
                 <!-- <p>Welcome to your admin dashboard</p> -->

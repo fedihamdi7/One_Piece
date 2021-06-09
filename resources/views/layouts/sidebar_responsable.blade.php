@@ -2,7 +2,7 @@
 <div id="sidebar">
         <div class="sidebar__title">
           <div class="sidebar__img">
-            <!-- <img src="" alt="logo" /> -->
+            <img src="../storage/images/user_avatar/{{ Auth::user()->image }} " alt="logo" />
             <h1>Clubix</h1>
           </div>
           <i
@@ -37,7 +37,7 @@
 
           <div class="sidebar__link">
           <i class="fa fa-users" aria-hidden="true"></i>
-            <a href="teams">Team</a>
+            <a href="{{route('teams.index')}}">Team</a>
           </div>
           <div class="sidebar__link ">
           <i class="fa fa-paint-brush" aria-hidden="true"></i>
