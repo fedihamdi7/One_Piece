@@ -10,11 +10,11 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
   <link rel="stylesheet" href="{{asset('css/Style.css')}}">
     <link rel="stylesheet" href="{{asset('css/admin.css')}}" />
-    <link rel="stylesheet" href="{{asset('css/responsable.css')}}" /> 
+    <link rel="stylesheet" href="{{asset('css/responsable.css')}}" />
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <title>DASHBOARD</title>
   <link rel="icon" href="admin.png">
- 
+
 
 </head>
 <body id="body">
@@ -38,11 +38,16 @@
           </div>
         </div>
         <div class="shadow p-3 mb-5 bg-body rounded" style="width: 500px;margin-left: 20%;margin-top: 6%;">
-            <form action=" {{route('aboutus.update')}}" method="POST" class="row g-3" style="width: 516px;" enctype="multipart/form-data">
+            @if ($club_info -> isEmpty())
+            <form action="{{route('aboutus.create')}}" method="POST" class="row g-3" style="width: 516px;" enctype="multipart/form-data">
+                @else
+                <form action="{{route('aboutus.update')}}" method="POST" class="row g-3" style="width: 516px;" enctype="multipart/form-data">
+                    @method('PUT')
+                @endif
                 @csrf
             <div class="form-group" style="width: 461px;margin-left: -38px;">
               <label for="exampleFormControlTextarea1">About Us</label>
-              <textarea class="form-control" name="aboutus" id="exampleFormControlTextarea1" aria-valuenow="fezfz" rows="6" >{{$club_info->first()->about_us}}</textarea>            </div>
+              <textarea class="form-control" name="aboutus" id="exampleFormControlTextarea1" aria-valuenow="fezfz" rows="6" >{{$club_info->first()->about_us ?? ''}}</textarea>            </div>
               <button class="btn btn-primary" type="submit" style="width: 120px;">Save</button>          </form>
         </div>
 
