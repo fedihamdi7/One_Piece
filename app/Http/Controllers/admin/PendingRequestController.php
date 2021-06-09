@@ -122,7 +122,7 @@ class PendingRequestController extends Controller
             $clubUser->email=$user->email;
             $clubUser->password=$user->password;
             $clubUser->image=$user->image;
-            // $clubUser->type=$user->type;
+             $clubUser->type="responsable";
             
             DB::update('update user_requests set type=? where id=?',['accepted',$user->id]);
              $clubUser->save();
