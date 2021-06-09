@@ -39,7 +39,7 @@
                         <input id="search_text" type="text" class="form-control" placeholder="Search">
                     </div> -->
 
-                    <div class="input-group">
+                    {{-- <div class="input-group">
                         <div class="form-outline">
                             <input type="search" id="search_text" class="form-control" placeholder="Search" />
                         </div>
@@ -47,7 +47,7 @@
                         <i class="fa fa-search" aria-hidden="true"></i>
 
                         </button>
-                    </div>
+                    </div> --}}
                 </div>
                 @if (session('deleteClub'))
                     <div class="alert alert-dismissible alert-success fade show" role="alert">
