@@ -6,10 +6,11 @@ use App\Http\Controllers\Controller;
 use App\User_request;
 use App\User;
 use App\Club;
-
+use App\Mail\AcceptedRequest;
 use Illuminate\Http\Request;
 use Illuminate\Http\uploadedfile;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class PendingRequestController extends Controller
 {
@@ -26,7 +27,7 @@ class PendingRequestController extends Controller
      */
     public function index()
     {
-        
+
         return view('admin.request',['user_requests'=>User_request::paginate(15)]);
     }
 
@@ -58,9 +59,9 @@ class PendingRequestController extends Controller
 
         }
         return redirect()->route('PendingRequest.index');
-   
+
     }
-    
+
 
     /**
      * Store a newly created resource in storage.
@@ -71,7 +72,7 @@ class PendingRequestController extends Controller
     public function clubs(User_request $id){
         $user=User_request::find($id);
         echo $id;
-        dd($id);   
+        dd($id);
         return view('admin.userlist.request',$user);
 
 
@@ -115,7 +116,7 @@ class PendingRequestController extends Controller
             $club->club_img=$user->club_logo ;
             $club->club_theme ="test";
             $club->departments_id=1;
-            
+
             $club->users_id=$user->id;
             $clubUser->id=$user->id;
             $clubUser->name=$user->name;
@@ -123,11 +124,13 @@ class PendingRequestController extends Controller
             $clubUser->password=$user->password;
             $clubUser->image=$user->image;
              $clubUser->type="responsable";
-            
+
             DB::update('update user_requests set type=? where id=?',['accepted',$user->id]);
              $clubUser->save();
              $club->save();
              $user->type="accepted";
+
+             Mail::to($clubUser->email)->send(new AcceptedRequest($clubUser));
              return redirect()->back();
 
     }
@@ -152,7 +155,7 @@ class PendingRequestController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+
     }
 
     /**
@@ -163,7 +166,7 @@ class PendingRequestController extends Controller
      */
     public function destroy($id)
     {
-        $user_request=User_request::find($id); 
+        $user_request=User_request::find($id);
         if ($user_request != null) {
         $user_request->delete();
         return redirect()->route('PendingRequest.index')->with('deletUser','user has been deleted successfuly');
