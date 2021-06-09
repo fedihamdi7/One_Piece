@@ -37,7 +37,7 @@
                 <!-- MAIN TITLE STARTS HERE -->
 
                 <div class="main__title" style="margin-bottom: 20px;">
-                <img class="animate__animated animate__fadeInDown" src="../storage/images/events.svg" alt="Image">
+                    <img class="animate__animated animate__fadeInDown" src="assets/user_list.svg" alt="" />
                     <div class="main__greeting">
                         <h1 class="animate__animated animate__bounceInLeft">Events List</h1>
                         <!-- <p>Welcome to your admin dashboard</p> -->
@@ -84,11 +84,12 @@
                         <td>{{$event->event_image }}</td>
                         <td>{{$event->club_id }}</td>
 
-                        <td> <a href="{{ route('event_list.show',['event_list'=>$event->id]) }}"> <i class="fa fa-calendar" aria-hidden="true"></i> </a></td>
+                        <td> <a href="{{ route('showEvent',['id'=>$event->id]) }}"> <i class="fa fa-calendar" aria-hidden="true"></i> </a></td>
                         <td>
 
-                            <a href="{{ route('editevent',['id'=>$event->id]) }}"> <i class="fa fa-edit" aria-hidden="true"></i> </a>                         <a href="" title="Delete event{{ $event->event_image.' '.$event->event_date }}" onclick="event.preventDefault();document.querySelector('#delete-event-form').submit()"> <i class="fa fa-ban" aria-hidden="true" ></i> </a>
-                            <form action="{{ route('event_list.destroy',['event_list'=>$event->id]) }}" method="POST" id="delete-event-form">
+                            <a href="{{ route('editevent',['id'=>$event->id]) }}"> <i class="fa fa-edit" aria-hidden="true"></i> </a>
+                            <a href="" title="Delete event{{ $event->event_image.' '.$event->event_date }}" onclick="event.preventDefault();document.querySelector('#delete-event-form').submit()"> <i class="fa fa-ban" aria-hidden="true" ></i> </a>
+                            <form action="{{ route('delEvent',['id'=>$event->id]) }}" method="POST" id="delete-event-form">
                             @csrf @method('DELETE')
                             </form>
 

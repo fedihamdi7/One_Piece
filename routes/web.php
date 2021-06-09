@@ -39,6 +39,7 @@ Route::put('/posts','responsable\PostController@update')->name('posts.update');
 // Route::get('/about','ResponsableController@about');
 Route::get('/about','responsable\AboutUsController@index')->name('aboutus');
 Route::post('/about','responsable\AboutUsController@update')->name('aboutus.update');
+Route::put('/about','responsable\AboutUsController@create')->name('aboutus.create');
 // Route::get('/event_list','ResponsableController@event_list');
 
 Route::get('/clubs', 'ClubController@clubs')->name('clubs.show');
@@ -63,5 +64,8 @@ Route::get('/Club','ResponsableController@sidebarClub')->name('sidebarClub');
 
 Route::post('/themes','responsable\ThemeController@update')->name('theme.update');
 
-Route::get('/editevent/{id}','responsable\EventController@ed')->name('editevent');
+Route::get('/editevent/{id}','responsable\EventController@edit')->name('editevent');
+Route::delete('/deleteevent/{id}','responsable\EventController@delete')->name('delEvent');
+Route::get('/showevent/{id}','responsable\EventController@showEvent')->name('showEvent');
+
 Route::get('/PendingRequest/{id}','admin\PendingRequestController@clubs')->name('clubsRequest');

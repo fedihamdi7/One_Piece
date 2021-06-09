@@ -30,7 +30,7 @@
          <!-- MAIN TITLE STARTS HERE -->
 
             <div class="main__title" style="margin-bottom: 20px;">
-            <img src="../storage/images/events.svg" alt="Image">
+                <img src="assets/events.svg" alt="" />
                 <div class="main__greeting">
                 <h1 class="animate__animated animate__bounceInLeft">Events</h1>
                 <!-- <p>Welcome to your admin dashboard</p> -->
@@ -38,7 +38,7 @@
             </div>
 
           <!-- MAIN TITLE ENDS HERE -->
-          
+
           <div class="shadow p-3 mb-5 bg-body rounded" style="width: 500px;margin-left: 20%;margin-top: 6%;">
             <!-- <div class="err-txt"></div>
             <div class="succ-txt"></div> -->
@@ -57,7 +57,7 @@
                         <label for="inputGroupFile02" class="form-label">Image</label>
                         <input type="file" name="image" class="form-control" id="inputGroupFile02">
                     </div>
-                    
+
                     <div class="col-md-5" style="width: 50%; margin-left: -50%;">
                         <label for="inputGroupFile002" class="form-label">Date</label>
                         <input type="date" name="date" class="form-control" id="inputGroupFile002">
