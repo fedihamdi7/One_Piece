@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="icon" href="admin.png">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/adminuserlist.css') }}" rel="stylesheet">
@@ -64,32 +64,34 @@
 
 
               <h2 class="text-primary-p"><strong class="animate__animated animate__bounceInLeft">user details </strong></h2>
-              <div class="charts">
+              <div class="charts" style="margin-left: 25%;margin-top: 6%;">
                 <div class="charts__left">
-                  <div class="charts__left__title">
-                    <div>
-                      
-                      <img src="storage/images/user_image/{{$user->image}}" style="width: 100%; height: 100%">
-                        <h1 style="text-align: center"> about {{$user->name}}</strong></h1>
+                  <div class="charts__left__title" >
+                    <div >
+                      <h1 style="text-align: center"> about {{$user->name}}</strong></h1>
+                      <hr>
+                      <img src="../storage/images/user_avatar/{{$user->image}}" style="width: 100%; height: 100%">
+                       
             <hr>
-            <h1><i class="fa fa-envelope fa-x"></i> email:
-                 {{$user->email}}</strong></h1>
-                <h1><i class="fa fa-user  fa-2x " aria-hidden="true"></i>Type of user:
-                 {{$user->type}}</strong></h1>
+            <h5><strong style="color: black "><i class="fa fa-envelope fa-x"></i>
+             email:</strong>
+                 {{$user->email}} </h5>
+                <h5>  <strong style="color: black"><i class="fa fa-user  " aria-hidden="true"></i>Type of user:</strong>
+               {{$user->type}}</h5>
                  <br>
                 <div class="row">
 
                     {{-- <div class="col"><button type="submit" class="btn btn-primary add-user-btn" style="  width: 125px;">Modify</button></div> --}}
                     <div class="col">
-                    <td> <a href="{{route('userlist.edit',['userlist'=>$user->id])}}" class="btn btn-primary add-user-btn" style="  width: 125px;"> <i class="fa fa-edit" aria-hidden="true"></i> modidier</a>
+                    <td> <a href="{{route('userlist.edit',['userlist'=>$user->id])}}" class="btn btn-outline-info" style="  width: 125px;"> <i class="fa fa-edit" aria-hidden="true"></i> modidier</a>
                     </div>
                     <div class="col">
-                    <button class="btn btn-primary add-user-btn  btn-dark" >
-                      <a href="" title="Delete user {{$user->name}}"> <i class="fa fa-ban"  
+                    {{-- <button  style="color: black;  width: 125px;" > --}}
+                      <a href="" title="Delete user {{$user->name}}" class="btn btn-outline-dark" style=" width: 125px;"> <i class="fa fa-ban"  
                         onclick="event.preventDefault();
                         document.querySelector('#delete-user-form').submit()">delete</i> </a>
                     <form action="{{route('userlist.destroy',['userlist'=>$user->id])}}" method="post" id="delete-user-form">@csrf @method('DELETE')</form>
-                  </button>
+                  {{-- </button> --}}
                   </div>
                     </div>
                  
