@@ -47,4 +47,21 @@ class AboutUsController extends Controller
 
 
     }
+   
+    public function create(Request $request)
+    {
+        $resp_id=Auth::user()->id;
+        $clubId = DB::table('clubs')
+        ->where('clubs.users_id',$resp_id)
+        ->get('id');
+        $validateData=$request->validate([
+            'about_us' =>'required',
+        ]);
+       $aboutus=new Club_info() ;
+        $aboutus->about_us=$request->aboutus;
+        $aboutus->club_id=$clubId->first()->id;
+        $aboutus->save();
+        // return dd($clubId->first()->id);
+        return view('responsable.about_us', ['aboutus' => $aboutus])->with('storeAboutus','about has been added successfuly');
+    }
 }

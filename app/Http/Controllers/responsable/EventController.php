@@ -85,15 +85,7 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function show(Event $event )
-    {
-        // $events = DB::table('events')
-        // ->join('clubs','clubs.id','=','events.club_id')
-        // ->where('id',$event->id)
-        // ->get();
 
-        return view('responsable.event.show',['event' => $event]);
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -101,19 +93,15 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function edit(Event $event)
-    {
-        // return dd($event);
-        return view('responsable.event.edit',['event' => $event]);
-    }
-    public function ed($id)
+
+    public function edit($id)
     {
         // return dd($id);
         $event = DB::table('events')
         ->where('id',$id)
         ->get();
         // return dd($event->first());
-        return view('responsable.event.edit',['event' => $event->first()]);
+        return view('responsable.event.edit',['event' => $event->first()]) ;
     }
     /**
      * Update the specified resource in storage.
@@ -153,11 +141,36 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Event $event)
+
+    public function delete($id)
     {
-        $event->delete();
-        return redirect()->route('event_list.index',$event)->with('deleteEvent','Event has been deleted successfuly');
+
+        $eventdel = DB::table('events')
+        ->where('id',$id)
+        ->delete($id);
+        return redirect()->route('event_list.index')->with('deleteEvent','Event has been deleted successfuly');
+
+    }
+    public function del($id)
+    {
+        dd($id);
+        $eventdel = DB::table('events')
+        ->where('id',$id)
+        ->delete();
+        return redirect()->route('event_list.index')->with('deleteEvent','Event has been deleted successfuly');
 
     }
 
+
+
+    public function showEvent($id)
+    {
+
+        $eventshow = DB::table('events')
+        ->where('id',$id)
+        ->get();
+        $event = $eventshow->first();
+        return view('responsable.event.show',['event' => $event]);
+
+    }
 }
