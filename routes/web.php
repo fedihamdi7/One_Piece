@@ -26,7 +26,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@welcome')->name('home');
 
 
-Route::get('/responsable', 'ResponsableController@responsable')->name('responsable.dashboard');
+Route::get('/responsable', 'responsable\DashboardController@stats')->name('responsable.dashboard');
 // Route::get('/event','ResponsableController@event' );
 Route::get('/change','responsable\LogoController@index')->name('changelogo');
 Route::post('/change','responsable\LogoController@update')->name('changelogo.update');
@@ -42,7 +42,7 @@ Route::post('/about','responsable\AboutUsController@update')->name('aboutus.upda
 // Route::get('/event_list','ResponsableController@event_list');
 
 Route::get('/clubs', 'ClubController@clubs')->name('clubs.show');
-Route::get('/club/{id}', 'ClubController@one_club');
+Route::get('/club/{id}', 'ClubController@one_club')->name('club.pick');
 Route::get('/admin','AdminController@admin')->name('admin.dashboard');
 // Route::get('/userlist','AdminController@userlist');
 Route::get('/add_user','AdminController@add_user');
@@ -59,6 +59,7 @@ Route::resource('event_list','responsable\EventController');
 
 Route::resource('/requestform','RequestController');
 Route::get('/ClubModel','RequestController@model')->name('ClubModel');
+Route::get('/Club','ResponsableController@sidebarClub')->name('sidebarClub');
 
 Route::post('/themes','responsable\ThemeController@update')->name('theme.update');
 

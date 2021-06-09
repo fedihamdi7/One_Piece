@@ -36,16 +36,16 @@
                 aria-hidden="true"
               ></i>
               <div class="card_inner">
-                <p class="text-primary-p">Number of Users</p>
-                <span class="font-bold text-title"></span>
+                <p class="text-primary-p">Team Number</p>
+                <span class="font-bold text-title"> {{$statTeams}} </span>
               </div>
             </div>
 
             <div class="card">
               <i class="fa fa-calendar fa-2x text-red" aria-hidden="true"></i>
               <div class="card_inner">
-                <p class="text-primary-p">Times of Watching</p>
-                <span class="font-bold text-title">2467</span>
+                <p class="text-primary-p">Events Count</p>
+                <span class="font-bold text-title">{{$statEvents}}</span>
               </div>
             </div>
 
@@ -121,7 +121,7 @@
           <!-- CHARTS ENDS HERE -->
         </div>
       </main>
-  
+
 @include("layouts.sidebar_responsable")
 </div>
 </body>
