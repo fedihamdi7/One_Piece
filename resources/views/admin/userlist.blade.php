@@ -55,13 +55,13 @@
                     </div> -->
 
                     <div class="input-group">
-                        <div class="form-outline">
+                        {{-- <div class="form-outline">
                             <input type="search" id="search_text" class="form-control" placeholder="Search" />
-                        </div>
-                        <button type="button" class="btn btn-primary">
+                        </div> --}}
+                        {{-- <button type="button" class="btn btn-primary">
                         <i class="fa fa-search" aria-hidden="true"></i>
 
-                        </button>
+                        </button> --}}
                     </div>
                 </div>
 
