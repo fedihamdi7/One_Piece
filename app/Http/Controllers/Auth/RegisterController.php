@@ -81,7 +81,7 @@ class RegisterController extends Controller
                 'image' => $imageName,
                 'type' => 'membre'
             ]);
-            return redirect(route('login'));
+            return redirect(route('login'))->with('membreCreate','Account Created Successfully , You can Login');
         }
 
     }

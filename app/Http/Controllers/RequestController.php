@@ -103,8 +103,7 @@ class RequestController extends Controller
                         'about_us'=>$request->about_club,
                         'club_name' => $request->Cname,
                         'department' => $request->Deps]);
-
-            return view('auth.login');
+            return redirect(route('login'))->with('responsablePending','Your request has been sent and waiting for administration approval , keep checking your email');
     }
 
     /**
