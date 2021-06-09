@@ -14,7 +14,7 @@
   <input type="password" name="password"  value="{{$user->password ?? old('password') }}" class="form-control @error('password') is-invalid @enderror" id="inputPassword4">
   @error('password')<div class="text-danger">{{ $message }}</div>@enderror
 </div>
-<input type="hidden" name="id" value="{{$user->id}}">
+<input type="hidden" name="id" value="{{$user->id ?? ''}}">
 <div class="col-md-5">
     <label for="inputGroupFile02" class="form-label">Image</label>
     <input type="file" name="image"  value="{{$user->image ?? old('image') }}" class="form-control @error('image') is-invalid @enderror" id="inputGroupFile02">
