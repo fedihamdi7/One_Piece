@@ -5,6 +5,8 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 // use App\Http\Controllers\admin\User;
+use Illuminate\Support\Facades\DB;
+
 use App\User;
 class UserListController extends Controller
 {
@@ -41,31 +43,31 @@ class UserListController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedata=$request->validate([
-        'name'=>'required',
-        'email'=>'required',
-        'password'=>'required',
-        ]);
+        
        
-        // $fileNameWithExt = $request->file('image')->getClientOriginalName();
-        // //just filename
-        // $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
-        // //just extension
-        // $extension = $request ->file('image')->getClientOriginalExtension();
-        // //filename to store
-        // $filenametoStore = $filename.'_'.time().'.'.$extension;
-        // //upload
-        // $path = $request->file('image')->storeAs('storage/images/user_image/',$filenametoStore);
-    
+        $fileNameWithExt = $request->file('image')->getClientOriginalName();
+        //just filename
+        $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+        //just extension
+        $extension = $request ->file('image')->getClientOriginalExtension();
+        //filename to store
+        $filenametoStore = $filename.'_'.time().'.'.$extension;
+        //upload
+        $path = $request->file('image')->storeAs('public/images/user_avatar/',$filenametoStore);
+        $validatedata=$request->validate([
+            'name'=>'required',
+            'email'=>'required',
+            'password'=>'required',
+            'image'=>'required',
+            ]);
           $user=new User;
           $user->name=$request->name;
           $user->email=$request->email;
           $user->password=$request->password;
-            //   $user->image=$filenametoStore;
-        // $event=new Event ;
-        // $event->event_date=$request->event_date;
-        // $event->event_image=$filenametoStore;
-        // $event->club_id=$clubId->first()->id;
+        //   $user->image=$request->image;
+           
+        $user->image=$filenametoStore;
+      
         $user->save();
 
         // $user=User::create($validatedata);
@@ -112,7 +114,17 @@ class UserListController extends Controller
      */
     public function update(Request $request, $id)
     {
-         $validatedata=$request->validate($this->validationrules());
+        
+        $fileNameWithExt = $request->file('image')->getClientOriginalName();
+        //just filename
+        $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+        //just extension
+        $extension = $request ->file('image')->getClientOriginalExtension();
+        //filename to store
+        $filenametoStore = $filename.'_'.time().'.'.$extension;
+        //upload
+        $path = $request->file('image')->storeAs('public/images/user_avatar/',$filenametoStore);
+        $validatedata=$request->validate($this->validationrules());
         // $fileNameWithExt = $request->file('image')->getClientOriginalName();
         // //just filename
         // $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
@@ -122,11 +134,14 @@ class UserListController extends Controller
         // $filenametoStore = $filename.'_'.time().'.'.$extension;
         // //upload
         // $path = $request->file('image')->storeAs('storage/images/user_image/',$filenametoStore);
-     
-     
       
         $user=User::find($id);   
         $user->update($validatedata);
+        DB::table('users')
+
+        ->where('id',$request->id)
+
+        ->update(['image' => $filenametoStore]);
         return redirect()->route('userlist.show',$user)->with('updateUser',"user has been updated successfuly");
     }
 
@@ -147,7 +162,8 @@ class UserListController extends Controller
   return [
     'name'=>'required',
     'email'=>'required',
-    'password'=>'required',];
+    'password'=>'required',
+    'image'=>'required',];
 
     }
 
