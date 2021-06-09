@@ -24,7 +24,7 @@
           <!-- MAIN TITLE STARTS HERE -->
 
           <div class="main__title">
-            <img src="assets/hello.svg" alt="" />
+          <img class="animate__animated animate__fadeInDown"  src="../storage/images/dashboard.svg" alt="Image">
             <div class="main__greeting">
               <h1>Hello Codersbite</h1>
               <p>Welcome to your admin dashboard</p>
