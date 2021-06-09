@@ -160,7 +160,7 @@
 <div class="fh5co-counter counters" style="background-color:#1d2434 ;" ">
 <div class="counter-inner site-container">
  <div class="single-count">
-   <span class="count" data-count="30">0</span>
+   <span class="count" data-count="{{$CountClubs}}">0</span>
    <div class="single-count__text">
 
           <i class="fas fa-hand-holding-heart w3-margin-bottom w3-jumbo fa-4x"></i>
@@ -170,7 +170,7 @@
    </div>
  </div>
  <div class="single-count">
-   <span class="count" data-count="600">0</span>
+   <span class="count" data-count="{{$CountUsers}}">0</span>
    <div class="single-count__text">
 
 
@@ -179,7 +179,7 @@
    </div>
  </div>
  <div class="single-count">
-   <span class="count" data-count="2000">0</span>
+   <span class="count" data-count="{{$CountEvents}}">0</span>
    <div class="single-count__text">
 
      <i class="far fa-calendar-alt w3-margin-bottom w3-jumbo fa-4x"></i>
@@ -187,7 +187,7 @@
    </div>
  </div>
  <div class="single-count">
-   <span class="count" data-count="125">0</span>
+   <span class="count" data-count="10">0</span>
    <div class="single-count__text">
 
      <i class="fas fa-trophy w3-margin-bottom w3-jumbo fa-4x"></i>

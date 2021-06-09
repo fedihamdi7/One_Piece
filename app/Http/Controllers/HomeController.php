@@ -45,11 +45,18 @@ class HomeController extends Controller
         ->orderBy('event_date','desc')
         ->get();
 
+        $CountEvents = $events->count() ;
+        $CountClubs = $clubs ->count();
+        $CountUsers = DB::table('users')->get()->count();
+
         $user_type = Auth::user()->type;
         return view('welcome',[
         'clubs'=>$clubs,
         'events'=>$events,
-        'type'=>$user_type
+        'type'=>$user_type,
+        'CountClubs'=>$CountClubs,
+        'CountEvents'=>$CountEvents,
+        'CountUsers'=>$CountUsers
         ]);
 
         // return dd($user_type);
