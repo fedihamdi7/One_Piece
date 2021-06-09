@@ -44,6 +44,27 @@
         </button>
     </div>
 @endif
+<div>
+        <div class="mx-auto ">
+            <div class="">
+                <form action="{{ route('teams.index') }}" method="GET" role="search" enctype="multipart/form-data">
+              
+                     @csrf
+                    <div class="input-group">
+                     
+                        <input type="text" class="form-control mr-2" name="term" placeholder="Search teams" id="term">
+                        <a href="{{ route('teams.index') }}" class=" mt-1">
+                            <span class="input-group-btn">
+                            <button class="btn btn-info" type="submit" title="Search teams">
+                            <span class="fa fa-search"></span>
+                                </button>
+                            </span>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
             <table class="table">
                     <thead>

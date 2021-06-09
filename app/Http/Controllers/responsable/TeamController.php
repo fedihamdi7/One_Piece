@@ -19,8 +19,29 @@ class TeamController extends Controller
         $this->middleware('auth');
         $this->middleware('responsable');
     }
-    public function index()
+    public function index(Request $request)
     {
+        // $teams = team::query();
+        // if (request('term')) {
+        //     $teams->where('team_name', 'Like', '%' . request('term') . '%');
+        // }
+
+        // return $teams->orderBy('id', 'DESC')->paginate(10);
+// dd($request);
+        $teams= team::where([
+        ['team_name', '!=', Null],
+        [function ($query) use ($request) {
+        if (($term = $request->term)) {
+        $query->orWhere('team_name', 'Like', '%' . request('term') . '%')->get();
+        }
+    }]
+        ])
+        ->orderBy("id", "desc")
+        ->paginate(10);
+        // $teams - Project::latest()->paginate(5);
+        // return view('team', compact('teams'))
+        // ->with('i', (request()->input('page', 1) - 1) * 5);
+
         // return view('responsable.Team.teams',['teams'=>teams::paginate(10)]);
 $resp_id=Auth::user()->id;
 $clubId = DB::table('clubs')
@@ -30,7 +51,7 @@ $team = DB::table('teams')
 ->join('clubs','clubs.id','=','teams.club_id')
 ->where('clubs.id',$clubId->first()->id)
 ->get('teams.*');
-return view('responsable.Team.teams',['teams' => $team]);
+return view('responsable.Team.teams',['teams' => $team])->with('i', (request()->input('page', 1) - 1) * 5);
 // return view('responsable.Team.teams',['teams'=>team::paginate(6)]);
     }
 
