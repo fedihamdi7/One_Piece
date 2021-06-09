@@ -26,7 +26,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@welcome')->name('home');
 
 
-Route::get('/responsable', 'ResponsableController@responsable')->name('responsable.dashboard');
+Route::get('/responsable', 'responsable\DashboardController@stats')->name('responsable.dashboard');
 // Route::get('/event','ResponsableController@event' );
 Route::get('/change','responsable\LogoController@index')->name('changelogo');
 Route::post('/change','responsable\LogoController@update')->name('changelogo.update');
