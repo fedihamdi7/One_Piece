@@ -24,10 +24,12 @@
     <link rel="icon" href="admin.png">
 
   </head>
-  
+
   <body id="body">
     <div class="container">
-      
+
+
+
 
       <main>
         <div class="main__container">
@@ -43,16 +45,25 @@
             </div>
 
           <!-- MAIN TITLE ENDS HERE -->
-          
+          @if (session('themeUpdate'))
+        <div class="alert alert-dismissible alert-success fade show" role="alert">
+            {{ session('themeUpdate') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        @endif
+
           <div class="shadow p-3 mb-5 bg-body rounded" style="width: 150px;margin-left: 42%;margin-top: 6%;">
             <!-- <div class="err-txt"></div>
             <div class="succ-txt"></div> -->
-            <form action="" method="POST" class="row g-3" style="width: 126px;">
+            <form action=" {{route('theme.update')}} " method="POST" class="row g-3" style="width: 126px;" >
+                @csrf
               Pick new Color : <br> <input type="color" id="myColor" value="#ff0080">
               <button type="button" class="btn btn-primary" onclick="myFunction()">Get color</button>
               <input type="text" name="color" id="te" value="" >
-              <!-- <button type="submit"  class="btn btn-primary" > Save theme</button> -->
-              <input class="btn btn-primary"  type="submit" value="Save theme">
+               <button type="submit"  class="btn btn-primary" > Save theme</button>
+              {{-- <input class="btn btn-primary"  type="submit" value="Save theme"> --}}
 
             </form>
         </div>

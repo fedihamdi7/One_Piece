@@ -31,7 +31,7 @@ Route::get('/responsable', 'ResponsableController@responsable')->name('responsab
 Route::get('/change','responsable\LogoController@index')->name('changelogo');
 Route::post('/change','responsable\LogoController@update')->name('changelogo.update');
 // Route::get('/teams', 'ResponsableController@teams');
-Route::get('/themes','ResponsableController@themes' );
+Route::get('/themes','ResponsableController@themes' )->name('ClubTheme');
 Route::get('/posts','ResponsableController@posts');
 Route::get('/posts','responsable\PostController@index')->name('posts');
 Route::post('/posts','responsable\PostController@update')->name('posts.update');
@@ -58,6 +58,8 @@ Route::resource('event_list','responsable\EventController');
 
 Route::resource('/requestform','RequestController');
 Route::get('/ClubModel','RequestController@model')->name('ClubModel');
+
+Route::post('/themes','responsable\ThemeController@update')->name('theme.update');
 
 Route::get('/editevent/{id}','responsable\EventController@ed')->name('editevent');
 Route::get('/PendingRequest/{id}','admin\PendingRequestController@clubs')->name('clubsRequest');
