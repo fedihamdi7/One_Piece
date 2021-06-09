@@ -63,7 +63,7 @@ class UserListController extends Controller
           $user=new User;
           $user->name=$request->name;
           $user->email=$request->email;
-          $user->password=$request->password;
+          $user->password= Hash::make($request['password']);
         //   $user->image=$request->image;
            
         $user->image=$filenametoStore;
