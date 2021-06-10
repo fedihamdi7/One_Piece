@@ -46,7 +46,7 @@
             <div class="shadow p-3 mb-5 bg-body rounded" style="width: 500px;margin-left: 20%;margin-top: 6%;">
 
                 @if ($posts -> isEmpty())
-            <form action="{{route('posts.create')}}" method="POST" class="row g-3" style="width: 516px;" enctype="multipart/form-data">
+            <form action="{{route('posts.store')}}" method="POST" class="row g-3" style="width: 516px;" enctype="multipart/form-data">
                 @else
                 <form action="{{route('posts.update')}}" method="POST" class="row g-3" style="width: 516px;" enctype="multipart/form-data">
                     @method('PUT')
