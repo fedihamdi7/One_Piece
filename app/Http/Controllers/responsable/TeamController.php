@@ -114,46 +114,6 @@ return view('responsable.Team.teams',['teams' => $team]);
      */
     public function update(Request $request, Team $team)
     {
-        /*****tester */
-        // $this -> validate($request,[
-        //     'team_img' => 'required'
-        // ]);
-        // // if ($request->hasFile('team_img')){
-        //     //file name with the extension
-        //     $fileNameWithExt = $request->file('team_img')->getClientOriginalName();
-        //     //just filename
-        //     $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
-        //     //just extension
-        //     $extension = $request ->file('team_img')->getClientOriginalExtension();
-        //     //filename to store
-        //     $filenametoStore = $filename.'_'.time().'.'.$extension;
-        //     //upload
-        //     $path = $request->file('team_img')->storeAs('public/images/club_team_image/',$filenametoStore);
-        //     // Save into database
-        //     $resp_id=Auth::user()->id;
-        //     $clubId = DB::table('clubs')
-        //     ->where('clubs.users_id',$resp_id)
-        //     ->get('id');
-
-        //      DB::table('teams') 
-        //     ->join('clubs','clubs.id','=','teams.club_id')
-        //     ->where('clubs.id',$clubId->first()->id)
-        //   ->update(['team_img' => $filenametoStore]);
-        //   $team = DB::table('teams')
-        //   ->join('clubs','clubs.id','=','teams.club_id')
-        //   ->where('clubs.id',$clubId->first()->id)
-        //   ->get('teams.*');
-        //   return redirect()->route('teams.show', $team)->with('updateTeam','member has been updated successfuly');
-        /*****tester */
-
-        // $validateData=$request->validate($this->validationrules())
-        // $team->team_fb=$request->team_fb;
-        // $team->team_insta=$request->team_insta;
-        // $team->team_linkedin=$request->team_linkedin;
-        // $team->team_twitter=$request->team_twitter;
-        // $team->update($validateData);
-        // return redirect()->route('teams.show', $team)->with('updateTeam','member has been updated successfuly');
-    
         $fileNameWithExt = $request->file('team_img')->getClientOriginalName();
         $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
         $extension = $request ->file('team_img')->getClientOriginalExtension();

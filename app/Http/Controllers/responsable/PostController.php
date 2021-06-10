@@ -46,7 +46,36 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $resp_id=Auth::user()->id;
+        $clubId = DB::table('clubs')
+        ->where('clubs.users_id',$resp_id)
+        ->get('id');
+
+        $fileNameWithExt = $request->file('post_image')->getClientOriginalName();
+        $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+        $extension = $request ->file('post_image')->getClientOriginalExtension();
+        $filenametoStore = $filename.'_'.time().'.'.$extension;
+        $path = $request->file('post_image')->storeAs('public/images/club_post/',$filenametoStore);
+        $validateData=$request->validate($this->validationrules());
+        // $post= Post::create([
+        //     'post_description' => $request['post_description'],
+        //     'post_image' => $request['post_image'],
+        //     'club_id' => $clubId->first()->id,
+          
+        // ]);
+    //   $post = DB::table('posts')
+    //   ->join('clubs','clubs.id','=','posts.club_id')
+    //   ->where('clubs.id',$clubId->first()->id)
+    //   ->get('posts.*');
+        $post=new post ;
+        $post->post_description=$request->post_description;
+        $post->post_image=$filenametoStore;
+        $post->club_id=$clubId->first()->id;
+        // dd($post)
+        $post->save();
+        return view('responsable.post',['posts' => $post])->with('StorePost','Post has been added successfuly');
+
     }
 
     /**
@@ -127,4 +156,13 @@ class PostController extends Controller
     {
         //
     }
+    private function validationrules(){
+        return [
+           'post_description' => 'required',
+           'post_image' => 'required',
+           
+          
+           ];
+       }
 }
+
