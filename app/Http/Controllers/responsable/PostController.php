@@ -64,16 +64,16 @@ class PostController extends Controller
         //     'club_id' => $clubId->first()->id,
           
         // ]);
-      $post = DB::table('posts')
-      ->join('clubs','clubs.id','=','posts.club_id')
-      ->where('clubs.id',$clubId->first()->id)
-      ->get('posts.*');
-        // $post=new post ;
-        // $post->post_description=$request->post_description;
-        // $post->post_image=$filenametoStore;
-        // $post->club_id=$clubId->first()->id;
-        // dd($post
-        // $post->save();
+    //   $post = DB::table('posts')
+    //   ->join('clubs','clubs.id','=','posts.club_id')
+    //   ->where('clubs.id',$clubId->first()->id)
+    //   ->get('posts.*');
+        $post=new post ;
+        $post->post_description=$request->post_description;
+        $post->post_image=$filenametoStore;
+        $post->club_id=$clubId->first()->id;
+        // dd($post)
+        $post->save();
         return view('responsable.post',['posts' => $post])->with('StorePost','Post has been added successfuly');
 
     }
