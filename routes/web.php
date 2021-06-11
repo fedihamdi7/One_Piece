@@ -62,3 +62,5 @@ Route::get('/ClubModel','RequestController@model')->name('ClubModel');
 
 Route::get('/editevent/{id}','responsable\EventController@ed')->name('editevent');
 Route::get('/PendingRequest/{id}','admin\PendingRequestController@clubs')->name('clubsRequest');
+/**search with ajax */
+// Route::get('/teams/action','responsable\AboutUsController@action')->name('teams.action');

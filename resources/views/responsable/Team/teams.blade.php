@@ -17,7 +17,11 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
   />
- 
+  <!-- search with ajax -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
 
     <title>DASHBOARD</title>
     <link rel="icon" href="admin.png">
@@ -65,7 +69,25 @@
             </div>
         </div>
     </div>
+    <!-- search with ajax -->
+<!-- 
+   <div class="panel panel-default">
+    <div class="panel-heading">Search Customer Data</div>
+    <div class="panel-body">
+     <div class="form-group">
+      <input type="text" name="search" id="search" class="form-control" placeholder="Search member Team" /> -->
+      <!-- <div class="input-group">
+                        <div class="form-outline">
+                            <input type="search" name="search" id="search" class="form-control" placeholder="Search" />
+                        </div>
+                        <button type="button" class="btn btn-primary">
+                        <i class="fa fa-search" aria-hidden="true"></i>
 
+                        </button>
+                    </div>
+                </div>
+
+<br> -->
             <table class="table">
                     <thead>
                         <tr>
@@ -115,6 +137,32 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="{{ asset('js/script.js') }}" defer></script>
-    
+    <!-- search with ajax -->
+    {{-- <script>
+$(document).ready(function(){
+
+ fetch_team_data();
+
+ function fetch_team_data(query = '')
+ {
+  $.ajax({
+   url:"{{ route('teams.action') }}",
+   method:'GET',
+   data:{query:query},
+   dataType:'json',
+   success:function(data)
+   {
+    $('tbody').html(data.table_data);
+    $('#total_records').text(data.total_data);
+   }
+  })
+ }
+
+ $(document).on('keyup', '#search', function(){
+  var query = $(this).val();
+  fetch_team_data(query);
+ });
+});
+</script> --}}
   </body>
 </html>

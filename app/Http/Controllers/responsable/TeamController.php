@@ -20,7 +20,8 @@ class TeamController extends Controller
         $this->middleware('responsable');
     }
     public function index(Request $request)
-    {
+    {  
+        /****search methode 1 */
         // $teams = team::query();
         // if (request('term')) {
         //     $teams->where('team_name', 'Like', '%' . request('term') . '%');
@@ -28,21 +29,6 @@ class TeamController extends Controller
 
         // return $teams->orderBy('id', 'DESC')->paginate(10);
 // dd($request);
-        $teams= team::where([
-        ['team_name', '!=', Null],
-        [function ($query) use ($request) {
-        if (($term = $request->term)) {
-        $query->orWhere('team_name', 'Like', '%' . request('term') . '%')->get();
-        }
-    }]
-        ])
-        ->orderBy("id", "desc")
-        ->paginate(10);
-        // $teams - Project::latest()->paginate(5);
-        // return view('team', compact('teams'))
-        // ->with('i', (request()->input('page', 1) - 1) * 5);
-
-        // return view('responsable.Team.teams',['teams'=>teams::paginate(10)]);
 $resp_id=Auth::user()->id;
 $clubId = DB::table('clubs')
 ->where('clubs.users_id',$resp_id)
@@ -51,7 +37,23 @@ $team = DB::table('teams')
 ->join('clubs','clubs.id','=','teams.club_id')
 ->where('clubs.id',$clubId->first()->id)
 ->get('teams.*');
-return view('responsable.Team.teams',['teams' => $team])->with('i', (request()->input('page', 1) - 1) * 5);
+/****search methode 2*/
+// $teams= team::where([
+//     ['team_name', '!=', Null],
+//     [function ($query) use ($request) {
+//     if (($term = $request->term)) {
+//     $query->orWhere('team_name', 'Like', '%' . request('term') . '%')->get();
+//     }
+// }]
+//     ])
+//     ->orderBy("id", "desc")
+//     ->paginate(10);
+    
+// return view('responsable.Team.teams',['teams' => $team],compact('teams'))
+// ->with('i', (request()->input('page', 1) - 1) * 5);
+
+
+return view('responsable.Team.teams',['teams' => $team]);
 // return view('responsable.Team.teams',['teams'=>team::paginate(6)]);
     }
 
@@ -135,46 +137,6 @@ return view('responsable.Team.teams',['teams' => $team])->with('i', (request()->
      */
     public function update(Request $request, Team $team)
     {
-        /*****tester */
-        // $this -> validate($request,[
-        //     'team_img' => 'required'
-        // ]);
-        // // if ($request->hasFile('team_img')){
-        //     //file name with the extension
-        //     $fileNameWithExt = $request->file('team_img')->getClientOriginalName();
-        //     //just filename
-        //     $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
-        //     //just extension
-        //     $extension = $request ->file('team_img')->getClientOriginalExtension();
-        //     //filename to store
-        //     $filenametoStore = $filename.'_'.time().'.'.$extension;
-        //     //upload
-        //     $path = $request->file('team_img')->storeAs('public/images/club_team_image/',$filenametoStore);
-        //     // Save into database
-        //     $resp_id=Auth::user()->id;
-        //     $clubId = DB::table('clubs')
-        //     ->where('clubs.users_id',$resp_id)
-        //     ->get('id');
-
-        //      DB::table('teams') 
-        //     ->join('clubs','clubs.id','=','teams.club_id')
-        //     ->where('clubs.id',$clubId->first()->id)
-        //   ->update(['team_img' => $filenametoStore]);
-        //   $team = DB::table('teams')
-        //   ->join('clubs','clubs.id','=','teams.club_id')
-        //   ->where('clubs.id',$clubId->first()->id)
-        //   ->get('teams.*');
-        //   return redirect()->route('teams.show', $team)->with('updateTeam','member has been updated successfuly');
-        /*****tester */
-
-        // $validateData=$request->validate($this->validationrules())
-        // $team->team_fb=$request->team_fb;
-        // $team->team_insta=$request->team_insta;
-        // $team->team_linkedin=$request->team_linkedin;
-        // $team->team_twitter=$request->team_twitter;
-        // $team->update($validateData);
-        // return redirect()->route('teams.show', $team)->with('updateTeam','member has been updated successfuly');
-    
         $fileNameWithExt = $request->file('team_img')->getClientOriginalName();
         $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
         $extension = $request ->file('team_img')->getClientOriginalExtension();
@@ -217,4 +179,63 @@ return view('responsable.Team.teams',['teams' => $team])->with('i', (request()->
        
         ];
     }
+        /****search with ajax */
+        // function action(Request $request)
+        // {
+        //  if($request->ajax())
+        //  {
+        //   $output = '';
+        //   $query = $request->get('query');
+        //   if($query != '')
+        //   {
+        //    $team = DB::table('teams')
+        //      ->where('team_name', 'like', '%'.$query.'%')
+        //      ->orWhere('team_titre', 'like', '%'.$query.'%')
+        //      ->orWhere('City', 'like', '%'.$query.'%')
+        //      ->orWhere('PostalCode', 'like', '%'.$query.'%')
+        //      ->orWhere('Country', 'like', '%'.$query.'%')
+        //      ->orderBy('id', 'desc')
+        //      ->get();
+             
+        //   }
+        //   else
+        //   {
+        //    $team = DB::table('teams')
+        //      ->orderBy('id', 'desc')
+        //      ->get();
+        //   }
+        //   $total_row = $team->count();
+        //   if($total_row > 0)
+        //   {
+        //    foreach($team as $row)
+        //    {
+        //     $output .= '
+        //     <tr>
+        //      <th>'.$row->team_name.'</th>
+        //      <th>'.$row->team_titre.'</th>
+        //      <th>'.$row->team_img.'</th>
+        //      <th>'.$row->team_fb.'</th>
+        //      <th>'.$row->team_insta.'</th>
+        //      <th>'.$row->team_twitter.'</th>
+        //      <th>'.$row->team_linkedin.'</th>
+        //     </tr>
+        //     ';
+        //    }
+        //   }
+        //   else
+        //   {
+        //    $output = '
+        //    <tr>
+        //     <th align="center" colspan="5">No Data Found</th>
+        //    </tr>
+        //    ';
+        //   }
+        //   $team = array(
+        //    'table_data'  => $output,
+        //    'total_data'  => $total_row
+        //   );
+    
+        //   echo json_encode($team);
+        //  }
+        // }
 }
